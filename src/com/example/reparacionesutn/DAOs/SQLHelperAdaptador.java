@@ -3,10 +3,14 @@ package com.example.reparacionesutn.DAOs;
 import java.sql.Date;
 import java.util.ArrayList;
 
-import com.example.reparacionesutn.objetos.Falla;
-import com.example.reparacionesutn.objetos.Modelo;
-import com.example.reparacionesutn.objetos.Reparacion;
-import com.example.reparacionesutn.objetos.Version;
+
+import com.example.reparacionesutn.objetos.Fallas;
+
+import com.example.reparacionesutn.objetos.Modelos;
+
+import com.example.reparacionesutn.objetos.Reparaciones;
+
+import com.example.reparacionesutn.objetos.Versiones;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -91,7 +95,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper {
 	}
 
 	
-	public void borrarReparacion(Reparacion oReparacion) 
+	public void borrarReparacion(Reparaciones oReparacion) 
 	{
 		 SQLiteDatabase baseDatos = getWritableDatabase();
 		 baseDatos.execSQL("DELETE FROM Tabla_Reparaciones WHERE serial ='"+oReparacion.getSerial()+"'");
@@ -99,23 +103,23 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper {
 	}
 	
 	
-	public void borrarNombreModelo(Modelo oModelo) 
+	public void borrarNombreModelo(Modelos oModelo) 
 	{
 		 SQLiteDatabase baseDatos = getWritableDatabase();
 		 baseDatos.execSQL("DELETE FROM Tabla_Modelos  WHERE nom_modelo ='"+oModelo.getNom_modelo()+"'");
 		 baseDatos.close(); 	
 	}
 	
-	public void borrarNombreVersion(Version oVersion) 
+	public void borrarNombreVersion(Versiones oVersion) 
 	{
 		 SQLiteDatabase baseDatos = getWritableDatabase();
 		 baseDatos.execSQL("DELETE FROM Tabla_Modelos  WHERE nom_modelo ='"+oVersion.getNom_version()+"'");
 		 baseDatos.close(); 	
 	}
-	public void borrarNombreFalla(Falla oFalla) 
+	public void borrarNombreFalla(Fallas oFalla) 
 	{
 		 SQLiteDatabase baseDatos = getWritableDatabase();
-		 baseDatos.execSQL("DELETE FROM Tabla_Modelos  WHERE nom_modelo ='"+oFalla.getNom_fallas()+"'");
+		 baseDatos.execSQL("DELETE FROM Tabla_Modelos  WHERE nom_modelo ='"+oFalla.getNom_falla()+"'");
 		 baseDatos.close(); 	
 	}
 /*
