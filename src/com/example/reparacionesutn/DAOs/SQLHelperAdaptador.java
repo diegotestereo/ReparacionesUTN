@@ -3,8 +3,10 @@ package com.example.reparacionesutn.DAOs;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import com.example.reparacionesutn.objetos.Falla;
 import com.example.reparacionesutn.objetos.Modelo;
 import com.example.reparacionesutn.objetos.Reparacion;
+import com.example.reparacionesutn.objetos.Version;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -44,7 +46,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper {
 			db.execSQL("DROP TABLE IF EXISTS Tabla_Reparaciones");
 			// Creo la tabla reparaciones
 			db.execSQL("CREATE TABLE Tabla_Reparaciones (id_reparacion INTEGER PRIMARY KEY AUTONINCREMENT , fecha_in DATE"
-					+ ",id_modelo INT, id_version INT, id_falla INT,observaciones TEXT)");
+					+ ",serial INT,id_modelo INT, id_version INT, id_falla INT,observaciones TEXT)");
 			
 			// borro tabla
 			db.execSQL("DROP TABLE IF EXISTS Tabla_Modelos");
@@ -64,12 +66,12 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper {
 	}
 	
 	
-	public void insertarReparacion(Date fecha_in, int id_modelo , int id_version , int id_falla ,String observaciones ){
+	public void insertarReparacion(Date fecha_in,int serial, int id_modelo , int id_version , int id_falla ,String observaciones ){
 		
 
 		 SQLiteDatabase baseDatos = getWritableDatabase();
-		 baseDatos.execSQL("INSERT INTO Tabla_Reparaciones (fecha_in ,id_modelo  , id_version , id_falla , observaciones ) "
-		 		+ "VALUES ("+fecha_in+",'"+id_modelo+"','"+id_version+"'"
+		 baseDatos.execSQL("INSERT INTO Tabla_Reparaciones (serial , fecha_in ,id_modelo  , id_version , id_falla , observaciones ) "
+		 		+ "VALUES ("+fecha_in+",'"+serial+"','"+id_modelo+"','"+id_version+"'"
 		 		+","+id_falla+",'"+observaciones+"'"
 		 		+")");
 		 baseDatos.close(); 
@@ -92,15 +94,28 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper {
 	public void borrarReparacion(Reparacion oReparacion) 
 	{
 		 SQLiteDatabase baseDatos = getWritableDatabase();
-		 baseDatos.execSQL("DELETE FROM Tabla_Reparaciones WHERE nombre ='"+oReparacion.getSerial()+"'");
+		 baseDatos.execSQL("DELETE FROM Tabla_Reparaciones WHERE serial ='"+oReparacion.getSerial()+"'");
 		 baseDatos.close(); 	
 	}
 	
 	
-	public void borrarNombreModelon(Modelo oModelo) 
+	public void borrarNombreModelo(Modelo oModelo) 
 	{
 		 SQLiteDatabase baseDatos = getWritableDatabase();
-		 baseDatos.execSQL("DELETE FROM Tabla_Modelos  WHERE nombre ='"+oModelo.()+"'");
+		 baseDatos.execSQL("DELETE FROM Tabla_Modelos  WHERE nom_modelo ='"+oModelo.getNom_modelo()+"'");
+		 baseDatos.close(); 	
+	}
+	
+	public void borrarNombreVersion(Version oVersion) 
+	{
+		 SQLiteDatabase baseDatos = getWritableDatabase();
+		 baseDatos.execSQL("DELETE FROM Tabla_Modelos  WHERE nom_modelo ='"+oVersion.getNom_version()+"'");
+		 baseDatos.close(); 	
+	}
+	public void borrarNombreFalla(Falla oFalla) 
+	{
+		 SQLiteDatabase baseDatos = getWritableDatabase();
+		 baseDatos.execSQL("DELETE FROM Tabla_Modelos  WHERE nom_modelo ='"+oFalla.getNom_fallas()+"'");
 		 baseDatos.close(); 	
 	}
 /*

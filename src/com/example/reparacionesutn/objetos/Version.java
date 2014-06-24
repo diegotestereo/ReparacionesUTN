@@ -1,6 +1,6 @@
 package com.example.reparacionesutn.objetos;
 
-public class Versiones {
+public class Version {
 	
 	int in_version;
 	String nom_version;
@@ -21,7 +21,7 @@ public class Versiones {
 		this.nom_version = nom_version;
 	}
 
-	public Versiones(){
+	public Version(){
 		
 		
 	}
