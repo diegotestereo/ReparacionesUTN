@@ -1,17 +1,36 @@
 package com.example.reparacionesutn.objetos;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class Reparaciones {
 	
+	
 	int id_Reparacion,serial,id_modelo,id_version,id_falla;
+	String observaciones;
+	//String fecha;
 	Date fecha;
 	
-	public Reparaciones(){
+	
+public Reparaciones(){
 				
 		
 	}
+	public String getObservaciones() {
+		return observaciones;
+	}
 
+	public void setObservaciones(String observaciones) {
+		this.observaciones = observaciones;
+	}
+
+		
+
+	public Date getFecha() {
+		return fecha;
+	}
+	public void setFecha(Date fecha) {
+		this.fecha = fecha;
+	}
 	public int getId_Reparacion() {
 		return id_Reparacion;
 	}
@@ -52,13 +71,6 @@ public class Reparaciones {
 		this.id_falla = id_falla;
 	}
 
-	public Date getFecha() {
-		return fecha;
-	}
-
-	public void setFecha(Date fecha) {
-		this.fecha = fecha;
-	}
 	
 	
 	

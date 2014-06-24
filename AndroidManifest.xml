@@ -29,6 +29,18 @@
          <activity 
             android:name="com.example.reparacionesutn.Buscar"
             android:label="Buscar Equipo"></activity>
+          <activity 
+            android:name="com.example.reparacionesutn.lay_tablas"
+            android:label="Ver Tablas"></activity>
+          <activity 
+            android:name="com.example.reparacionesutn.Fallas"
+            android:label="Ingresar o Modificar Fallas"></activity>
+           <activity 
+            android:name="com.example.reparacionesutn.Modelos"
+            android:label="Ingresar o Modificar Modelos"></activity>
+            <activity 
+            android:name="com.example.reparacionesutn.Versiones"
+            android:label="Ingresar o Modificar Versiones"></activity>  
     </application>
 
 </manifest>

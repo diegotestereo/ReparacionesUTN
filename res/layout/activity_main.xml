@@ -8,167 +8,71 @@
     tools:ignore="MergeRootFrame" >
 
     <LinearLayout
+        android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/textView1"
+        <Space
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ingresar Reparacion:"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:layout_gravity="fill_vertical" />
 
-        <LinearLayout
+        <Button
+            android:id="@+id/Btn_Reparacion"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/textView3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="Numero de Serie:" />
-
-            <EditText
-                android:id="@+id/etxt_serialNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:ems="10"
-                android:inputType="number" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_gravity="center"
-                android:text="Modelo:" />
-
-            <Spinner
-                android:id="@+id/spin_fallas"
-                android:layout_width="126dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                 android:layout_weight="1"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="Version:" />
-
-            <Spinner
-                android:id="@+id/spin_version"
-                android:layout_width="133dp"
-                android:layout_weight="1"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-
-            <TextView
-                android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="Falla: " />
-
-            <Spinner
-                android:id="@+id/spin_falla"
-               android:layout_width="133dp"
-                android:layout_height="wrap_content"
-             
-                android:layout_gravity="center"
-                android:layout_weight="1" />
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:layout_gravity="left|top"
+            android:text="Ingresar Reparacion" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 
             <Button
-                android:id="@+id/btn_IngresarFalla"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Ingresar Falla" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/textView6"
+                android:id="@+id/btn_BuscarEquipo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-            android:textSize="20sp"
-            android:textStyle="bold"
                 android:text="Buscar Equipo" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Serial"
+                android:textSize="20dp" />
 
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                    android:text="Serial:" />
+            <EditText
+                android:id="@+id/eTxt_Serial"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="number" >
 
-                <EditText
-                    android:id="@+id/etxt_buscarSerial"
-                    android:layout_width="130dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:ems="10"
-                    android:inputType="number" >
-
-                    <requestFocus />
-                </EditText>
-
-                <Button
-                    android:id="@+id/button1"
-                    style="?android:attr/buttonStyleSmall"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Buscar" />
-
-            </LinearLayout>
+                <requestFocus />
+            </EditText>
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_Fallas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresar Tipos de Fallas" />
+
+        <Button
+            android:id="@+id/btn_Modelos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresar Modelos" />
+
+        <Button
+            android:id="@+id/btn_Versiones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ingresar Versiones" />
 
     </LinearLayout>
 
 </FrameLayout>
-
