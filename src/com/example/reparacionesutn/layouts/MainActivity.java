@@ -1,7 +1,8 @@
-package com.example.reparacionesutn;
+package com.example.reparacionesutn.layouts;
 
 
 
+import com.example.reparacionesutn.R;
 import com.example.reparacionesutn.DAOs.SQLHelperAdaptador;
 
 import android.app.Activity;
@@ -36,7 +37,7 @@ public class MainActivity extends Activity {
 			Intent intento=new Intent(MainActivity.this,Ingresar.class);
 			@Override
 			public void onClick(View v) {
-				intento.st
+				startActivity(intento);
 				Toast.makeText(getApplicationContext(), "apreto boton reparacion", Toast.LENGTH_SHORT).show();
 				
 			}

@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.reparacionesutn.MainActivity"
+            android:name="com.example.reparacionesutn.layouts.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,23 +23,23 @@
             </intent-filter>
         </activity>
         <activity 
-            android:name="com.example.reparacionesutn.Ingresar"
+            android:name="com.example.reparacionesutn.layouts.Ingresar"
             android:label="Ingresar Reparación" >  
         </activity>
          <activity 
-            android:name="com.example.reparacionesutn.Buscar"
+            android:name="com.example.reparacionesutn.layouts.Buscar"
             android:label="Buscar Equipo"></activity>
           <activity 
-            android:name="com.example.reparacionesutn.lay_tablas"
+            android:name="com.example.reparacionesutn.layouts.lay_tablas"
             android:label="Ver Tablas"></activity>
           <activity 
-            android:name="com.example.reparacionesutn.Fallas"
+            android:name="com.example.reparacionesutn.layouts.Fallas"
             android:label="Ingresar o Modificar Fallas"></activity>
            <activity 
-            android:name="com.example.reparacionesutn.Modelos"
+            android:name="com.example.reparacionesutn.layouts.Modelos"
             android:label="Ingresar o Modificar Modelos"></activity>
             <activity 
-            android:name="com.example.reparacionesutn.Versiones"
+            android:name="com.example.reparacionesutn.layouts.Versiones"
             android:label="Ingresar o Modificar Versiones"></activity>  
     </application>
 
