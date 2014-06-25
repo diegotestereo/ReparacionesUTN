@@ -43,38 +43,38 @@ public class MainActivity extends Activity {
 			}
 		});
 		btn_buscarEquipos.setOnClickListener(new OnClickListener() {
-			
+			Intent intento=new Intent(MainActivity.this,Buscar.class);
 			@Override
 			public void onClick(View v) {
 				Toast.makeText(getApplicationContext(), "apreto boton buscar equipo", Toast.LENGTH_SHORT).show();
-				
+				startActivity(intento);
 				
 			}
 		});
 		btn_Fallas.setOnClickListener(new OnClickListener() {
-	
+			Intent intento=new Intent(MainActivity.this,Fallas.class);
 	@Override
 	public void onClick(View v) {
 		Toast.makeText(getApplicationContext(), "apreto boton fallas", Toast.LENGTH_SHORT).show();
-		
+		startActivity(intento);
 		
 			}
 		});
 		btn_Modelos.setOnClickListener(new OnClickListener() {
-	
+			Intent intento=new Intent(MainActivity.this,Modelos.class);
 	@Override
 	public void onClick(View v) {
 		Toast.makeText(getApplicationContext(), "apreto boton modelos", Toast.LENGTH_SHORT).show();
-		
+		startActivity(intento);
 		
 			}
 		});
 		btn_Versiones.setOnClickListener(new OnClickListener() {
-	
+			Intent intento=new Intent(MainActivity.this,Versiones.class);
 	@Override
 	public void onClick(View v) {
 		Toast.makeText(getApplicationContext(), "apreto boton version", Toast.LENGTH_SHORT).show();
-		
+		startActivity(intento);
 		
 			}
 		});

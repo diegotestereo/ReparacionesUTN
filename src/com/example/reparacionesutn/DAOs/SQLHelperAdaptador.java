@@ -27,23 +27,35 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		
 		// Creo la tabla reparaciones
-		db.execSQL("CREATE TABLE Tabla_Reparaciones (id_reparacion INTEGER PRIMARY KEY AUTOINCREMENT,fecha_in TEXT"
-				+ ",id_modelo INT,id_version INT,id_falla INT,observaciones TEXT)");
+		db.execSQL("CREATE TABLE Tabla_Reparaciones (id_reparacion INT PRIMARY KEY AUTOINCREMENT,fecha_in TEXT"
+				+ ",id_modelo INT,id_version INT,id_falla INT,observaciones TEXT,"
+				+ "FOREIGN KEY (id_modelo) REFERENCES Tabla_Modelos(id_modelo),"
+				+ "FOREIGN KEY (id_version) REFERENCES Tabla_Versiones(id_version),"
+				+ "FOREIGN KEY (id_falla) REFERENCES Tabla_Fallas(id_falla))");
 		
 						//creo tabla modelos de equipos
-		db.execSQL("CREATE TABLE Tabla_Modelos (id_modelo INTEGER PRIMARY KEY AUTOINCREMENT,nom_modelo TEXT)");
+		db.execSQL("CREATE TABLE Tabla_Modelos (id_modelo INTEGER PRIMARY KEY,nom_modelo TEXT)");
 
-		//creo tabla tipo de version de firmware
-		db.execSQL("CREATE TABLE Tabla_Versiones (id_version INTEGER PRIMARY KEY AUTOINCREMENT,nom_version TEXT)");
+		//creo tabla tipo de version de versiones
+		db.execSQL("CREATE TABLE Tabla_Versiones (id_version INTEGER PRIMARY KEY,nom_version TEXT)");
 		
 		//creo tabla tipo de reparaciones
-		db.execSQL(	"CREATE TABLE Tabla_Fallas (id_falla INTEGER PRIMARY KEY AUTOINCREMENT,nom_falla TEXT)");
+		db.execSQL(	"CREATE TABLE Tabla_Fallas (id_falla INTEGER PRIMARY KEY,nom_falla TEXT)");
+		
+		// creo tabla componentes
+		
+		db.execSQL(	"CREATE TABLE Tabla_Componentes (id_componente INTEGER PRIMARY KEY,nom_componente TEXT)");
+		
+		//creo tabvlka componentes usados
+		
+		db.execSQL(	"CREATE TABLE Tabla_Comp_Usados (id_comp_usado INTEGER PRIMARY KEY,"
+				+ "id_componente INT,id_reparacion INT, cantidadComp INT,"
+				+ " FOREIGN KEY (id_componente) REFERENCES Tabla_Componentes(id_componente),"
+				+ " FOREIGN KEY (id_reparacion) REFERENCES Tabla_Reparaciones(id_reparacion))");
 		
 		
 		
 		/// defaults valores
-		
-		db = getWritableDatabase();
 		
 		db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('3100')");
 		db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('3125')");
@@ -75,7 +87,27 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper {
 		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Opt')");
 		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Otros')");
 		
-		db.close(); 
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('uP ')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FPGA XC3S1000')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FPGA XC3S400')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('DS2430')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('AMP H482')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('TPS 40061')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('RAM 48LC16M16A2')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FET 10P06')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FET 6690A')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FET 9407')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FET 4850')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FET FR3410')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FET IRF5210S')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('BUFFER 74LVC273')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('MOD MAX 2150')");
+	
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('TPS 40009')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FILTRO GBP202SE')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('DIODO SS14')");
+		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('DEM MAX3223')");
+		
 	}
 
 	@Override
@@ -84,29 +116,43 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper {
 		  // borro tabla
 			db.execSQL("DROP TABLE IF EXISTS Tabla_Reparaciones");
 			// Creo la tabla reparaciones
-			db.execSQL("CREATE TABLE Tabla_Reparaciones (id_reparacion INTEGER PRIMARY KEY AUTOINCREMENT , fecha_in DATE"
+			db.execSQL("CREATE TABLE Tabla_Reparaciones (id_reparacion INTEGER PRIMARY KEY , fecha_in DATE"
 					+ ",serial INT,id_modelo INT, id_version INT, id_falla INT,observaciones TEXT)");
 			
 			// borro tabla
 			db.execSQL("DROP TABLE IF EXISTS Tabla_Modelos");
 			//creo tabla modelos de equipos
-			db.execSQL("CREATE TABLE Tabla_Modelos (id_modelo INTEGER PRIMARY KEY AUTOINCREMENT , nom_modelo TEXT)");
+			db.execSQL("CREATE TABLE Tabla_Modelos (id_modelo INTEGER PRIMARY KEY , nom_modelo TEXT)");
 
 		
 			// borro tabla
 			db.execSQL("DROP TABLE IF EXISTS Tabla_versiones");
 			//creo tabla tipo de version de firmware
-			db.execSQL("CREATE TABLE Tabla_versiones (id_version INTEGER PRIMARY KEY AUTOINCREMENT , nom_version TEXT)");
+			db.execSQL("CREATE TABLE Tabla_versiones (id_version INTEGER PRIMARY KEY , nom_version TEXT)");
 			
 			
-			// borro tabla
+			// borro tabla fallas
 			db.execSQL("DROP TABLE IF EXISTS Tabla_fallas");
-			//creo tabla tipo de reparaciones
-			db.execSQL(	"CREATE TABLE Tabla_fallas (id_falla INTEGER PRIMARY KEY AUTOINCREMENT , nom_falla TEXT)");
+			//creo tabla tipo de fallas
+			db.execSQL(	"CREATE TABLE Tabla_fallas (id_falla INTEGER PRIMARY KEY , nom_falla TEXT)");
+			
+
+			// borro tabla componentes
+			db.execSQL("DROP TABLE IF EXISTS Tabla_Componentes");
+			// creo tabla componentes
+			db.execSQL(	"CREATE TABLE Tabla_Componentes (id_componente INTEGER PRIMARY KEY,nom_componente TEXT)");
+			
+			// borro tabla componentes usados
+			db.execSQL("DROP TABLE IF EXISTS Tabla_Comp_Usados");
+			//creo tabla componentes usados
+			db.execSQL(	"CREATE TABLE Tabla_Comp_Usados (id_comp_usado INTEGER PRIMARY KEY,"
+					+ "id_componente INT,id_reparacion INT, cantidadComp INT,"
+					+ " FOREIGN KEY (id_componente) REFERENCES Tabla_Componentes(id_componente),"
+					+ " FOREIGN KEY (id_reparacion) REFERENCES Tabla_Reparaciones(id_reparacion))");
+			
 			
 			/// defaults valores
 			
-			db = getWritableDatabase();
 			
 			db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('3100')");
 			db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('3125')");
@@ -138,8 +184,27 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper {
 			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Opt')");
 			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Otros')");
 			
-			db.close(); 
-
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('uP ')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FPGA XC3S1000')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FPGA XC3S400')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('DS2430')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('AMP H482')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('TPS 40061')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('RAM 48LC16M16A2')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FET 10P06')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FET 6690A')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FET 9407')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FET 4850')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FET FR3410')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FET IRF5210S')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('BUFFER 74LVC273')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('MOD MAX 2150')");
+		
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('TPS 40009')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FILTRO GBP202SE')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('DIODO SS14')");
+			db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('DEM MAX3223')");
+			
 	}
 	
 	
