@@ -27,7 +27,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper {
 	public void onCreate(SQLiteDatabase db) {
 		
 		// Creo la tabla reparaciones
-		db.execSQL("CREATE TABLE Tabla_Reparaciones (id_reparacion INT PRIMARY KEY AUTOINCREMENT,fecha_in TEXT"
+		db.execSQL("CREATE TABLE Tabla_Reparaciones (id_reparacion INTEGER PRIMARY KEY ,fecha_in TEXT"
 				+ ",id_modelo INT,id_version INT,id_falla INT,observaciones TEXT,"
 				+ "FOREIGN KEY (id_modelo) REFERENCES Tabla_Modelos(id_modelo),"
 				+ "FOREIGN KEY (id_version) REFERENCES Tabla_Versiones(id_version),"

@@ -65,7 +65,7 @@
             android:id="@+id/btn_Modelos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ingresar Modelos" />
+            android:text="Ingresar Modelos spinner" />
 
         <Button
             android:id="@+id/btn_Versiones"
