@@ -29,15 +29,53 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper {
 		// Creo la tabla reparaciones
 		db.execSQL("CREATE TABLE Tabla_Reparaciones (id_reparacion INTEGER PRIMARY KEY AUTOINCREMENT,fecha_in TEXT"
 				+ ",id_modelo INT,id_version INT,id_falla INT,observaciones TEXT)");
-				//creo tabla modelos de equipos
-		db.execSQL("CREATE TABLE Tabla_Modelos (id_modelo INTEGER PRIMARY KEY AUTOINCREMENT,nom_modelo TEXT)");
 		
+						//creo tabla modelos de equipos
+		db.execSQL("CREATE TABLE Tabla_Modelos (id_modelo INTEGER PRIMARY KEY AUTOINCREMENT,nom_modelo TEXT)");
+
 		//creo tabla tipo de version de firmware
 		db.execSQL("CREATE TABLE Tabla_Versiones (id_version INTEGER PRIMARY KEY AUTOINCREMENT,nom_version TEXT)");
 		
 		//creo tabla tipo de reparaciones
 		db.execSQL(	"CREATE TABLE Tabla_Fallas (id_falla INTEGER PRIMARY KEY AUTOINCREMENT,nom_falla TEXT)");
+		
+		
+		
+		/// defaults valores
+		
+		db = getWritableDatabase();
+		
+		db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('3100')");
+		db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('3125')");
+		db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('5100')");
+		db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('5350')");
+		db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('M0D1')");
+		db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('M1D1')");
 
+		db.execSQL("INSERT INTO Tabla_Versiones (nom_version) VALUES ('6.0.9.0')");
+		db.execSQL("INSERT INTO Tabla_Versiones (nom_version) VALUES ('6.0.9.6')");
+		db.execSQL("INSERT INTO Tabla_Versiones (nom_version) VALUES ('7.0')");
+		db.execSQL("INSERT INTO Tabla_Versiones (nom_version) VALUES ('8.0')");
+		db.execSQL("INSERT INTO Tabla_Versiones (nom_version) VALUES ('9.0')");
+		db.execSQL("INSERT INTO Tabla_Versiones (nom_version) VALUES ('IDX')");
+	
+
+		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Vcc 24v')");
+		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Vcc 3.3')");
+		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Vcc TX')");
+		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Vcc RX')");
+		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('CPLD')");
+		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('FPGA TX')");
+		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('FPGA RX')");
+		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('uP')");
+		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Flash')");
+		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Ram')");
+		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('RedBoot')");
+		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Linux')");
+		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Opt')");
+		db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Otros')");
+		
+		db.close(); 
 	}
 
 	@Override
@@ -53,16 +91,54 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper {
 			db.execSQL("DROP TABLE IF EXISTS Tabla_Modelos");
 			//creo tabla modelos de equipos
 			db.execSQL("CREATE TABLE Tabla_Modelos (id_modelo INTEGER PRIMARY KEY AUTOINCREMENT , nom_modelo TEXT)");
-			
+
+		
 			// borro tabla
 			db.execSQL("DROP TABLE IF EXISTS Tabla_versiones");
 			//creo tabla tipo de version de firmware
 			db.execSQL("CREATE TABLE Tabla_versiones (id_version INTEGER PRIMARY KEY AUTOINCREMENT , nom_version TEXT)");
 			
+			
 			// borro tabla
 			db.execSQL("DROP TABLE IF EXISTS Tabla_fallas");
 			//creo tabla tipo de reparaciones
 			db.execSQL(	"CREATE TABLE Tabla_fallas (id_falla INTEGER PRIMARY KEY AUTOINCREMENT , nom_falla TEXT)");
+			
+			/// defaults valores
+			
+			db = getWritableDatabase();
+			
+			db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('3100')");
+			db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('3125')");
+			db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('5100')");
+			db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('5350')");
+			db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('M0D1')");
+			db.execSQL("INSERT INTO Tabla_Modelos (nom_modelo) VALUES ('M1D1')");
+
+			db.execSQL("INSERT INTO Tabla_Versiones (nom_version) VALUES ('6.0.9.0')");
+			db.execSQL("INSERT INTO Tabla_Versiones (nom_version) VALUES ('6.0.9.6')");
+			db.execSQL("INSERT INTO Tabla_Versiones (nom_version) VALUES ('7.0')");
+			db.execSQL("INSERT INTO Tabla_Versiones (nom_version) VALUES ('8.0')");
+			db.execSQL("INSERT INTO Tabla_Versiones (nom_version) VALUES ('9.0')");
+			db.execSQL("INSERT INTO Tabla_Versiones (nom_version) VALUES ('IDX')");
+		
+
+			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Vcc 24v')");
+			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Vcc 3.3')");
+			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Vcc TX')");
+			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Vcc RX')");
+			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('CPLD')");
+			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('FPGA TX')");
+			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('FPGA RX')");
+			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('uP')");
+			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Flash')");
+			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Ram')");
+			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('RedBoot')");
+			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Linux')");
+			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Opt')");
+			db.execSQL("INSERT INTO Tabla_Fallas (nom_falla) VALUES ('Otros')");
+			
+			db.close(); 
 
 	}
 	
