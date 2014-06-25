@@ -5,7 +5,7 @@ import com.example.reparacionesutn.R;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class Versiones extends Activity{
+public class Lay_versiones extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

@@ -2,7 +2,7 @@ package com.example.reparacionesutn.objetos;
 
 import java.util.Date;
 
-public class Reparaciones {
+public class ReparacionesClase {
 	
 	
 	int id_Reparacion,serial,id_modelo,id_version,id_falla;
@@ -11,7 +11,7 @@ public class Reparaciones {
 	Date fecha;
 	
 	
-public Reparaciones(){
+public ReparacionesClase(){
 				
 		
 	}

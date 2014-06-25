@@ -1,16 +1,17 @@
 package com.example.reparacionesutn.layouts;
 
+
 import com.example.reparacionesutn.R;
 
 import android.app.Activity;
 import android.os.Bundle;
 
-public class Buscar extends Activity {
+public class Lay_ingresar extends Activity{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.lay_buscar);
+		setContentView(R.layout.lay_ingresar);
 	}
 
 }

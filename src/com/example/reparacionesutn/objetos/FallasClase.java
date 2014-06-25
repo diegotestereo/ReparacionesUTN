@@ -1,10 +1,10 @@
 package com.example.reparacionesutn.objetos;
 
-public class Fallas {
+public class FallasClase {
 	int id_falla;
 	String nom_falla;
 	
-	public Fallas(){
+	public FallasClase(){
 		
 	}
 

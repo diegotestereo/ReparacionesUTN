@@ -23,23 +23,23 @@
             </intent-filter>
         </activity>
         <activity 
-            android:name="com.example.reparacionesutn.layouts.Ingresar"
+            android:name="com.example.reparacionesutn.layouts.Lay_ingresar"
             android:label="Ingresar Reparación" >  
         </activity>
          <activity 
-            android:name="com.example.reparacionesutn.layouts.Buscar"
+            android:name="com.example.reparacionesutn.layouts.Lay_buscar"
             android:label="Buscar Equipo"></activity>
           <activity 
-            android:name="com.example.reparacionesutn.layouts.lay_tablas"
+            android:name="com.example.reparacionesutn.layouts.Lay_tablas"
             android:label="Ver Tablas"></activity>
           <activity 
-            android:name="com.example.reparacionesutn.layouts.Fallas"
+            android:name="com.example.reparacionesutn.layouts.Lay_fallas"
             android:label="Ingresar o Modificar Fallas"></activity>
            <activity 
-            android:name="com.example.reparacionesutn.layouts.Modelos"
+            android:name="com.example.reparacionesutn.layouts.Lay_modelos"
             android:label="Ingresar o Modificar Modelos"></activity>
             <activity 
-            android:name="com.example.reparacionesutn.layouts.Versiones"
+            android:name="com.example.reparacionesutn.layouts.Lay_versiones"
             android:label="Ingresar o Modificar Versiones"></activity>  
     </application>
 

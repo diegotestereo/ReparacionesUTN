@@ -1,11 +1,11 @@
 package com.example.reparacionesutn.objetos;
 
-public class Modelos {
+public class ModelosClase {
 	
 	int in_modelo;
 	String nom_modelo;
 	
-	public Modelos(){
+	public ModelosClase(){
 		
 	}
 

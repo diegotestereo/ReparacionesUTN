@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
 
 	private void botones() {
 		btn_Reparacion.setOnClickListener(new OnClickListener() {
-			Intent intento=new Intent(MainActivity.this,Ingresar.class);
+			Intent intento=new Intent(MainActivity.this,Lay_ingresar.class);
 			@Override
 			public void onClick(View v) {
 				startActivity(intento);
@@ -42,7 +42,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		btn_buscarEquipos.setOnClickListener(new OnClickListener() {
-			Intent intento=new Intent(MainActivity.this,Buscar.class);
+			Intent intento=new Intent(MainActivity.this,Lay_buscar.class);
 			@Override
 			public void onClick(View v) {
 				startActivity(intento);
@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		btn_Fallas.setOnClickListener(new OnClickListener() {
-			Intent intento=new Intent(MainActivity.this,Fallas.class);
+			Intent intento=new Intent(MainActivity.this,Lay_fallas.class);
 			@Override
 			public void onClick(View v) {
 				startActivity(intento);
@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		btn_Modelos.setOnClickListener(new OnClickListener() {
-			Intent intento=new Intent(MainActivity.this,Modelos.class);
+			Intent intento=new Intent(MainActivity.this,Lay_modelos.class);
 			@Override
 			public void onClick(View v) {
 				startActivity(intento);
@@ -66,7 +66,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		btn_Versiones.setOnClickListener(new OnClickListener() {
-			Intent intento=new Intent(MainActivity.this,Versiones.class);
+			Intent intento=new Intent(MainActivity.this,Lay_versiones.class);
 			@Override
 			public void onClick(View v) {
 				startActivity(intento);

@@ -2,6 +2,7 @@ package com.example.reparacionesutn.layouts;
 
 import com.example.reparacionesutn.R;
 import com.example.reparacionesutn.DAOs.SQLHelperAdaptador;
+import com.example.reparacionesutn.objetos.ModelosClase;
 
 import android.app.Activity;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,11 +12,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 
-public class Modelos extends Activity{
-	
+public class Lay_modelos extends Activity{
+	ModelosClase oModelo; 
 	Spinner spin_modelos;
-	ArrayAdapter<com.example.reparacionesutn.objetos.Modelos> adaptadorModelos;
-	 SQLHelperAdaptador dao = new SQLHelperAdaptador(getApplicationContext(), getString(R.string.DataBase), null, 1);
+	//ArrayAdapter<oModelo> adaptadorModelos;
+	// SQLHelperAdaptador dao = new SQLHelperAdaptador(getApplicationContext(), getString(R.string.DataBase), null, 1);
 		
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,8 +25,8 @@ public class Modelos extends Activity{
 	setContentView(R.layout.lay_modelos);
 	levantarXML();
 	
-	adaptadorModelos=new ArrayAdapter<com.example.reparacionesutn.objetos.Modelos>(this,android.R.layout.simple_spinner_item,);
-	spin_modelos.setAdapter(adaptadorModelos);
+	//adaptadorModelos=new ArrayAdapter<com.example.reparacionesutn.objetos.Modelos>(this,android.R.layout.simple_spinner_item,);
+	//spin_modelos.setAdapter(adaptadorModelos);
 	
 	}
 
