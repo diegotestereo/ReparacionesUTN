@@ -5,9 +5,57 @@
     android:background="@android:color/holo_green_light"
     android:orientation="vertical" >
 
-    <Spinner
-        android:id="@+id/spin_modelos"
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ingresar Campo"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" >
+
+        <EditText
+            android:id="@+id/eTxt_campo_LyModelos"
+            android:layout_width="101dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:ems="10" />
+
+        <Spinner
+            android:id="@+id/spin_modelos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent" >
+
+        <Button
+            android:id="@+id/btn_Insertar_lay_modelos"
+            android:layout_width="104dp"
+            android:layout_height="wrap_content"
+            android:text="Insertar"
+            />
+
+        <Button
+            android:id="@+id/btn_Editar_lay_modelos"
+            android:layout_width="104dp"
+            android:layout_height="wrap_content"
+            android:text="Editar"
+           />
+
+        <Button
+            android:id="@+id/btn_Eliminar_lay_modelos"
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:text="Eliminar"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>

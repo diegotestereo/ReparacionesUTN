@@ -34,13 +34,13 @@
             android:label="Ver Tablas"></activity>
           <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_fallas"
-            android:label="Ingresar o Modificar Fallas"></activity>
+            android:label="Modificar Fallas"></activity>
            <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_modelos"
-            android:label="Ingresar o Modificar Modelos"></activity>
+            android:label="Modificar Modelos"></activity>
             <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_versiones"
-            android:label="Ingresar o Modificar Versiones"></activity>  
+            android:label="Modificar Versiones"></activity>  
     </application>
 
 </manifest>

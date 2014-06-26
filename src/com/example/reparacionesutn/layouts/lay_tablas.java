@@ -5,7 +5,7 @@ import com.example.reparacionesutn.R;
 import android.app.Activity;
 import android.os.Bundle;
 
-public class Lay_tablas extends Activity {
+public class lay_tablas extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub

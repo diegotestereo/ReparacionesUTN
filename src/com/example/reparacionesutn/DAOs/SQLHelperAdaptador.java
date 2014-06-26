@@ -4,10 +4,12 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+
 import com.example.reparacionesutn.objetos.FallasClase;
 import com.example.reparacionesutn.objetos.ModelosClase;
 import com.example.reparacionesutn.objetos.ReparacionesClase;
 import com.example.reparacionesutn.objetos.VersionesClase;
+
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
@@ -408,23 +410,6 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		return modeloArray;
 	}
 	
-	public String[] recuperarNombresModelos()
-	{
-		SQLiteDatabase baseDatos = getWritableDatabase();
-		String sql = "SELECT * FROM Tabla_Modelos";
-		Cursor cursor = baseDatos.rawQuery(sql, null);
-		String[] modeloArray = new String [cursor.getCount()];
-		int i = 0;
-		while (cursor.moveToNext())
-		{
-			modeloArray[i] = cursor.getString(1);
-			i++;
-		}
-		cursor.close();
-		baseDatos.close();
-		return modeloArray;
-	}
-
 	public ArrayList<VersionesClase> recuperarVersiones()
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
@@ -445,5 +430,59 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		baseDatos.close();
 		return versionArray;
 	}
-
+	
+	public String[] recuperarNombresModelos()
+	{
+		SQLiteDatabase baseDatos = getWritableDatabase();
+		String sql = "SELECT * FROM Tabla_Modelos";
+		Cursor cursor = baseDatos.rawQuery(sql, null);
+		String[] modeloArray = new String [cursor.getCount()];
+		int i = 0;
+		while (cursor.moveToNext())
+		{
+			modeloArray[i] = cursor.getString(1);
+			i++;
+		}
+		cursor.close();
+		baseDatos.close();
+		return modeloArray;
+	}
+	
+	public String[] recuperarnombresVersiones(){
+		//levanto base de datos escribible
+		SQLiteDatabase baseDatos =getWritableDatabase();
+		String sql = "SELECT * FROM Tabla_Versiones";
+		//7 la cargo en un cursor
+		Cursor cursor =baseDatos.rawQuery(sql, null);
+		// declaro un arreglo string para levantar nombres de la tabla versiones
+		String[] versionArray = new String[cursor.getCount()];//definola cantidad de componentes
+		int i=0;
+		while ( cursor.moveToNext()){
+			versionArray[i]= cursor.getString(1);		
+			i++;
+		}
+		cursor.close();
+		baseDatos.close();
+		return versionArray;
+	}
+	
+	public String[] recuperarnombresFallas(){
+		//levanto base de datos escribible
+		SQLiteDatabase baseDatos =getWritableDatabase();
+		String sql = "SELECT * FROM Tabla_Fallas";
+		//7 la cargo en un cursor
+		Cursor cursor =baseDatos.rawQuery(sql, null);
+		// declaro un arreglo string para levantar nombres de la tabla versiones
+		String[] fallaArray = new String[cursor.getCount()];//definola cantidad de componentes
+		int i=0;
+		while ( cursor.moveToNext()){
+			fallaArray[i]= cursor.getString(1);		
+			i++;
+		}
+		cursor.close();
+		baseDatos.close();
+		return fallaArray;
+	}
+	
+	
 }
