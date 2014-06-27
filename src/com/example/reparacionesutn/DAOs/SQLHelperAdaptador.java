@@ -448,7 +448,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		return modeloArray;
 	}
 	
-	public String[] recuperarnombresVersiones(){
+	public String[] recuperarNombresVersiones(){
 		//levanto base de datos escribible
 		SQLiteDatabase baseDatos =getWritableDatabase();
 		String sql = "SELECT * FROM Tabla_Versiones";
@@ -466,7 +466,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		return versionArray;
 	}
 	
-	public String[] recuperarnombresFallas(){
+	public String[] recuperarNombresFallas(){
 		//levanto base de datos escribible
 		SQLiteDatabase baseDatos =getWritableDatabase();
 		String sql = "SELECT * FROM Tabla_Fallas";

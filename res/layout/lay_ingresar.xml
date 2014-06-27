@@ -48,7 +48,9 @@
             <Spinner
                 android:id="@+id/spin_modelos"
                 android:layout_width="89dp"
-                android:layout_height="wrap_content"/>
+                android:layout_height="wrap_content"
+                 android:textColor="@android:color/black"
+             android:textSize="11dp" />
             
         </LinearLayout>
 

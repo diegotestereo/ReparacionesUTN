@@ -36,7 +36,7 @@
             android:name="com.example.reparacionesutn.layouts.Lay_fallas"
             android:label="Modificar Fallas"></activity>
            <activity 
-            android:name="com.example.reparacionesutn.layouts.Lay_modelos"
+            android:name="com.example.reparacionesutn.layouts.Lay_Modificar_Spinners"
             android:label="Modificar Modelos"></activity>
             <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_versiones"

@@ -56,22 +56,10 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/btn_Fallas"
+            android:id="@+id/btn_Spinners"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ingresar Tipos de Fallas" />
-
-        <Button
-            android:id="@+id/btn_Modelos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ingresar Modelos spinner" />
-
-        <Button
-            android:id="@+id/btn_Versiones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ingresar Versiones" />
+            android:text="Modificar Registros" />
 
     </LinearLayout>
 

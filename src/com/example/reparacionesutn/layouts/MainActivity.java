@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
  
-	Button btn_Reparacion,btn_Fallas,btn_Modelos,btn_Versiones,btn_buscarEquipos;
+	Button btn_Reparacion,btn_Modificar_spin,btn_buscarEquipos;
 	EditText eTxt_Serial;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,37 +49,23 @@ public class MainActivity extends Activity {
 				
 			}
 		});
-		btn_Fallas.setOnClickListener(new OnClickListener() {
-			Intent intento=new Intent(MainActivity.this,Lay_fallas.class);
+		
+		btn_Modificar_spin.setOnClickListener(new OnClickListener() {
+			Intent intento=new Intent(MainActivity.this,Lay_Modificar_Spinners.class);
 			@Override
 			public void onClick(View v) {
 				startActivity(intento);
 		
 			}
 		});
-		btn_Modelos.setOnClickListener(new OnClickListener() {
-			Intent intento=new Intent(MainActivity.this,Lay_modelos.class);
-			@Override
-			public void onClick(View v) {
-				startActivity(intento);
-		
-			}
-		});
-		btn_Versiones.setOnClickListener(new OnClickListener() {
-			Intent intento=new Intent(MainActivity.this,Lay_versiones.class);
-			@Override
-			public void onClick(View v) {
-				startActivity(intento);
-		
-			}
-		});
+	
 	}
 
 	private void levantarXML() {
 		btn_Reparacion=(Button) findViewById(R.id.Btn_Reparacion);
-		btn_Fallas=(Button) findViewById(R.id.btn_Fallas);
-		btn_Modelos=(Button) findViewById(R.id.btn_Modelos);
-		btn_Versiones=(Button) findViewById(R.id.btn_Versiones);
+		
+		btn_Modificar_spin=(Button) findViewById(R.id.btn_Spinners);
+	
 		btn_buscarEquipos=(Button) findViewById(R.id.btn_BuscarEquipo);
 		
 		eTxt_Serial=(EditText) findViewById(R.id.eTxt_Serial);

@@ -38,9 +38,9 @@ public class Lay_ingresar extends Activity{
 		//instancio el dao
 		dao=new SQLHelperAdaptador(getApplicationContext(),getString(R.string.DataBase), null, 1);
 		
-		adaptadorFallas=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item,dao.recuperarnombresFallas());
+		adaptadorFallas=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item,dao.recuperarNombresFallas());
 		adaptadorModelos=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item,dao.recuperarNombresModelos());
-		adaptadorVersiones=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item,dao.recuperarnombresVersiones());
+		adaptadorVersiones=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item,dao.recuperarNombresVersiones());
 		
 		spin_fallas.setAdapter(adaptadorFallas);
 		spin_modelos.setAdapter(adaptadorModelos);
