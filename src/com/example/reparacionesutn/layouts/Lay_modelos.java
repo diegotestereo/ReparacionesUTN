@@ -54,8 +54,8 @@ public class Lay_modelos extends Activity
 			
 			@Override
 			public void onClick(View v) {
-				oModelo.setIn_modelo(spin_modelos.getAdapter());
-				dao.borrarNombreModelo();
+				//oModelo.setIn_modelo(spin_modelos.getAdapter());
+				//dao.borrarNombreModelo();
 				
 			}
 		});
