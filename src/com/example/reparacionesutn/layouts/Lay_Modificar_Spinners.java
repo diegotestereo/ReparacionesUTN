@@ -19,7 +19,7 @@ import com.example.reparacionesutn.objetos.VersionesClase;
 
 public class Lay_Modificar_Spinners extends Activity
 {
-	//ModelosClase oModelo;
+	
 	Spinner spin_modelos,spin_versiones,spin_fallas;
 	Button btn_insertar_m,btn_eliminar_m,btn_editar_m,btn_insertar_v,btn_eliminar_v,btn_editar_v,btn_insertar_f,btn_eliminar_f,btn_editar_f;
 	EditText eTxt_Modelos,eTxt_Versiones,eTxt_Fallas;
@@ -28,7 +28,8 @@ public class Lay_Modificar_Spinners extends Activity
 	ModelosClase oModelo;
 	FallasClase oFalla;
 	VersionesClase oVersion;
-	//ModelosClase oModelo;
+	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -38,14 +39,17 @@ public class Lay_Modificar_Spinners extends Activity
 		dao =   new SQLHelperAdaptador(getApplicationContext(),getString(R.string.DataBase), null, 1);
 		setAdaptadores();
 		botones();
-	
-		oModelo =new ModelosClase();
+		/*oModelo =new ModelosClase();
 		oVersion =new VersionesClase();
-		oFalla =new FallasClase();
-		
+		oFalla =new FallasClase();*/
 		spinners();
 		
+		//eTxt_Modelos.setText("");
+		//eTxt_Fallas.setText("");
+		//
 		
+		
+		eTxt_Versiones.setText("");
 		
 	}
 
@@ -55,7 +59,7 @@ public class Lay_Modificar_Spinners extends Activity
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				eTxt_Modelos.setText("dato "+position);
+				eTxt_Modelos.setText(dao.recuperarNombresModelos()[position]);
 				
 			}
 
@@ -71,7 +75,7 @@ public class Lay_Modificar_Spinners extends Activity
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				eTxt_Versiones.setText("dato "+position);
+				eTxt_Versiones.setText(dao.recuperarNombresVersiones()[position]);
 				
 			}
 
@@ -87,7 +91,7 @@ public class Lay_Modificar_Spinners extends Activity
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				eTxt_Fallas.setText("dato "+position);
+				eTxt_Fallas.setText(dao.recuperarNombresFallas()[position]);
 				
 			}
 
@@ -110,13 +114,16 @@ public class Lay_Modificar_Spinners extends Activity
 	}
 
 	private void botones() {
+		
+		
+		///////////botones modelos////////////////////////////////
 		btn_insertar_m.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				dao.insertarModelo(eTxt_Modelos.getText().toString());
-				setAdaptadores();
-				eTxt_Modelos.setText("");
+			//	setAdaptadores();
+				
 				
 			}
 		});
@@ -132,19 +139,20 @@ public class Lay_Modificar_Spinners extends Activity
 		btn_eliminar_m.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				eTxt_Modelos.setText("");
+				eTxt_Fallas.setText("");
+				eTxt_Versiones.setText("");
 				
-				//oModelo.setNom_modelo(spin_modelos.getDisplay().toString());
-				//eTxt_Modelos.setText(spin_modelos.getDisplay().toString());
-				dao.borrarNombreModelo(oModelo);
-		
 			}
 		});
 		
+		
+		///////////////botones versiones//////////////////////////////
 		btn_insertar_v.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				dao.insertarVersion(eTxt_Versiones.getText().toString());
-				setAdaptadores();
+			//	setAdaptadores();
 				spin_versiones.setAdapter(adaptadorVersiones);
 				eTxt_Versiones.setText("");
 				
@@ -168,11 +176,14 @@ public class Lay_Modificar_Spinners extends Activity
 			}
 		});
 		
+		
+		
+		////////////////botones fallas//////////////////////////
 		btn_insertar_f.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				dao.insertarFalla(eTxt_Fallas.getText().toString());
-				setAdaptadores();
+			//	setAdaptadores();
 				spin_fallas.setAdapter(adaptadorFallas);
 				eTxt_Fallas.setText("");
 				
