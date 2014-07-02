@@ -2,6 +2,7 @@ package com.example.reparacionesutn.layouts;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -33,8 +34,7 @@ public class Lay_Modificar_Spinners extends Activity
 	FallasClase oFalla;
 	VersionesClase oVersion;
 	ComponentesClase oComponente;
-	
-	
+		
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -42,6 +42,12 @@ public class Lay_Modificar_Spinners extends Activity
 		setContentView(R.layout.lay_modificar_spinners);
 		levantarXML();
 		dao =   new SQLHelperAdaptador(getApplicationContext(),getString(R.string.DataBase), null, 1);
+		
+		oComponente =new ComponentesClase();
+		oVersion =new VersionesClase();
+		oModelo=new ModelosClase();
+		oFalla= new FallasClase();
+		
 		setAdaptadores();
 		botones();
 		spinners();
@@ -139,17 +145,14 @@ public class Lay_Modificar_Spinners extends Activity
 			@Override
 			public void onClick(View v) {
 				dao.insertarModelo(eTxt_Modelos.getText().toString());
-			//	setAdaptadores();
-				
-				
+			
 			}
 		});
 		
 		btn_editar_m.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				
-				
+			
 			}
 		});
 
@@ -157,11 +160,16 @@ public class Lay_Modificar_Spinners extends Activity
 			@Override
 			public void onClick(View v) {
 				eTxt_Modelos.setText("");
-				eTxt_Fallas.setText("");
-				eTxt_Versiones.setText("");
+				dao.borrarNombreModelo(pos_spin_componente);
 				
 			}
 		});
+		
+
+		
+		//*********** cargar objeto a modificar**********
+
+		
 		
 		
 		///////////////botones versiones//////////////////////////////
@@ -254,8 +262,9 @@ public class Lay_Modificar_Spinners extends Activity
 		
 		
 	}
-	
 
+	
+	
 	private void levantarXML()
 	{
 		spin_modelos = (Spinner) findViewById(R.id.spin_modelos);

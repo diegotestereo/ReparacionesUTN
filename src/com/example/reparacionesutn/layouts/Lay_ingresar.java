@@ -110,8 +110,8 @@ public class Lay_ingresar extends Activity{
 			
 			@Override
 			public void onClick(View v) {
-				if (!etxt_serial.getText().toString().equals("")){
-				if (!observaciones.getText().toString().equals("")){	
+				if (!(etxt_serial.getText().toString().equals(""))){
+				if (!(observaciones.getText().toString().equals(""))){	
 					
 			dao.insertarReparacion(fecha, Integer.parseInt(etxt_serial.getText().toString()), posSpinModelo,posSpinVersion, posSpinFalla, observaciones.getText().toString());	
 			txtV_prueba.setText("fecha:"+fecha+" Serial:"+ Integer.parseInt(etxt_serial.getText().toString())+"posicion modelo:"+posSpinModelo+" Posicion Falla: "+posSpinFalla +" Posicion Version: "+posSpinVersion+" observacion:"+observaciones.getText().toString());
@@ -125,13 +125,13 @@ public class Lay_ingresar extends Activity{
 					Toast.makeText(getApplicationContext(), "Ingrese Numero de Serie", Toast.LENGTH_SHORT).show();
 					}
 				
-				etxt_serial.setText("");
-				observaciones.setText("");
 				spin_fallas.setSelection(0);
 				spin_modelos.setSelection(0);
 				spin_versiones.setSelection(0);
 				txtV_Reparacion.setText(Integer.toString(dao.recuperarCantidadReparaciones()+1));
-				
+				etxt_serial.setText("");
+				observaciones.setText("");
+
 				}
 			
 			
@@ -146,7 +146,7 @@ public class Lay_ingresar extends Activity{
 		
 		etxt_serial=(EditText) findViewById(R.id.eTxt_Serial_ingresar);
 		observaciones=(EditText) findViewById(R.id.etxt_observaciones);
-		
+		txtV_prueba=(TextView) findViewById(R.id.txtV_prueba);
 		txt_date=(TextView) findViewById(R.id.txtV_Date);
 		txtV_Reparacion=(TextView) findViewById(R.id.txtV_Reparacion);
 		btn_IngresarReparacion = (Button) findViewById(R.id.btn_IngresarReparacion);

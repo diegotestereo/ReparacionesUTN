@@ -47,7 +47,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 
 		db.execSQL("CREATE TABLE Tabla_Componentes (id_componente INTEGER PRIMARY KEY,nom_componente TEXT)");
 
-		// creo tablka componentes usados
+		// creo tabla componentes usados
 
 		db.execSQL("CREATE TABLE Tabla_Comp_Usados (id_comp_usado INTEGER PRIMARY KEY," + "id_componente INT,id_reparacion INT, cantidadComp INT,"
 				+ " FOREIGN KEY (id_componente) REFERENCES Tabla_Componentes(id_componente),"
@@ -314,14 +314,14 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 	public void borrarReparacion(ReparacionesClase oReparacion)
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		baseDatos.execSQL("DELETE FROM Tabla_Reparaciones WHERE serial =" + oReparacion.getSerial());
+		baseDatos.execSQL("DELETE FROM Tabla_Reparaciones WHERE serial = " + oReparacion.getSerial());
 		baseDatos.close();
 	}
 
-	public void borrarNombreModelo(ModelosClase oModelo)
+	public void borrarNombreModelo(int id_modelo)
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		baseDatos.execSQL("DELETE FROM Tabla_Modelos  WHERE nom_modelo ='" + oModelo.getNom_modelo() + "'");
+		baseDatos.execSQL("DELETE FROM Tabla_Modelos  WHERE id_modelo = " + id_modelo + "");
 		baseDatos.close();
 	}
 

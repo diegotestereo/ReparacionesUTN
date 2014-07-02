@@ -29,7 +29,7 @@
             android:id="@+id/spin_modelos"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="right" />
+              android:layout_gravity="center" />
     </LinearLayout>
 
     <LinearLayout
@@ -40,6 +40,7 @@
             android:id="@+id/btn_Insertar_lay_modelos"
             android:layout_width="104dp"
             android:layout_height="wrap_content"
+              android:layout_gravity="center"
             android:text="Insertar"
             />
 
@@ -47,6 +48,7 @@
             android:id="@+id/btn_Editar_lay_modelos"
             android:layout_width="104dp"
             android:layout_height="wrap_content"
+              android:layout_gravity="center"
             android:text="Editar"
            />
 
@@ -54,6 +56,7 @@
             android:id="@+id/btn_Eliminar_lay_modelos"
             android:layout_width="113dp"
             android:layout_height="wrap_content"
+              android:layout_gravity="center"
             android:text="Eliminar"
             />
 
@@ -68,7 +71,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fallas"
-              android:layout_gravity="center"
+            android:layout_gravity="center"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -83,7 +86,8 @@
             android:id="@+id/spin_fallas"
             android:layout_width="128dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="right" />
+              android:layout_gravity="center"
+         />
     </LinearLayout>
 
     <LinearLayout
@@ -94,6 +98,7 @@
             android:id="@+id/btn_Insertar_lay_fallas"
             android:layout_width="104dp"
             android:layout_height="wrap_content"
+              android:layout_gravity="center"
             android:text="Insertar"
             />
 
@@ -101,6 +106,7 @@
             android:id="@+id/btn_Editar_lay_fallas"
             android:layout_width="104dp"
             android:layout_height="wrap_content"
+              android:layout_gravity="center"
             android:text="Editar"
            />
 
@@ -108,6 +114,7 @@
             android:id="@+id/btn_Eliminar_lay_fallas"
             android:layout_width="113dp"
             android:layout_height="wrap_content"
+              android:layout_gravity="center"
             android:text="Eliminar"
             />
 
@@ -121,6 +128,7 @@
             android:id="@+id/TextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+              android:layout_gravity="center"
             android:text="Versiones"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -135,6 +143,7 @@
         <Spinner
             android:id="@+id/spin_versiones"
             android:layout_width="126dp"
+              android:layout_gravity="center"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -147,6 +156,7 @@
             android:id="@+id/btn_Insertar_lay_versiones"
             android:layout_width="104dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:text="Insertar"
             />
 
@@ -154,6 +164,7 @@
             android:id="@+id/btn_Editar_lay_versiones"
             android:layout_width="104dp"
             android:layout_height="wrap_content"
+              android:layout_gravity="center"
             android:text="Editar"
            />
 
@@ -161,6 +172,7 @@
             android:id="@+id/btn_Eliminar_lay_versiones"
             android:layout_width="113dp"
             android:layout_height="wrap_content"
+              android:layout_gravity="center"
             android:text="Eliminar"
             />
 
@@ -191,7 +203,8 @@
             android:id="@+id/spin_Componentes"
             android:layout_width="108dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="right" />
+              android:layout_gravity="center"
+          />
 
     </LinearLayout>
 
@@ -203,18 +216,21 @@
             android:id="@+id/btn_Insertar_componentes"
             android:layout_width="104dp"
             android:layout_height="wrap_content"
+              android:layout_gravity="center"
             android:text="Insertar" />
 
         <Button
             android:id="@+id/btn_Editar_componentes"
             android:layout_width="104dp"
             android:layout_height="wrap_content"
+              android:layout_gravity="center"
             android:text="Editar" />
 
         <Button
             android:id="@+id/btn_Eliminar_componentes"
             android:layout_width="113dp"
             android:layout_height="wrap_content"
+              android:layout_gravity="center"
             android:text="Eliminar" />
     </LinearLayout>
 
