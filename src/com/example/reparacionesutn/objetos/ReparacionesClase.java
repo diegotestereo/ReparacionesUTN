@@ -7,7 +7,6 @@ public class ReparacionesClase {
 	
 	int id_Reparacion,serial,id_modelo,id_version,id_falla;
 	String observaciones;
-	//String fecha;
 	Date fecha;
 	
 	

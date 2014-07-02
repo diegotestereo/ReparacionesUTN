@@ -5,17 +5,18 @@
     android:background="@android:color/holo_green_light"
     android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/TextView01"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Modificar Lista Modelo"
-        android:textSize="25dp"
-        android:textStyle="bold" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Modelos"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/eTxt_Modelos"
@@ -26,7 +27,7 @@
 
         <Spinner
             android:id="@+id/spin_modelos"
-            android:layout_width="wrap_content"
+            android:layout_width="125dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right" />
     </LinearLayout>
@@ -58,17 +59,18 @@
 
     </LinearLayout>
 
- <TextView
-     android:id="@+id/TextView3"
-     android:layout_width="wrap_content"
-     android:layout_height="wrap_content"
-     android:text="Modificar Lista Falla"
-     android:textSize="25dp"
-     android:textStyle="bold" />
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/TextView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fallas"
+              android:layout_gravity="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/eTxt_Fallas"
@@ -79,7 +81,7 @@
 
         <Spinner
             android:id="@+id/spin_fallas"
-            android:layout_width="wrap_content"
+            android:layout_width="128dp"
             android:layout_height="wrap_content"
             android:layout_gravity="right" />
     </LinearLayout>
@@ -110,29 +112,29 @@
             />
 
     </LinearLayout>
-    
-     <TextView
-         android:id="@+id/TextView2"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:text="Modificar Lista Versiones"
-         android:textSize="25dp"
-         android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
+        <TextView
+            android:id="@+id/TextView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Versiones"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
         <EditText
             android:id="@+id/eTxt_Versiones"
-            android:layout_width="101dp"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:ems="10" />
 
         <Spinner
             android:id="@+id/spin_versiones"
-            android:layout_width="wrap_content"
+            android:layout_width="126dp"
             android:layout_height="wrap_content" />
 
     </LinearLayout>
@@ -163,4 +165,63 @@
             />
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="Componentes"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/eTxt_Componentes"
+            android:layout_width="101dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:ems="10" />
+
+        <Spinner
+            android:id="@+id/spin_Componentes"
+            android:layout_width="108dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/btn_Insertar_componentes"
+            android:layout_width="104dp"
+            android:layout_height="wrap_content"
+            android:text="Insertar" />
+
+        <Button
+            android:id="@+id/btn_Editar_componentes"
+            android:layout_width="104dp"
+            android:layout_height="wrap_content"
+            android:text="Editar" />
+
+        <Button
+            android:id="@+id/btn_Eliminar_componentes"
+            android:layout_width="113dp"
+            android:layout_height="wrap_content"
+            android:text="Eliminar" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtV_posicion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
 </LinearLayout>

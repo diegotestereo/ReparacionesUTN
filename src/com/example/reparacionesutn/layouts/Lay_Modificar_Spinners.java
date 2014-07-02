@@ -10,9 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.reparacionesutn.R;
 import com.example.reparacionesutn.DAOs.SQLHelperAdaptador;
+import com.example.reparacionesutn.objetos.ComponentesClase;
 import com.example.reparacionesutn.objetos.FallasClase;
 import com.example.reparacionesutn.objetos.ModelosClase;
 import com.example.reparacionesutn.objetos.VersionesClase;
@@ -20,14 +22,17 @@ import com.example.reparacionesutn.objetos.VersionesClase;
 public class Lay_Modificar_Spinners extends Activity
 {
 	
-	Spinner spin_modelos,spin_versiones,spin_fallas;
-	Button btn_insertar_m,btn_eliminar_m,btn_editar_m,btn_insertar_v,btn_eliminar_v,btn_editar_v,btn_insertar_f,btn_eliminar_f,btn_editar_f;
-	EditText eTxt_Modelos,eTxt_Versiones,eTxt_Fallas;
-	ArrayAdapter<String> adaptadorModelos,adaptadorFallas,adaptadorVersiones;
+	Spinner spin_modelos,spin_versiones,spin_fallas,spin_componentes;
+	int pos_spin_modelo,pos_spin_version,pos_spin_componente,pos_spin_falla;
+	Button btn_insertar_c,btn_eliminar_c,btn_editar_c,btn_insertar_m,btn_eliminar_m,btn_editar_m,btn_insertar_v,btn_eliminar_v,btn_editar_v,btn_insertar_f,btn_eliminar_f,btn_editar_f;
+	EditText eTxt_Modelos,eTxt_Versiones,eTxt_Fallas,eTxt_Componentes;
+	TextView txtV_posicion;
+	ArrayAdapter<String> adaptadorModelos,adaptadorFallas,adaptadorVersiones,adaptadorComponentes;
 	SQLHelperAdaptador dao;
 	ModelosClase oModelo;
 	FallasClase oFalla;
 	VersionesClase oVersion;
+	ComponentesClase oComponente;
 	
 	
 	@Override
@@ -39,15 +44,7 @@ public class Lay_Modificar_Spinners extends Activity
 		dao =   new SQLHelperAdaptador(getApplicationContext(),getString(R.string.DataBase), null, 1);
 		setAdaptadores();
 		botones();
-		/*oModelo =new ModelosClase();
-		oVersion =new VersionesClase();
-		oFalla =new FallasClase();*/
 		spinners();
-		
-		//eTxt_Modelos.setText("");
-		//eTxt_Fallas.setText("");
-		//
-		
 		
 		eTxt_Versiones.setText("");
 		
@@ -60,7 +57,7 @@ public class Lay_Modificar_Spinners extends Activity
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				eTxt_Modelos.setText(dao.recuperarNombresModelos()[position]);
-				
+				txtV_posicion.setText(Integer.toString(position));
 			}
 
 			@Override
@@ -76,7 +73,7 @@ public class Lay_Modificar_Spinners extends Activity
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				eTxt_Versiones.setText(dao.recuperarNombresVersiones()[position]);
-				
+				txtV_posicion.setText(Integer.toString(position));
 			}
 
 			@Override
@@ -92,7 +89,7 @@ public class Lay_Modificar_Spinners extends Activity
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				eTxt_Fallas.setText(dao.recuperarNombresFallas()[position]);
-				
+				txtV_posicion.setText(Integer.toString(position));
 			}
 
 			@Override
@@ -102,12 +99,32 @@ public class Lay_Modificar_Spinners extends Activity
 			}
 		});
 		
+		spin_componentes.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				pos_spin_componente=position;
+				txtV_posicion.setText(Integer.toString(pos_spin_componente));
+				
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}
 
 	private void setAdaptadores() {
+		
 		adaptadorModelos=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dao.recuperarNombresModelos());
 		adaptadorVersiones=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dao.recuperarNombresVersiones());
 		adaptadorFallas=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dao.recuperarNombresFallas());
+		adaptadorComponentes= new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,dao.recuperarNombresComponentes());
+		
+		spin_componentes.setAdapter(adaptadorComponentes);
 		spin_fallas.setAdapter(adaptadorFallas);
 		spin_modelos.setAdapter(adaptadorModelos);
 		spin_versiones.setAdapter(adaptadorVersiones);
@@ -205,14 +222,47 @@ public class Lay_Modificar_Spinners extends Activity
 		
 			}
 		});
+		
+////////////////botones componentes//////////////////////////
+		
+		btn_insertar_c.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dao.insertarComponentes(eTxt_Componentes.getText().toString());
+				//	setAdaptadores();
+				spin_componentes.setAdapter(adaptadorComponentes);
+				eTxt_Componentes.setText("");
+		
+			}
+		});
+
+		btn_editar_c.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+	
+		
+			}
+		});
+
+		btn_eliminar_c.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dao.borrarNombreComponente(1+ pos_spin_componente);
+
+			}
+		});
+		
+		
 	}
+	
 
 	private void levantarXML()
 	{
 		spin_modelos = (Spinner) findViewById(R.id.spin_modelos);
 		spin_versiones = (Spinner) findViewById(R.id.spin_versiones);
 		spin_fallas = (Spinner) findViewById(R.id.spin_fallas);
-		
+		spin_componentes=  (Spinner) findViewById(R.id.spin_Componentes);
+	
 		btn_editar_m=(Button) findViewById(R.id.btn_Editar_lay_modelos);
 		btn_eliminar_m=(Button) findViewById(R.id.btn_Eliminar_lay_modelos);
 		btn_insertar_m=(Button) findViewById(R.id.btn_Insertar_lay_modelos);
@@ -225,8 +275,15 @@ public class Lay_Modificar_Spinners extends Activity
 		btn_eliminar_f=(Button) findViewById(R.id.btn_Eliminar_lay_fallas);
 		btn_insertar_f=(Button) findViewById(R.id.btn_Insertar_lay_fallas);
 		
+		btn_editar_c=(Button) findViewById(R.id.btn_Editar_componentes);
+		btn_eliminar_c=(Button) findViewById(R.id.btn_Eliminar_componentes);
+		btn_insertar_c=(Button) findViewById(R.id.btn_Insertar_componentes);
+		
 		eTxt_Modelos =(EditText) findViewById(R.id.eTxt_Modelos);
 		eTxt_Versiones=(EditText) findViewById(R.id.eTxt_Versiones);
 		eTxt_Fallas =(EditText) findViewById(R.id.eTxt_Fallas);
+		eTxt_Componentes =(EditText) findViewById(R.id.eTxt_Componentes);
+		
+		txtV_posicion=(TextView) findViewById(R.id.txtV_posicion);
 	}
 }

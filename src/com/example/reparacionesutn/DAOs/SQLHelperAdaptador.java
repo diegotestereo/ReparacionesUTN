@@ -10,7 +10,6 @@ import com.example.reparacionesutn.objetos.ModelosClase;
 import com.example.reparacionesutn.objetos.ReparacionesClase;
 import com.example.reparacionesutn.objetos.VersionesClase;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -32,7 +31,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 
 		// Creo la tabla reparaciones
 		db.execSQL("CREATE TABLE Tabla_Reparaciones (id_reparacion INTEGER PRIMARY KEY ,fecha_in TEXT"
-				+ ",id_modelo INT,id_version INT,id_falla INT,observaciones TEXT," + "FOREIGN KEY (id_modelo) REFERENCES Tabla_Modelos(id_modelo),"
+				+ ",serial INT,id_modelo INT,id_version INT,id_falla INT,observaciones TEXT," + "FOREIGN KEY (id_modelo) REFERENCES Tabla_Modelos(id_modelo),"
 				+ "FOREIGN KEY (id_version) REFERENCES Tabla_Versiones(id_version)," + "FOREIGN KEY (id_falla) REFERENCES Tabla_Fallas(id_falla))");
 
 		// creo tabla modelos de equipos
@@ -48,7 +47,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 
 		db.execSQL("CREATE TABLE Tabla_Componentes (id_componente INTEGER PRIMARY KEY,nom_componente TEXT)");
 
-		// creo tabvlka componentes usados
+		// creo tablka componentes usados
 
 		db.execSQL("CREATE TABLE Tabla_Comp_Usados (id_comp_usado INTEGER PRIMARY KEY," + "id_componente INT,id_reparacion INT, cantidadComp INT,"
 				+ " FOREIGN KEY (id_componente) REFERENCES Tabla_Componentes(id_componente),"
@@ -100,7 +99,6 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FET IRF5210S')");
 		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('BUFFER 74LVC273')");
 		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('MOD MAX 2150')");
-
 		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('TPS 40009')");
 		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('FILTRO GBP202SE')");
 		db.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('DIODO SS14')");
@@ -115,7 +113,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		// borro tabla
 		db.execSQL("DROP TABLE IF EXISTS Tabla_Reparaciones");
 		// Creo la tabla reparaciones
-		db.execSQL("CREATE TABLE Tabla_Reparaciones (id_reparacion INTEGER PRIMARY KEY , fecha_in DATE"
+		db.execSQL("CREATE TABLE Tabla_Reparaciones (id_reparacion INTEGER PRIMARY KEY , fecha_in TEXT"
 				+ ",serial INT,id_modelo INT, id_version INT, id_falla INT,observaciones TEXT)");
 
 		// borro tabla
@@ -207,8 +205,9 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 	{
 
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		baseDatos.execSQL("INSERT INTO Tabla_Reparaciones (fecha_in,serial,id_modelo,id_version,id_falla, observaciones) " + "VALUES ('" + fecha_in + "',"
-				+ serial + "," + id_modelo + "," + id_version + "," + id_falla + ",'" + observaciones + "')");
+		baseDatos.execSQL("INSERT INTO Tabla_Reparaciones (fecha_in,serial,id_modelo,id_version,id_falla, observaciones) "
+		+"VALUES ('" + fecha_in + "',"+ serial + "," + id_modelo + "," + id_version + "," + id_falla + ",'"
+		+ observaciones + "')");
 		baseDatos.close();
 	}
 
@@ -234,6 +233,15 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		SQLiteDatabase baseDatos = getWritableDatabase();
 		baseDatos.execSQL("INSERT INTO Tabla_versiones (nom_version) VALUES ('" + nom_version + "')");
 		baseDatos.close();
+	}
+	
+	public void insertarComponentes(String nom_componente){
+		
+		SQLiteDatabase baseDatos = getWritableDatabase();
+		baseDatos.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('" + nom_componente + "')");
+		baseDatos.close();
+		
+		
 	}
 
 	// ////////////////////FIN INSERTAR EN TABLAS
@@ -286,12 +294,23 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		return cantidad;
 	}
 
-	// /////////////////FIN RECUPERAR CANTIDAD FILAS
-	// TABLAS///////////////////////////////////////////////////////
-	// **************************************************************************************
-	// /////////////////////// BORRAR FILA TABLAS
-	// /////////////////////////////////////////////////////////////////////////////////
+	public int recuperarCantidadComponentes()
+	{
+		SQLiteDatabase baseDatos = getWritableDatabase();
+		String sql = "SELECT * FROM Tabla_Componentes";
+		Cursor cursor = baseDatos.rawQuery(sql, null);
+		int cantidad = cursor.getCount();
+		cursor.close();
+		baseDatos.close();
+		return cantidad;
+	}
 
+	// /////////////////FIN RECUPERAR CANTIDAD FILAS
+	
+	// **************************************************************************************
+	
+	// /////////////////////// BORRAR FILA TABLAS
+	
 	public void borrarReparacion(ReparacionesClase oReparacion)
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
@@ -321,13 +340,18 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		baseDatos.close();
 	}
 
-	// /////////////////////////////////////FIN BORRAR FILA
-	// TABLAS//////////////////////////////////////////////////////////////
+	public void borrarNombreComponente(int id_componente)
+	{
+		SQLiteDatabase baseDatos = getWritableDatabase();
+		baseDatos.execSQL("DELETE FROM Tabla_Componentes  WHERE id_componente ='" + id_componente + "'");
+		baseDatos.close();
+	}
+
+	
+	// /////////////////////////////////////FIN BORRAR FILA TABLAS/////////////////////////////////
 
 	// ///////////////////////////////////RECUPERAR DATOS DE TABLAS
-	// ////////////////////////////////////
-
-	@SuppressLint("SimpleDateFormat")
+		
 	public ArrayList<ReparacionesClase> recuperarReparaciones()
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
@@ -355,11 +379,11 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 			{
 				e.printStackTrace();
 			}
-
-			oReparacion.setId_modelo(cursor.getInt(2));
-			oReparacion.setId_version(cursor.getInt(3));
-			oReparacion.setId_falla(cursor.getInt(4));
-			oReparacion.setObservaciones(cursor.getString(5));
+			oReparacion.setSerial(cursor.getInt(2));
+			oReparacion.setId_modelo(cursor.getInt(3));
+			oReparacion.setId_version(cursor.getInt(4));
+			oReparacion.setId_falla(cursor.getInt(5));
+			oReparacion.setObservaciones(cursor.getString(6));
 
 			reparacionArray.add(oReparacion);
 		}
@@ -431,6 +455,9 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		return versionArray;
 	}
 	
+	
+	
+	
 	public String[] recuperarNombresModelos()
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
@@ -484,5 +511,26 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		return fallaArray;
 	}
 	
+	public String[] recuperarNombresComponentes(){
+		
+		SQLiteDatabase baseDatos =getWritableDatabase();
+		String sql = "SELECT * FROM Tabla_Componentes";
+		
+		Cursor cursor= baseDatos.rawQuery(sql, null);
+		
+		String[] componentesArray =new String[cursor.getCount()];
+		
+		int i=0;
+		
+		while(cursor.moveToNext()){
+			componentesArray[i]=cursor.getString(1);
+			i++;			
+		}
+		cursor.close();
+		baseDatos.close();
+			
+		return componentesArray;
+		
+	}	
 	
 }

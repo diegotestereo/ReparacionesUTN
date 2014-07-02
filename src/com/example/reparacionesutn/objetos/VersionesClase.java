@@ -2,15 +2,15 @@ package com.example.reparacionesutn.objetos;
 
 public class VersionesClase {
 	
-	int in_version;
+	int id_version;
 	String nom_version;
 	
 	public int getIn_version() {
-		return in_version;
+		return id_version;
 	}
 
 	public void setIn_version(int in_version) {
-		this.in_version = in_version;
+		this.id_version = in_version;
 	}
 
 	public String getNom_version() {
