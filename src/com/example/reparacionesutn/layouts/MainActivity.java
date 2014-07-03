@@ -32,7 +32,7 @@ public class MainActivity extends Activity {
 	ModelosClase oModelo;
    	FallasClase oFalla;
    	VersionesClase oVersion;
-   	
+   	ReparacionesClase oReparacion = new ReparacionesClase();
    	ArrayList<ReparacionesClase> listadoReparaciones;
    	
     SQLHelperAdaptador dao ;
@@ -64,8 +64,8 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				//startActivity(intento);
 			txtV_nReparaciones.setText(Integer.toString(dao.recuperarCantidadReparaciones()));	
-			
-				
+			listadoReparaciones=dao.recuperarReparaciones();
+			/////////
 			}
 		});
 		
