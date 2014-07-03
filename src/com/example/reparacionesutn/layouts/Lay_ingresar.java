@@ -2,13 +2,16 @@ package com.example.reparacionesutn.layouts;
 
 
 import java.util.Date;
+
 import com.example.reparacionesutn.R;
 import com.example.reparacionesutn.DAOs.SQLHelperAdaptador;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnKeyListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -41,7 +44,22 @@ public class Lay_ingresar extends Activity{
 		Botones();
 		cargaAdaptadores();
 		Spinners();
+		SetEventos();
 		txt_date.setText(fecha);
+	}
+
+	private void SetEventos() {
+
+		etxt_serial.setOnKeyListener(new OnKeyListener() {
+			
+			@Override
+			public boolean onKey(View v, int keyCode, KeyEvent event) {
+
+				if(etxt_serial.getText().toString().length()>=6)return true;
+				return false;
+			}
+		});
+		
 	}
 
 	private void Spinners() {
@@ -137,6 +155,10 @@ public class Lay_ingresar extends Activity{
 			
 		});
 	}
+	
+	
+	
+	
 
 	private void levantarXML() {
 		

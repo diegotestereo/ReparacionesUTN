@@ -35,19 +35,13 @@
                 android:layout_height="wrap_content"
                 android:text="Buscar Equipo" />
 
-            <TextView
-                android:id="@+id/txtV_posicion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Serial"
-                android:textSize="20dp" />
-
             <EditText
                 android:id="@+id/eTxt_Serial"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:ems="10"
+                android:hint="Ingrese Serial"
                 android:inputType="number" >
 
                 <requestFocus />
