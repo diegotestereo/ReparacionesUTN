@@ -5,16 +5,17 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-import com.example.reparacionesutn.objetos.FallasClase;
-import com.example.reparacionesutn.objetos.ModelosClase;
-import com.example.reparacionesutn.objetos.ReparacionesClase;
-import com.example.reparacionesutn.objetos.VersionesClase;
-
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.reparacionesutn.objetos.ComponentesClase;
+import com.example.reparacionesutn.objetos.FallasClase;
+import com.example.reparacionesutn.objetos.ModelosClase;
+import com.example.reparacionesutn.objetos.ReparacionesClase;
+import com.example.reparacionesutn.objetos.VersionesClase;
 
 public class SQLHelperAdaptador extends SQLiteOpenHelper
 {
@@ -340,10 +341,10 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		baseDatos.close();
 	}
 
-	public void borrarNombreComponente(int id_componente)
+	public void borrarNombreComponente(ComponentesClase nom_componente)
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		baseDatos.execSQL("DELETE FROM Tabla_Componentes  WHERE id_componente ='" + id_componente + "'");
+		baseDatos.execSQL("DELETE FROM Tabla_Componentes  WHERE nom_componente ='" + nom_componente.getNom_componente() + "'");
 		baseDatos.close();
 	}
 
