@@ -241,8 +241,6 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		SQLiteDatabase baseDatos = getWritableDatabase();
 		baseDatos.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('" + nom_componente + "')");
 		baseDatos.close();
-		
-		
 	}
 
 	// ////////////////////FIN INSERTAR EN TABLAS
@@ -319,10 +317,10 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		baseDatos.close();
 	}
 
-	public void borrarNombreModelo(int id_modelo)
+	public void borrarNombreModelo(ModelosClase oModelo)
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		baseDatos.execSQL("DELETE FROM Tabla_Modelos  WHERE id_modelo = " + id_modelo + "");
+		baseDatos.execSQL("DELETE FROM Tabla_Modelos  WHERE NOM_modelo = '" + oModelo.getNom_modelo() + "'");
 		baseDatos.close();
 	}
 
@@ -455,9 +453,6 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		baseDatos.close();
 		return versionArray;
 	}
-	
-	
-	
 	
 	public String[] recuperarNombresModelos()
 	{

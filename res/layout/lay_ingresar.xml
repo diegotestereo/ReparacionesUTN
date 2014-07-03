@@ -72,7 +72,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/txtV_Reparaciones"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Modelo" />
@@ -80,9 +80,7 @@
             <Spinner
                 android:id="@+id/spin_modelos"
                 android:layout_width="89dp"
-                android:layout_height="wrap_content"
-                 android:textColor="@android:color/black"
-             android:textSize="11dp" />
+                android:layout_height="wrap_content" />
             
         </LinearLayout>
 
@@ -112,7 +110,7 @@
             android:orientation="vertical" >
 
             <TextView
-                android:id="@+id/textView5"
+                android:id="@+id/txtV_Fecha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Falla     " />
@@ -142,7 +140,7 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/txtV_observaciones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"

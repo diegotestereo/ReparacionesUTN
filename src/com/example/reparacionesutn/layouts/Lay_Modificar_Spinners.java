@@ -36,7 +36,9 @@ public class Lay_Modificar_Spinners extends Activity
 	FallasClase oFalla;
 	VersionesClase oVersion;
 	ComponentesClase oComponente;
-
+	
+//////////////////////////////////////ON CREATE ////////////////////////////////////////////////
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState)
 	{
@@ -57,7 +59,9 @@ public class Lay_Modificar_Spinners extends Activity
 		eTxt_Versiones.setText("");
 
 	}
-
+	
+////////////////////SPINNERS/////////////////////////////////////////////////////////////////////////////
+	
 	private void spinners()
 	{
 		spin_modelos.setOnItemSelectedListener(new OnItemSelectedListener()
@@ -119,7 +123,7 @@ public class Lay_Modificar_Spinners extends Activity
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
 			{
-				pos_spin_componente = position;
+				eTxt_Componentes.setText(dao.recuperarNombresComponentes()[position]);
 				txtV_posicion.setText(""+position);
 
 			}
@@ -135,31 +139,33 @@ public class Lay_Modificar_Spinners extends Activity
 
 	private void setAdaptadores()
 	{
-
+		//los adaptadores recuperan el listado de nombres que luego se asignan a los spinners correspondientes...
 		adaptadorModelos = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dao.recuperarNombresModelos());
 		adaptadorVersiones = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dao.recuperarNombresVersiones());
 		adaptadorFallas = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dao.recuperarNombresFallas());
 		adaptadorComponentes = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dao.recuperarNombresComponentes());
 
+		// se cargan los spinners con el contenido de los adapatadores...
 		spin_componentes.setAdapter(adaptadorComponentes);
 		spin_fallas.setAdapter(adaptadorFallas);
 		spin_modelos.setAdapter(adaptadorModelos);
 		spin_versiones.setAdapter(adaptadorVersiones);
 	}
 
+	
+	////// BOTONES/////////////////////////////////////////////////////////////////////////////////////////////
+	
 	private void botones()
 	{
-
 		// /////////botones modelos////////////////////////////////
 		btn_insertar_m.setOnClickListener(new OnClickListener()
 		{
-
 			@Override
 			public void onClick(View v)
 			{
 				dao.insertarModelo(eTxt_Modelos.getText().toString());
 				setAdaptadores();
-				Toast.makeText(getApplicationContext(), "Modelo agregado", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "Modelo '"+oModelo.getNom_modelo()+"' agregado", Toast.LENGTH_SHORT).show();
 				eTxt_Modelos.getText().clear();
 
 			}
@@ -179,9 +185,12 @@ public class Lay_Modificar_Spinners extends Activity
 			@Override
 			public void onClick(View v)
 			{
-				dao.borrarNombreModelo(pos_spin_componente);
+				
+				oModelo = new ModelosClase();
+				oModelo.setNom_modelo(eTxt_Modelos.getText().toString());
+				dao.borrarNombreModelo(oModelo);
 				setAdaptadores();
-				Toast.makeText(getApplicationContext(), "Modelo eliminado", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "Modelo '"+oModelo.getNom_modelo()+"' eliminado", Toast.LENGTH_SHORT).show();
 				eTxt_Modelos.getText().clear();
 
 			}
@@ -197,7 +206,7 @@ public class Lay_Modificar_Spinners extends Activity
 			{
 				dao.insertarVersion(eTxt_Versiones.getText().toString());				
 				setAdaptadores();
-				Toast.makeText(getApplicationContext(), "Version agregada", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "Version '"+oVersion.getNom_version()+"' agregada", Toast.LENGTH_SHORT).show();
 				eTxt_Versiones.getText().clear();
 			}
 		});
@@ -220,7 +229,7 @@ public class Lay_Modificar_Spinners extends Activity
 				oVersion.setNom_version(eTxt_Versiones.getText().toString());
 				dao.borrarNombreVersion(oVersion);
 				setAdaptadores();
-				Toast.makeText(getApplicationContext(), "Version eliminada", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "Version '"+oVersion.getNom_version()+"' eliminada", Toast.LENGTH_SHORT).show();
 				eTxt_Versiones.getText().clear();
 			}
 		});
@@ -233,7 +242,7 @@ public class Lay_Modificar_Spinners extends Activity
 			{
 				dao.insertarFalla(eTxt_Fallas.getText().toString());
 				setAdaptadores();
-				Toast.makeText(getApplicationContext(), "Falla agregada", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "Falla '"+oFalla.getNom_falla()+"' agregada", Toast.LENGTH_SHORT).show();
 				eTxt_Fallas.getText().clear();
 			}
 		});
@@ -256,7 +265,7 @@ public class Lay_Modificar_Spinners extends Activity
 				oFalla.setNom_falla(eTxt_Fallas.getText().toString());
 				dao.borrarNombreFalla(oFalla);
 				setAdaptadores();
-				Toast.makeText(getApplicationContext(), "Falla eliminada", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "Falla '"+oFalla.getNom_falla()+"' eliminada", Toast.LENGTH_SHORT).show();
 				eTxt_Fallas.getText().clear();
 			}
 		});
@@ -270,7 +279,7 @@ public class Lay_Modificar_Spinners extends Activity
 			{
 				dao.insertarComponentes(eTxt_Componentes.getText().toString());
 				setAdaptadores();
-				Toast.makeText(getApplicationContext(), "Componente agregado", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "Componente '"+oComponente.getNom_componente()+"' agregado", Toast.LENGTH_SHORT).show();
 				eTxt_Componentes.getText().clear();
 			}
 		});
@@ -293,7 +302,7 @@ public class Lay_Modificar_Spinners extends Activity
 				oComponente.setNom_componente(eTxt_Componentes.getText().toString());
 				dao.borrarNombreComponente(oComponente);
 				setAdaptadores();
-				Toast.makeText(getApplicationContext(), "Componente eliminado", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "Componente '"+oComponente.getNom_componente()+"' eliminado", Toast.LENGTH_SHORT).show();
 				eTxt_Componentes.getText().clear();
 
 			}
