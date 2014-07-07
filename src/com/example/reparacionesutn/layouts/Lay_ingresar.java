@@ -44,11 +44,11 @@ public class Lay_ingresar extends Activity{
 		Botones();
 		cargaAdaptadores();
 		Spinners();
-		SetEventos();
+		//SetEventos();
 		txt_date.setText(fecha);
 	}
 
-	private void SetEventos() {
+	/*private void SetEventos() {
 
 		etxt_serial.setOnKeyListener(new OnKeyListener() {
 			
@@ -60,7 +60,7 @@ public class Lay_ingresar extends Activity{
 			}
 		});
 		
-	}
+	}*/
 
 	private void Spinners() {
 		posSpinVersion= spin_versiones.getSelectedItemPosition()+1;
