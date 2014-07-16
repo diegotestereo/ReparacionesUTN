@@ -64,6 +64,7 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				//startActivity(intento);
 			txtV_nReparaciones.setText(Integer.toString(dao.recuperarCantidadReparaciones()));	
+			startActivity(intento);
 			listadoReparaciones=dao.recuperarReparaciones();
 			/////////
 			}

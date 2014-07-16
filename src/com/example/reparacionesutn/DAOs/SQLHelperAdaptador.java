@@ -352,9 +352,12 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 	// ///////////////////////////////////RECUPERAR DATOS DE TABLAS
 		
 	public ArrayList<ReparacionesClase> recuperarReparaciones()
+	//public ArrayList<ReparacionesClase> recuperarReparaciones(int serie)
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
 		String sql = "SELECT * FROM Tabla_Reparaciones";
+		//String sql = "SELECT * FROM Tabla_Reparaciones WHERE serial=serie";
+		
 		Cursor cursor = baseDatos.rawQuery(sql, null);
 		ArrayList<ReparacionesClase> reparacionArray = new ArrayList<ReparacionesClase>();
 
