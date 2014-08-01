@@ -2,14 +2,23 @@ package com.example.reparacionesutn.objetos;
 
 import java.util.Date;
 
+import android.graphics.drawable.Drawable;
+
 public class ReparacionesClase {
 	
 	
 	int id_Reparacion,serial,id_modelo,id_version,id_falla;
 	String observaciones;
 	Date fecha;
+	Drawable iconoEquipo;
 	
 	
+public Drawable getIconoEquipo() {
+		return iconoEquipo;
+	}
+	public void setIconoEquipo(Drawable iconoEquipo) {
+		this.iconoEquipo = iconoEquipo;
+	}
 public ReparacionesClase(){
 				
 		
@@ -68,6 +77,10 @@ public ReparacionesClase(){
 
 	public void setId_falla(int id_falla) {
 		this.id_falla = id_falla;
+	}
+	public Drawable getImagen() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

@@ -1,33 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/RelativeLayout1"
+    android:id="@+id/ll_row"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:background="@android:color/holo_blue_light" >
 
     <ImageView
         android:id="@+id/imv_icono"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="73dp"
+        android:layout_height="73dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:src="@drawable/ic_launcher" />
+        android:src="@drawable/ic_launcher_3100"/>
 
     <TextView
         android:id="@+id/tv_titulo"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imageView1"
-        android:layout_marginLeft="19dp"
-        android:layout_toRightOf="@+id/imageView1"
-        android:text="TextView" />
+        android:gravity="top"
+        android:layout_alignLeft="@+id/tv_descripcion"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="18dp"
+        android:text="Titulo"
+        android:textColor="@android:color/black"
+        android:textSize="16dp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/tv_contenido"
-        android:layout_width="wrap_content"
+        android:id="@+id/tv_descripcion"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView1"
-        android:layout_alignParentTop="true"
-        android:text="TextView" />
+        android:layout_alignBottom="@+id/imv_icono"
+        android:layout_below="@+id/tv_titulo"
+        android:layout_toRightOf="@+id/imv_icono"
+        android:text="Informacion"
+        android:textColor="@android:color/black" />
 
 </RelativeLayout>

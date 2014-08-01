@@ -2,7 +2,6 @@ package com.example.reparacionesutn.layouts;
 
 
 
-import java.util.ArrayList;
 
 import com.example.reparacionesutn.R;
 import com.example.reparacionesutn.DAOs.SQLHelperAdaptador;
@@ -14,7 +13,7 @@ import com.example.reparacionesutn.objetos.VersionesClase;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -33,8 +32,7 @@ public class MainActivity extends Activity {
    	FallasClase oFalla;
    	VersionesClase oVersion;
    	ReparacionesClase oReparacion = new ReparacionesClase();
-   	ArrayList<ReparacionesClase> listadoReparaciones;
-   	
+ 
     SQLHelperAdaptador dao ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +42,7 @@ public class MainActivity extends Activity {
      
         dao = new SQLHelperAdaptador(MainActivity.this, getString(R.string.DataBase), null, 1);
 		//
-		Log.d("AplicacionReparaciones", "Cantidad de Reparaciones:"+dao.recuperarCantidadReparaciones());
-        botones();
+	 botones();
      }
 
 	private void botones() {
@@ -58,16 +55,37 @@ public class MainActivity extends Activity {
 			}
 		});
 		btn_buscarEquipos.setOnClickListener(new OnClickListener() {
-			Intent intento=new Intent(MainActivity.this,Lay_buscar.class);
 			
+			
+			
+			
+			Intent intento=new Intent(MainActivity.this,Lay_buscar.class);
+			int numSerie;
 			@Override
 			public void onClick(View v) {
-				//startActivity(intento);
-			txtV_nReparaciones.setText(Integer.toString(dao.recuperarCantidadReparaciones()));	
-			startActivity(intento);
-			listadoReparaciones=dao.recuperarReparaciones();
-			/////////
+				
+			if (!(eTxt_Serial.getText().toString().equals(""))){
+			
+			numSerie = Integer.parseInt(eTxt_Serial.getText().toString());
+			txtV_nReparaciones.setText(Integer.toString(dao.recuperarCantidadReparaciones(numSerie)));
+			
+			intento.putExtra("serial", numSerie);
+			if(!dao.recuperarReparaciones(numSerie).equals("0")){
+				startActivity(intento);
 			}
+			else{
+				Toast.makeText(getApplicationContext(), "NO SE ENCONTRO SU BUSQUEDA", Toast.LENGTH_SHORT).show();
+			
+			}
+			
+			/////////
+			}else{
+				Toast.makeText(getApplicationContext(), "Ingrese equipo a buscar", Toast.LENGTH_SHORT).show();
+			
+			}
+				}
+			
+			
 		});
 		
 		btn_Modificar_spin.setOnClickListener(new OnClickListener() {

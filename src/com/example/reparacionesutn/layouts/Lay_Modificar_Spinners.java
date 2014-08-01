@@ -29,7 +29,7 @@ public class Lay_Modificar_Spinners extends Activity
 			btn_eliminar_m, btn_editar_m, btn_insertar_v, btn_eliminar_v,
 			btn_editar_v, btn_insertar_f, btn_eliminar_f, btn_editar_f;
 	EditText eTxt_Modelos, eTxt_Versiones, eTxt_Fallas, eTxt_Componentes;
-	TextView txtV_posicion;
+
 	ArrayAdapter<String> adaptadorModelos, adaptadorFallas, adaptadorVersiones,adaptadorComponentes;
 	SQLHelperAdaptador dao;
 	ModelosClase oModelo;
@@ -71,7 +71,7 @@ public class Lay_Modificar_Spinners extends Activity
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
 			{
 				eTxt_Modelos.setText(dao.recuperarNombresModelos()[position]);
-				txtV_posicion.setText(""+position);
+			
 			}
 
 			@Override
@@ -88,7 +88,7 @@ public class Lay_Modificar_Spinners extends Activity
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
 			{
 				eTxt_Versiones.setText(dao.recuperarNombresVersiones()[position]);
-				txtV_posicion.setText(""+position);
+				
 			}
 
 			@Override
@@ -106,7 +106,7 @@ public class Lay_Modificar_Spinners extends Activity
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
 			{
 				eTxt_Fallas.setText(dao.recuperarNombresFallas()[position]);
-				txtV_posicion.setText(""+position);
+				
 			}
 
 			@Override
@@ -124,7 +124,7 @@ public class Lay_Modificar_Spinners extends Activity
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
 			{
 				eTxt_Componentes.setText(dao.recuperarNombresComponentes()[position]);
-				txtV_posicion.setText(""+position);
+				
 
 			}
 
@@ -338,6 +338,5 @@ public class Lay_Modificar_Spinners extends Activity
 		eTxt_Fallas = (EditText) findViewById(R.id.eTxt_Fallas);
 		eTxt_Componentes = (EditText) findViewById(R.id.eTxt_Componentes);
 
-		txtV_posicion = (TextView) findViewById(R.id.txtV_posicion);
 	}
 }

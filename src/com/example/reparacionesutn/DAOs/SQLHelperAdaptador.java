@@ -249,10 +249,10 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 	// ////////////////// RECUPERAR CANTIDAD FILAS
 	// TABLAS///////////////////////////////////////////////////////
 
-	public int recuperarCantidadReparaciones()
+	public int recuperarCantidadReparaciones(int serial)
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		String sql = "SELECT * FROM Tabla_Reparaciones";
+		String sql = "SELECT * FROM Tabla_Reparaciones WHERE serial="+serial;
 		Cursor cursor = baseDatos.rawQuery(sql, null);
 		int cantidad = cursor.getCount();
 		cursor.close();
@@ -351,12 +351,12 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 
 	// ///////////////////////////////////RECUPERAR DATOS DE TABLAS
 		
-	public ArrayList<ReparacionesClase> recuperarReparaciones()
-	//public ArrayList<ReparacionesClase> recuperarReparaciones(int serie)
+	//public ArrayList<ReparacionesClase> recuperarReparaciones()
+	public ArrayList<ReparacionesClase> recuperarReparaciones(int serie)
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		String sql = "SELECT * FROM Tabla_Reparaciones";
-		//String sql = "SELECT * FROM Tabla_Reparaciones WHERE serial=serie";
+		//String sql = "SELECT * FROM Tabla_Reparaciones";
+		String sql = "SELECT * FROM Tabla_Reparaciones WHERE serial="+serie;    //name LIKE '%LIM%'
 		
 		Cursor cursor = baseDatos.rawQuery(sql, null);
 		ArrayList<ReparacionesClase> reparacionArray = new ArrayList<ReparacionesClase>();

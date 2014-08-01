@@ -117,7 +117,7 @@ public class Lay_ingresar extends Activity{
 		spin_modelos.setAdapter(adaptadorModelos);
 		spin_versiones.setAdapter(adaptadorVersiones);
 		
-		txtV_Reparacion.setText(Integer.toString(dao.recuperarCantidadReparaciones()+1));
+	//	txtV_Reparacion.setText(Integer.toString(dao.recuperarCantidadReparaciones()+1));
 		
 	}
 
@@ -133,7 +133,7 @@ public class Lay_ingresar extends Activity{
 					
 			dao.insertarReparacion(fecha, Integer.parseInt(etxt_serial.getText().toString()), posSpinModelo,posSpinVersion, posSpinFalla, observaciones.getText().toString());	
 			txtV_prueba.setText("fecha:"+fecha+" Serial:"+ Integer.parseInt(etxt_serial.getText().toString())+"posicion modelo:"+posSpinModelo+" Posicion Falla: "+posSpinFalla +" Posicion Version: "+posSpinVersion+" observacion:"+observaciones.getText().toString());
-			Toast.makeText(getApplicationContext(), "Reparacion N° "+dao.recuperarCantidadReparaciones()+" Ingresada !!!", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "Reparacion Ingresada !!!", Toast.LENGTH_SHORT).show();
 				}else{
 					Toast.makeText(getApplicationContext(), "Ingrese Observaciones", Toast.LENGTH_SHORT).show();
 					}
@@ -146,7 +146,7 @@ public class Lay_ingresar extends Activity{
 				spin_fallas.setSelection(0);
 				spin_modelos.setSelection(0);
 				spin_versiones.setSelection(0);
-				txtV_Reparacion.setText(Integer.toString(dao.recuperarCantidadReparaciones()+1));
+				//txtV_Reparacion.setText(Integer.toString(dao.recuperarCantidadReparaciones()+1));
 				etxt_serial.setText("");
 				observaciones.setText("");
 

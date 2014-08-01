@@ -11,6 +11,7 @@
         android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_light"
         android:orientation="vertical" >
 
         <Space
@@ -37,16 +38,15 @@
 
             <EditText
                 android:id="@+id/eTxt_Serial"
-                android:layout_width="wrap_content"
+                android:layout_width="118dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
+                android:layout_weight="0.27"
                 android:ems="10"
                 android:hint="Ingrese Serial"
                 android:inputType="number" >
 
                 <requestFocus />
             </EditText>
-
         </LinearLayout>
 
         <Button
