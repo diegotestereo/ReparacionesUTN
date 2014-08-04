@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
+
 import android.widget.Toast;
 
 import com.example.reparacionesutn.R;
@@ -140,7 +140,7 @@ public class Lay_Modificar_Spinners extends Activity
 	private void setAdaptadores()
 	{
 		//los adaptadores recuperan el listado de nombres que luego se asignan a los spinners correspondientes...
-		adaptadorModelos = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dao.recuperarNombresModelos());
+		adaptadorModelos = new ArrayAdapter<String>(this, R.layout.spinner_text, dao.recuperarNombresModelos());
 		adaptadorVersiones = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dao.recuperarNombresVersiones());
 		adaptadorFallas = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dao.recuperarNombresFallas());
 		adaptadorComponentes = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dao.recuperarNombresComponentes());
@@ -148,6 +148,7 @@ public class Lay_Modificar_Spinners extends Activity
 		// se cargan los spinners con el contenido de los adapatadores...
 		spin_componentes.setAdapter(adaptadorComponentes);
 		spin_fallas.setAdapter(adaptadorFallas);
+		//spin_modelos.setAdapter(adaptadorModelos);
 		spin_modelos.setAdapter(adaptadorModelos);
 		spin_versiones.setAdapter(adaptadorVersiones);
 	}

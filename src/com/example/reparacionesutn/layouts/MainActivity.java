@@ -24,7 +24,7 @@ import android.widget.Toast;
 
 public class MainActivity extends Activity {
  
-	Button btn_Reparacion,btn_Modificar_spin,btn_buscarEquipos;
+	Button btn_VerReparaciones,btn_Reparacion,btn_Modificar_spin,btn_buscarEquipos;
 	EditText eTxt_Serial;
 	TextView txtV_Observaciones,txtV_Falla,txtV_Fecha,txtV_Serial,txtV_nReparaciones; 
 	///OBJETOS
@@ -88,6 +88,18 @@ public class MainActivity extends Activity {
 			
 		});
 		
+		btn_VerReparaciones.setOnClickListener(new OnClickListener() {
+			
+			Intent intento=new Intent(MainActivity.this,Lay_VerReparaciones.class);
+			
+			@Override
+			public void onClick(View v) {
+				startActivity(intento);}
+			
+			
+		});
+		
+		
 		btn_Modificar_spin.setOnClickListener(new OnClickListener() {
 			Intent intento=new Intent(MainActivity.this,Lay_Modificar_Spinners.class);
 			@Override
@@ -103,7 +115,8 @@ public class MainActivity extends Activity {
 		btn_Reparacion=(Button) findViewById(R.id.Btn_Reparacion);
 		btn_Modificar_spin=(Button) findViewById(R.id.btn_Spinners);
 		btn_buscarEquipos=(Button) findViewById(R.id.btn_BuscarEquipo);
-	
+		btn_VerReparaciones=(Button) findViewById(R.id.btn_VerReparaciones);
+		
 		txtV_nReparaciones=(TextView) findViewById(R.id.txtV_nReparaciones); 
 		txtV_Observaciones=(TextView) findViewById(R.id.txtV_observaciones);
 		txtV_Falla=(TextView) findViewById(R.id.txtV_Falla);

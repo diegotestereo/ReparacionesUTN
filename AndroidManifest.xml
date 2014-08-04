@@ -24,10 +24,13 @@
         </activity>
         <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_ingresar"
-            android:label="Ingresar Reparación" >  
-        </activity>
-         <activity 
+            android:label="Ingresar Reparación" > </activity>
+        
+            <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_buscar"
+            android:label="Buscar Equipo"></activity>
+           <activity 
+            android:name="com.example.reparacionesutn.layouts.Lay_VerReparaciones"
             android:label="Buscar Equipo"></activity>
           <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_tablas"

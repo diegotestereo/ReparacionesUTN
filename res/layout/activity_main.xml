@@ -26,6 +26,12 @@
             android:layout_gravity="left|top"
             android:text="Ingresar Reparacion" />
 
+        <Button
+            android:id="@+id/btn_VerReparaciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ver Reparaciones" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
@@ -65,7 +71,7 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:id="@+id/textView1"
+                    android:id="@+id/id_texto"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="N° Reparaciones: " />

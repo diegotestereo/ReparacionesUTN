@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fondo_azul_obs">#5D8DBB</color>
+    <color name="fondo_azul_claro">#98D2E6</color>
+    <color name="gris_icono">#BAC2C5</color>
+    
+    <color name="my_spinner_text_color">#808080</color>
+   
+</resources>

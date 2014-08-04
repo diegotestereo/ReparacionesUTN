@@ -259,7 +259,16 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		baseDatos.close();
 		return cantidad;
 	}
-
+	public int recuperarCantidadReparaciones()
+	{
+		SQLiteDatabase baseDatos = getWritableDatabase();
+		String sql = "SELECT * FROM Tabla_Reparaciones";
+		Cursor cursor = baseDatos.rawQuery(sql, null);
+		int cantidad = cursor.getCount();
+		cursor.close();
+		baseDatos.close();
+		return cantidad;
+	}
 	public int recuperarCantidadFallas()
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
@@ -394,6 +403,50 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		return reparacionArray;
 	}
 
+	public ArrayList<ReparacionesClase> recuperarReparaciones()
+		
+		{
+			SQLiteDatabase baseDatos = getWritableDatabase();
+			//String sql = "SELECT * FROM Tabla_Reparaciones";
+			String sql = "SELECT * FROM Tabla_Reparaciones ORDER BY serial";    //name LIKE '%LIM%'
+			
+			Cursor cursor = baseDatos.rawQuery(sql, null);
+			ArrayList<ReparacionesClase> reparacionArray = new ArrayList<ReparacionesClase>();
+
+			while (cursor.moveToNext())
+			{
+				ReparacionesClase oReparacion = new ReparacionesClase();
+
+				oReparacion.setId_Reparacion(cursor.getInt(0));
+
+				// / dor formato de fecha... levanto string y lo paso a DATE
+
+				SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+				String fecha = cursor.getString(1);
+				try
+				{
+					Date date = formatter.parse(fecha);
+					oReparacion.setFecha(date);
+
+				}
+				catch (ParseException e)
+				{
+					e.printStackTrace();
+				}
+				oReparacion.setSerial(cursor.getInt(2));
+				oReparacion.setId_modelo(cursor.getInt(3));
+				oReparacion.setId_version(cursor.getInt(4));
+				oReparacion.setId_falla(cursor.getInt(5));
+				oReparacion.setObservaciones(cursor.getString(6));
+
+				reparacionArray.add(oReparacion);
+			}
+			cursor.close();
+			baseDatos.close();
+			return reparacionArray;
+		}
+	
+	
 	public ArrayList<FallasClase> recuperarFallas()
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();

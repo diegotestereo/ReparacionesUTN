@@ -29,6 +29,7 @@
             android:id="@+id/spin_modelos"
             android:layout_width="125dp"
             android:layout_height="wrap_content"
+          
               android:layout_gravity="center" />
 
     </LinearLayout>

@@ -8,10 +8,10 @@ import com.example.reparacionesutn.DAOs.SQLHelperAdaptador;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.view.KeyEvent;
+
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.View.OnKeyListener;
+
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -44,23 +44,10 @@ public class Lay_ingresar extends Activity{
 		Botones();
 		cargaAdaptadores();
 		Spinners();
-		//SetEventos();
 		txt_date.setText(fecha);
 	}
 
-	/*private void SetEventos() {
 
-		etxt_serial.setOnKeyListener(new OnKeyListener() {
-			
-			@Override
-			public boolean onKey(View v, int keyCode, KeyEvent event) {
-
-				if(etxt_serial.getText().toString().length()>=6)return true;
-				return false;
-			}
-		});
-		
-	}*/
 
 	private void Spinners() {
 		posSpinVersion= spin_versiones.getSelectedItemPosition()+1;
@@ -109,16 +96,14 @@ public class Lay_ingresar extends Activity{
 		//instancio el dao
 		dao=new SQLHelperAdaptador(getApplicationContext(),getString(R.string.DataBase), null, 1);
 		
-		adaptadorFallas=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item,dao.recuperarNombresFallas());
-		adaptadorModelos=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item,dao.recuperarNombresModelos());
-		adaptadorVersiones=new ArrayAdapter<String>(getApplicationContext(),android.R.layout.simple_spinner_item,dao.recuperarNombresVersiones());
+		adaptadorFallas=new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_text,dao.recuperarNombresFallas());
+		adaptadorModelos=new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_text,dao.recuperarNombresModelos());
+		adaptadorVersiones=new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_text,dao.recuperarNombresVersiones());
 		
 		spin_fallas.setAdapter(adaptadorFallas);
 		spin_modelos.setAdapter(adaptadorModelos);
 		spin_versiones.setAdapter(adaptadorVersiones);
-		
-	//	txtV_Reparacion.setText(Integer.toString(dao.recuperarCantidadReparaciones()+1));
-		
+	
 	}
 
 	private void Botones() {
@@ -146,7 +131,7 @@ public class Lay_ingresar extends Activity{
 				spin_fallas.setSelection(0);
 				spin_modelos.setSelection(0);
 				spin_versiones.setSelection(0);
-				//txtV_Reparacion.setText(Integer.toString(dao.recuperarCantidadReparaciones()+1));
+				
 				etxt_serial.setText("");
 				observaciones.setText("");
 
