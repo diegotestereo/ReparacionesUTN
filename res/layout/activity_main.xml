@@ -19,18 +19,35 @@
             android:layout_height="wrap_content"
             android:layout_gravity="fill_vertical" />
 
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
         <Button
             android:id="@+id/Btn_Reparacion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="left|top"
+            android:background="@drawable/boton_selector"
             android:text="Ingresar Reparacion" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/btn_VerReparaciones"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/boton_selector"
             android:text="Ver Reparaciones" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -40,13 +57,15 @@
                 android:id="@+id/btn_BuscarEquipo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="0.11"
+                android:background="@drawable/boton_selector"
                 android:text="Buscar Equipo" />
 
             <EditText
                 android:id="@+id/eTxt_Serial"
                 android:layout_width="118dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.27"
+                android:layout_weight="0.16"
                 android:ems="10"
                 android:hint="Ingrese Serial"
                 android:inputType="number" >
@@ -55,10 +74,16 @@
             </EditText>
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
         <Button
             android:id="@+id/btn_Spinners"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/boton_selector"
             android:text="Modificar Registros" />
 
         <LinearLayout
