@@ -79,7 +79,7 @@ public class AdaptadorCustomizado extends BaseAdapter{
 			holder.text_Titulo.setText("Serial: "+item.getSerial());
 			holder.text_Descripcion.setText(item.getObservaciones());
 			//holder.imagen.setImageDrawable(item.getIconoEquipo().);//getResources().getDrawable(R.drawable.ic_launcher_5100);
-			//holder.image_flag.setImageDrawable(item.getBandera());
+			
 			holder.ll_row.setOnClickListener(new OnClickListener()
 			{			
 				@Override

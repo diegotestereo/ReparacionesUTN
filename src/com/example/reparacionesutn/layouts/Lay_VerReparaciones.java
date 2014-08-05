@@ -15,7 +15,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class Lay_VerReparaciones extends Activity{
-	TextView num_reparaciones,tv_Serial;
+	TextView num_reparaciones;
 	 ListView lista_equipos;
 	
   	 SQLHelperAdaptador dao ;
@@ -47,6 +47,6 @@ public class Lay_VerReparaciones extends Activity{
 	private void levantarXML() {
 	lista_equipos =(ListView) findViewById(R.id.listView1);
 	num_reparaciones =(TextView) findViewById(R.id.tv_num_reparaciones);
-	tv_Serial=(TextView) findViewById(R.id.tv_Serie);
+	
 	}
 }

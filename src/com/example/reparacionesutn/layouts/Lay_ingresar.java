@@ -132,11 +132,14 @@ public class Lay_ingresar extends Activity{
 				spin_modelos.setSelection(0);
 				spin_versiones.setSelection(0);
 				
-				etxt_serial.setText("");
-				observaciones.setText("");
+				//etxt_serial.setText("");
+				//observaciones.setText("");
 
 				}
-			
+
+			//etxt_serial.setText("");
+			//observaciones.setText("");
+
 			
 		});
 	}
@@ -153,7 +156,7 @@ public class Lay_ingresar extends Activity{
 		
 		etxt_serial=(EditText) findViewById(R.id.eTxt_Serial_ingresar);
 		observaciones=(EditText) findViewById(R.id.etxt_observaciones);
-		txtV_prueba=(TextView) findViewById(R.id.txtV_prueba);
+	
 		txt_date=(TextView) findViewById(R.id.txtV_Date);
 		txtV_Reparacion=(TextView) findViewById(R.id.txtV_Reparacion);
 		btn_IngresarReparacion = (Button) findViewById(R.id.btn_IngresarReparacion);

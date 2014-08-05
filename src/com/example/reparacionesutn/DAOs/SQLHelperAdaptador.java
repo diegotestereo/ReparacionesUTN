@@ -364,7 +364,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 	public ArrayList<ReparacionesClase> recuperarReparaciones(int serie)
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		//String sql = "SELECT * FROM Tabla_Reparaciones";
+		
 		String sql = "SELECT * FROM Tabla_Reparaciones WHERE serial="+serie;    //name LIKE '%LIM%'
 		
 		Cursor cursor = baseDatos.rawQuery(sql, null);

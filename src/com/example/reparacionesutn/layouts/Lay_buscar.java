@@ -13,7 +13,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 public class Lay_buscar extends Activity {
-	TextView num_reparaciones,tv_Serial;
+	TextView num_reparaciones;
 	 ListView lista_equipos;
 	
    	 SQLHelperAdaptador dao ;
@@ -33,7 +33,7 @@ public class Lay_buscar extends Activity {
 		
 		Intent intento = getIntent();
 		int valor =intento.getExtras().getInt("serial");
-		tv_Serial.setText(String.valueOf(valor));	
+		
 		 dao = new SQLHelperAdaptador(this, getString(R.string.DataBase), null, 1);
 		 num_reparaciones.setText(Integer.toString(dao.recuperarCantidadReparaciones(valor)));
 	     AdaptadorCustomizado adap= new AdaptadorCustomizado(dao.recuperarReparaciones(valor),getApplicationContext());
@@ -45,7 +45,7 @@ public class Lay_buscar extends Activity {
 	private void levantarXML() {
 	lista_equipos =(ListView) findViewById(R.id.listView1);
 	num_reparaciones =(TextView) findViewById(R.id.tv_num_reparaciones);
-	tv_Serial=(TextView) findViewById(R.id.tv_Serie);
+	
 	}
 
 }
