@@ -48,23 +48,55 @@
                 android:id="@+id/btn_BuscarEquipo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:layout_margin="5dp"
+                android:layout_margin="5dp"
                 android:background="@drawable/boton_selector"
                 android:text="Buscar Equipo" />
 
             <EditText
                 android:id="@+id/eTxt_Serial"
-                android:layout_width="118dp"
-                android:layout_height="wrap_content"
-               android:layout_weight="1"
-                android:ems="10"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_margin="5dp"
+                android:layout_weight="0.30"
+                android:background="@android:color/white"
+                android:ems="10"
                 android:hint="Ingrese Serial"
                 android:inputType="number" >
 
                 <requestFocus />
             </EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" 
+             android:padding="2dp">
+
+            <Spinner
+                android:id="@+id/spin_modelos_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@android:color/white" />
+
+            <Spinner
+                android:id="@+id/spin_versiones_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@android:color/white" />
+
+            <Spinner
+                android:id="@+id/spin_fallas_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="5dp"
+                android:background="@android:color/white" />
+
         </LinearLayout>
 
         <LinearLayout

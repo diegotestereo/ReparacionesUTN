@@ -8,14 +8,17 @@ import com.example.reparacionesutn.objetos.ReparacionesClase;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.AdapterView.OnItemLongClickListener;
 
 public class AdaptadorCustomizado extends BaseAdapter{
 	
@@ -79,6 +82,19 @@ public class AdaptadorCustomizado extends BaseAdapter{
 			holder.text_Titulo.setText("Serial: "+item.getSerial());
 			holder.text_Descripcion.setText(item.getObservaciones());
 			//holder.imagen.setImageDrawable(item.getIconoEquipo().);//getResources().getDrawable(R.drawable.ic_launcher_5100);
+			
+			
+			holder.ll_row.setOnLongClickListener(new OnLongClickListener() {
+				
+				@Override
+				public boolean onLongClick(View v) {
+				
+							
+						
+					return false;
+				}
+			});
+			
 			
 			holder.ll_row.setOnClickListener(new OnClickListener()
 			{			

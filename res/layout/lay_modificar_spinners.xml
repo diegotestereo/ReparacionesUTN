@@ -2,71 +2,88 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/fondo_azul_claro"
-    android:orientation="vertical" >
+    android:background="@drawable/fondo"
+    android:orientation="vertical" 
+     >
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+         android:layout_gravity="center"  >
 
         <TextView
             android:id="@+id/txtV_Serial"
-            android:layout_width="wrap_content"
+            android:layout_width="86dp"
             android:layout_height="wrap_content"
             android:text="Modelos"
-            android:layout_gravity="center"
             android:textSize="20sp"
+                android:layout_weight="1"
+                  android:layout_gravity="center" 
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/eTxt_Modelos"
-            android:layout_width="101dp"
+            android:layout_width="73dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:ems="10" />
+            android:layout_weight="1.38"
+            android:background="@android:color/white"
+            android:ems="10" >
+ 
+            <requestFocus />
+        </EditText>
 
         <Spinner
             android:id="@+id/spin_modelos"
-            android:layout_width="125dp"
+            android:layout_width="92dp"
             android:layout_height="wrap_content"
-          
-              android:layout_gravity="center" />
+            android:layout_gravity="center" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+      android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+         android:layout_gravity="center" >
 
         <Button
             android:id="@+id/btn_Insertar_lay_modelos"
-            android:layout_width="104dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+          	android:layout_weight="1"
+          	android:layout_margin="3dp"
             android:background="@drawable/boton_selector"
+            
             android:text="Insertar" />
 
         <Button
             android:id="@+id/btn_Editar_lay_modelos"
-            android:layout_width="104dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+           	android:layout_weight="1"
+           	  android:layout_margin="3dp"
             android:background="@drawable/boton_selector"
             android:text="Editar" />
 
         <Button
             android:id="@+id/btn_Eliminar_lay_modelos"
-            android:layout_width="113dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
             android:background="@drawable/boton_selector"
-            android:text="Eliminar" />
+         
+            android:text="Eliminar"
+            android:layout_weight="1"
+              android:layout_margin="3dp"
+            android:layout_gravity="center" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+         android:layout_gravity="center"  >
 
         <TextView
             android:id="@+id/TextView3"
@@ -74,49 +91,59 @@
             android:layout_height="wrap_content"
             android:text="Fallas"
             android:layout_gravity="center"
+                android:layout_weight="1"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/eTxt_Fallas"
-            android:layout_width="101dp"
+            android:layout_width="75dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@android:color/white"
             android:ems="10" />
 
         <Spinner
             android:id="@+id/spin_fallas"
-            android:layout_width="128dp"
+            android:layout_width="90dp"
             android:layout_height="wrap_content"
-              android:layout_gravity="center"
-         />
+            android:layout_gravity="center" />
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+       android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+         android:layout_gravity="center" >
 
         <Button
             android:id="@+id/btn_Insertar_lay_fallas"
-            android:layout_width="104dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+             android:layout_weight="1"
+              android:layout_margin="3dp"
             android:background="@drawable/boton_selector"
             android:text="Insertar" />
 
         <Button
             android:id="@+id/btn_Editar_lay_fallas"
-            android:layout_width="104dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+             android:layout_weight="1"
+              android:layout_margin="3dp"
             android:background="@drawable/boton_selector"
             android:text="Editar" />
 
         <Button
             android:id="@+id/btn_Eliminar_lay_fallas"
-            android:layout_width="113dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+             android:layout_weight="1"
+              android:layout_margin="3dp"
             android:background="@drawable/boton_selector"
             android:text="Eliminar" />
 
@@ -124,57 +151,69 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+         android:layout_gravity="center"  >
 
         <TextView
             android:id="@+id/TextView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-              android:layout_gravity="center"
+            android:layout_gravity="center"
+            android:layout_weight="0.09"
             android:text="Versiones"
             android:textSize="20dp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/eTxt_Versiones"
-            android:layout_width="80dp"
+            android:layout_width="50dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="0.67"
+            android:background="@android:color/white"
             android:ems="10" />
 
         <Spinner
             android:id="@+id/spin_versiones"
-            android:layout_width="126dp"
-              android:layout_gravity="center"
-            android:layout_height="wrap_content" />
+            android:layout_width="88dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.04" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" 
+         android:layout_gravity="center" >
 
         <Button
             android:id="@+id/btn_Insertar_lay_versiones"
-            android:layout_width="104dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+             android:layout_weight="1"
+              android:layout_margin="3dp"
             android:background="@drawable/boton_selector"
             android:text="Insertar" />
 
         <Button
             android:id="@+id/btn_Editar_lay_versiones"
-            android:layout_width="104dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+             android:layout_weight="1"
+              android:layout_margin="3dp"
             android:background="@drawable/boton_selector"
             android:text="Editar" />
 
         <Button
             android:id="@+id/btn_Eliminar_lay_versiones"
-            android:layout_width="113dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+             android:layout_weight="1"
+              android:layout_margin="3dp"
             android:background="@drawable/boton_selector"
             android:text="Eliminar" />
 
@@ -182,7 +221,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" >
 
         <TextView
             android:id="@+id/TextView02"
@@ -195,46 +235,53 @@
 
         <EditText
             android:id="@+id/eTxt_Componentes"
-            android:layout_width="101dp"
+            android:layout_width="112dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="1"
+            android:layout_margin="3dp"
+            android:background="@android:color/white"
             android:ems="10" />
 
         <Spinner
             android:id="@+id/spin_Componentes"
-            android:layout_width="108dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-              android:layout_gravity="center"
-          />
+            android:layout_gravity="center" />
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" >
+         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+         android:layout_gravity="center"  >
 
         <Button
             android:id="@+id/btn_Insertar_componentes"
-            android:layout_width="104dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+             android:layout_weight="1"
+              android:layout_margin="3dp"
             android:background="@drawable/boton_selector"
             android:text="Insertar" />
 
         <Button
             android:id="@+id/btn_Editar_componentes"
-            android:layout_width="104dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+             android:layout_weight="1"
+              android:layout_margin="3dp"
             android:background="@drawable/boton_selector"
             android:text="Editar" />
 
         <Button
             android:id="@+id/btn_Eliminar_componentes"
-            android:layout_width="113dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+             android:layout_weight="1"
+              android:layout_margin="3dp"
             android:background="@drawable/boton_selector"
             android:text="Eliminar" />
 

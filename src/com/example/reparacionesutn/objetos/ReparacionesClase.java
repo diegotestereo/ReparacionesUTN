@@ -7,7 +7,13 @@ import android.graphics.drawable.Drawable;
 public class ReparacionesClase {
 	
 	
-	int id_Reparacion,serial,id_modelo,id_version,id_falla;
+	int id_Reparacion,serial,id_modelo,id_version,id_falla,hs24;
+	public int getHs24() {
+		return hs24;
+	}
+	public void setHs24(int hs24) {
+		this.hs24 = hs24;
+	}
 	String observaciones;
 	Date fecha;
 	Drawable iconoEquipo;

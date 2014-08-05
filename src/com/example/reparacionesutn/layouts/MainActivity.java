@@ -67,7 +67,7 @@ public class MainActivity extends Activity {
 			if (!(eTxt_Serial.getText().toString().equals(""))){
 			
 			numSerie = Integer.parseInt(eTxt_Serial.getText().toString());
-			txtV_nReparaciones.setText(Integer.toString(dao.recuperarCantidadReparaciones(numSerie)));
+			//txtV_nReparaciones.setText(Integer.toString(dao.recuperarCantidadReparaciones(numSerie)));
 			
 			intento.putExtra("serial", numSerie);
 			if(!dao.recuperarReparaciones(numSerie).equals("0")){

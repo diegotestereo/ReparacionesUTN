@@ -32,8 +32,8 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 
 		// Creo la tabla reparaciones
 		db.execSQL("CREATE TABLE Tabla_Reparaciones (id_reparacion INTEGER PRIMARY KEY ,fecha_in TEXT"
-				+ ",serial INT,id_modelo INT,id_version INT,id_falla INT,observaciones TEXT," + "FOREIGN KEY (id_modelo) REFERENCES Tabla_Modelos(id_modelo),"
-				+ "FOREIGN KEY (id_version) REFERENCES Tabla_Versiones(id_version)," + "FOREIGN KEY (id_falla) REFERENCES Tabla_Fallas(id_falla))");
+				+ ",serial INT,id_modelo INT,id_version INT,id_falla INT,observaciones TEXT,hs24 INT, FOREIGN KEY (id_modelo) REFERENCES Tabla_Modelos(id_modelo),"
+				+ "FOREIGN KEY (id_version) REFERENCES Tabla_Versiones(id_version),FOREIGN KEY (id_falla) REFERENCES Tabla_Fallas(id_falla))");
 
 		// creo tabla modelos de equipos
 		db.execSQL("CREATE TABLE Tabla_Modelos (id_modelo INTEGER PRIMARY KEY,nom_modelo TEXT)");
@@ -115,7 +115,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		db.execSQL("DROP TABLE IF EXISTS Tabla_Reparaciones");
 		// Creo la tabla reparaciones
 		db.execSQL("CREATE TABLE Tabla_Reparaciones (id_reparacion INTEGER PRIMARY KEY , fecha_in TEXT"
-				+ ",serial INT,id_modelo INT, id_version INT, id_falla INT,observaciones TEXT)");
+				+ ",serial INT,id_modelo INT, id_version INT, id_falla INT,observaciones TEXT,hs24 INT");
 
 		// borro tabla
 		db.execSQL("DROP TABLE IF EXISTS Tabla_Modelos");
@@ -202,13 +202,13 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 	// /////////////////// INSERTAR EN TABLAS
 	// //////////////////////////////////////////////////////////////////7
 
-	public void insertarReparacion(String fecha_in, int serial, int id_modelo, int id_version, int id_falla, String observaciones)
+	public void insertarReparacion(String fecha_in, int serial, int id_modelo, int id_version, int id_falla, String observaciones, int hs24 )
 	{
 
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		baseDatos.execSQL("INSERT INTO Tabla_Reparaciones (fecha_in,serial,id_modelo,id_version,id_falla, observaciones) "
+		baseDatos.execSQL("INSERT INTO Tabla_Reparaciones (fecha_in,serial,id_modelo,id_version,id_falla, observaciones,hs24) "
 		+"VALUES ('" + fecha_in + "',"+ serial + "," + id_modelo + "," + id_version + "," + id_falla + ",'"
-		+ observaciones + "')");
+		+ observaciones + "',"+ hs24+" )");
 		baseDatos.close();
 	}
 
@@ -315,7 +315,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 
 	// /////////////////FIN RECUPERAR CANTIDAD FILAS
 	
-	// **************************************************************************************
+	
 	
 	// /////////////////////// BORRAR FILA TABLAS
 	
@@ -395,7 +395,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 			oReparacion.setId_version(cursor.getInt(4));
 			oReparacion.setId_falla(cursor.getInt(5));
 			oReparacion.setObservaciones(cursor.getString(6));
-
+			oReparacion.setHs24(cursor.getInt(7));
 			reparacionArray.add(oReparacion);
 		}
 		cursor.close();
@@ -438,7 +438,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 				oReparacion.setId_version(cursor.getInt(4));
 				oReparacion.setId_falla(cursor.getInt(5));
 				oReparacion.setObservaciones(cursor.getString(6));
-
+				oReparacion.setHs24(cursor.getInt(7));
 				reparacionArray.add(oReparacion);
 			}
 			cursor.close();

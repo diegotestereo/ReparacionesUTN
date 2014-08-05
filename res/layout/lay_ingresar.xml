@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lay_ingresar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
@@ -13,31 +14,35 @@
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reparacion N°: "
-            android:textSize="18dp"
-             android:layout_weight="1"
-              android:layout_margin="5dp" />
+            android:layout_margin="5dp"
+            android:layout_weight="0.34"
+                   android:textStyle="bold"
+            android:text="Reparación N°: "
+            android:textSize="18dp" />
 
         <TextView
             android:id="@+id/txtV_Reparacion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-             android:textSize="18dp"
-             android:layout_weight="1"
-              android:layout_margin="5dp"
-            android:text="fffff" />
+            android:layout_margin="5dp"
+            android:layout_weight="0.07"
+            android:text="fffff"
+            android:textStyle="bold"
+            android:textSize="20dp" />
 
     </LinearLayout>
 
     <LinearLayout
          android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" 
+         android:layout_marginTop="5dp">
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Fecha Ingreso: "
+                   android:textStyle="bold"
              android:layout_weight="1"
               android:layout_margin="5dp"
                android:textSize="18dp" />
@@ -46,16 +51,18 @@
             android:id="@+id/txtV_Date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="0.20"
+              android:textStyle="bold"
             android:text="jjjjj"
-             android:layout_weight="1"
-              android:layout_margin="5dp" 
-               android:textSize="18dp"/>
+            android:textSize="18dp" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+         android:layout_margin="5dp" >
 
         <TextView
             android:id="@+id/txtV_posicion"
@@ -63,6 +70,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Serial:" 
+                   android:textStyle="bold"
              android:layout_weight="1"
               android:layout_margin="5dp"
                android:textSize="18dp"
@@ -70,24 +78,29 @@
 
         <EditText
             android:id="@+id/eTxt_Serial_ingresar"
-            android:layout_width="166dp"
-            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="0.57"
+            android:background="@android:color/white"
             android:ems="10"
             android:hint="Numero de Serie"
-             android:layout_weight="1"
-              android:layout_margin="5dp"
-            android:inputType="number" />
+            android:inputType="number"
+            android:shadowColor="@color/gris_icono" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content" 
+         android:layout_margin="5dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:layout_margin="5dp"
+            android:background="@android:color/white"
             android:orientation="vertical" >
 
             <TextView
@@ -103,10 +116,10 @@
             <Spinner
                 android:id="@+id/spin_modelos"
                 android:layout_width="89dp"
-                 android:layout_weight="1"
-                  android:layout_gravity="center"
-            android:layout_margin="5dp"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:layout_weight="1" />
             
         </LinearLayout>
 
@@ -114,6 +127,8 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:background="@android:color/white"
+              android:layout_margin="5dp"
             android:orientation="vertical" >
 
             <TextView
@@ -130,16 +145,19 @@
                 android:id="@+id/spin_versiones"
                 android:layout_width="86dp"
                 android:layout_height="wrap_content"
-                 android:layout_gravity="center"
-                 android:layout_weight="1"
-            android:layout_margin="5dp" />
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:layout_weight="1" />
+
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:layout_weight="0.50"
+            android:layout_weight="1"
+              android:layout_margin="5dp"
+            android:background="@android:color/white"
             android:orientation="vertical" >
 
             <TextView
@@ -155,43 +173,55 @@
             <Spinner
                 android:id="@+id/spin_fallas"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" 
-                 android:layout_weight="1"
-                  android:layout_gravity="center"
-            android:layout_margin="5dp"/>
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:layout_weight="1" />
 
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="5dp" >
+
+        <CheckBox
+            android:id="@+id/cbox_24hs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:text="Prueba 24 Hs." />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-    </LinearLayout>
+   
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+         android:layout_margin="5dp" 
+        >
 
         <TextView
             android:id="@+id/txtV_observaciones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Observaciones" />
+            android:text="Observaciones"
+                   android:textStyle="bold"
+                android:layout_margin="5dp" 
+            android:textSize="18dp" />
 
         <EditText
             android:id="@+id/etxt_observaciones"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
+            android:background="@android:color/white"
             android:ems="10"
+            android:layout_margin="5dp" 
             android:inputType="textMultiLine" />
 
     </LinearLayout>
@@ -200,6 +230,7 @@
         android:id="@+id/btn_IngresarReparacion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:background="@drawable/boton_selector"
         android:text="Ingresar" />
       

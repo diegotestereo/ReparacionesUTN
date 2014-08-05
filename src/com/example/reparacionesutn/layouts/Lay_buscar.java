@@ -4,13 +4,15 @@ import com.example.reparacionesutn.R;
 import com.example.reparacionesutn.DAOs.AdaptadorCustomizado;
 import com.example.reparacionesutn.DAOs.SQLHelperAdaptador;
 
-
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Lay_buscar extends Activity {
 	TextView num_reparaciones;
@@ -26,8 +28,12 @@ public class Lay_buscar extends Activity {
 		setContentView(R.layout.lay_buscar);
 		levantarXML();
 		setAdapter();
+		
 		super.onCreate(savedInstanceState);
 	}  
+
+	
+	
 
 	private void setAdapter() {
 		
