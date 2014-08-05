@@ -16,9 +16,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="0.34"
-                   android:textStyle="bold"
             android:text="Reparación N°: "
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtV_Reparacion"
@@ -27,25 +27,24 @@
             android:layout_margin="5dp"
             android:layout_weight="0.07"
             android:text="fffff"
-            android:textStyle="bold"
-            android:textSize="20dp" />
-
+            android:textSize="20dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
-         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-         android:layout_marginTop="5dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp" >
 
         <TextView
             android:id="@+id/textView6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
             android:text="Fecha Ingreso: "
-                   android:textStyle="bold"
-             android:layout_weight="1"
-              android:layout_margin="5dp"
-               android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/txtV_Date"
@@ -53,28 +52,26 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="0.20"
-              android:textStyle="bold"
             android:text="jjjjj"
-            android:textSize="18dp" />
-
+            android:textSize="18dp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:layout_margin="5dp" >
+        android:layout_margin="5dp" >
 
         <TextView
             android:id="@+id/txtV_posicion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="Serial:" 
-                   android:textStyle="bold"
-             android:layout_weight="1"
-              android:layout_margin="5dp"
-               android:textSize="18dp"
-              />
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:text="Serial:"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/eTxt_Serial_ingresar"
@@ -87,13 +84,12 @@
             android:hint="Numero de Serie"
             android:inputType="number"
             android:shadowColor="@color/gris_icono" />
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" 
-         android:layout_margin="5dp">
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp" >
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -108,10 +104,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                 android:layout_weight="1"
-                 android:layout_margin="5dp"
-                  android:textSize="18dp"
-                android:text="Modelo" />
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="Modelo"
+                android:textSize="18dp" />
 
             <Spinner
                 android:id="@+id/spin_modelos"
@@ -120,26 +116,25 @@
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_weight="1" />
-            
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:layout_margin="5dp"
             android:background="@android:color/white"
-              android:layout_margin="5dp"
             android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
                 android:text="Version"
-                 android:layout_weight="1"
-                  android:layout_gravity="center"
-                   android:textSize="18dp"
-            android:layout_margin="5dp" />
+                android:textSize="18dp" />
 
             <Spinner
                 android:id="@+id/spin_versiones"
@@ -148,15 +143,14 @@
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_weight="1" />
-
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:layout_margin="5dp"
             android:layout_weight="1"
-              android:layout_margin="5dp"
             android:background="@android:color/white"
             android:orientation="vertical" >
 
@@ -164,11 +158,11 @@
                 android:id="@+id/txtV_Fecha"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Falla" 
-                 android:layout_weight="1"
-                  android:layout_gravity="center"
-                   android:textSize="18dp"
-            android:layout_margin="5dp"/>
+                android:layout_gravity="center"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:text="Falla"
+                android:textSize="18dp" />
 
             <Spinner
                 android:id="@+id/spin_fallas"
@@ -177,7 +171,6 @@
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_weight="1" />
-
         </LinearLayout>
     </LinearLayout>
 
@@ -193,37 +186,32 @@
             android:layout_height="wrap_content"
             android:background="@android:color/white"
             android:text="Prueba 24 Hs." />
-
     </LinearLayout>
-
-   
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-         android:layout_margin="5dp" 
-        >
+        android:layout_margin="5dp" >
 
         <TextView
             android:id="@+id/txtV_observaciones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_margin="5dp"
             android:text="Observaciones"
-                   android:textStyle="bold"
-                android:layout_margin="5dp" 
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etxt_observaciones"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="@android:color/white"
             android:ems="10"
-            android:layout_margin="5dp" 
             android:inputType="textMultiLine" />
-
     </LinearLayout>
 
     <Button
@@ -231,10 +219,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:layout_weight="0.62"
         android:background="@drawable/boton_selector"
         android:text="Ingresar" />
-      
-        </LinearLayout>
-    
-    
 
+</LinearLayout>
