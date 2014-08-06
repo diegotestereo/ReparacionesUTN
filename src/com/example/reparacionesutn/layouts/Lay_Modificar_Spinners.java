@@ -1,6 +1,13 @@
 package com.example.reparacionesutn.layouts;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
+import android.app.NotificationManager;
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -10,7 +17,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-
 import android.widget.Toast;
 
 import com.example.reparacionesutn.R;
@@ -29,7 +35,7 @@ public class Lay_Modificar_Spinners extends Activity
 			btn_eliminar_m, btn_editar_m, btn_insertar_v, btn_eliminar_v,
 			btn_editar_v, btn_insertar_f, btn_eliminar_f, btn_editar_f;
 	EditText eTxt_Modelos, eTxt_Versiones, eTxt_Fallas, eTxt_Componentes;
-
+	Boolean borrar=false;
 	ArrayAdapter<String> adaptadorModelos, adaptadorFallas, adaptadorVersiones,adaptadorComponentes;
 	SQLHelperAdaptador dao;
 	ModelosClase oModelo;
@@ -55,11 +61,44 @@ public class Lay_Modificar_Spinners extends Activity
 		setAdaptadores();
 		botones();
 		spinners();
-
+		//dialogoEliminar();
 		eTxt_Versiones.setText("");
+		
 
 	}
 	
+private Boolean dialogoEliminar() {
+	
+	AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+	 
+	dialog.setMessage("¿Eliminar?");
+	dialog.setCancelable(false);
+	dialog.setPositiveButton("Si", new DialogInterface.OnClickListener() {
+	 
+	  @Override
+	  public void onClick(DialogInterface dialog, int which) {
+		  
+		borrar=true;
+		Toast.makeText(getApplicationContext(), "BORRADO !!!", Toast.LENGTH_SHORT).show();
+		
+	  }
+	});
+	dialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+	 
+	   @Override
+	   public void onClick(DialogInterface dialog, int which) {
+		   borrar=false;
+		   Toast.makeText(getApplicationContext(), "CANCELADO !!!", Toast.LENGTH_SHORT).show();
+		   
+	      dialog.cancel();
+	   }
+	});
+	dialog.show();
+	return borrar;
+	
+	
+}
+
 ////////////////////SPINNERS/////////////////////////////////////////////////////////////////////////////
 	
 	private void spinners()
@@ -172,29 +211,23 @@ public class Lay_Modificar_Spinners extends Activity
 			}
 		});
 
-		btn_editar_m.setOnClickListener(new OnClickListener()
-		{
-			@Override
-			public void onClick(View v)
-			{
-
-			}
-		});
-
+		
 		btn_eliminar_m.setOnClickListener(new OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
 			{
 				
+			if (dialogoEliminar()) {
 				oModelo = new ModelosClase();
 				oModelo.setNom_modelo(eTxt_Modelos.getText().toString());
 				dao.borrarNombreModelo(oModelo);
 				setAdaptadores();
 				Toast.makeText(getApplicationContext(), "Modelo '"+oModelo.getNom_modelo()+"' eliminado", Toast.LENGTH_SHORT).show();
 				eTxt_Modelos.getText().clear();
-
-			}
+			};
+				
+		}
 		});
 
 		// *********** cargar objeto a modificar**********
@@ -212,26 +245,21 @@ public class Lay_Modificar_Spinners extends Activity
 			}
 		});
 
-		btn_editar_v.setOnClickListener(new OnClickListener()
-		{
-			@Override
-			public void onClick(View v)
-			{
-
-			}
-		});
-
+		
 		btn_eliminar_v.setOnClickListener(new OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
 			{
+				
+				if (dialogoEliminar()) {
 				oVersion = new VersionesClase();
 				oVersion.setNom_version(eTxt_Versiones.getText().toString());
 				dao.borrarNombreVersion(oVersion);
 				setAdaptadores();
 				Toast.makeText(getApplicationContext(), "Version '"+oVersion.getNom_version()+"' eliminada", Toast.LENGTH_SHORT).show();
 				eTxt_Versiones.getText().clear();
+				}
 			}
 		});
 
@@ -248,26 +276,19 @@ public class Lay_Modificar_Spinners extends Activity
 			}
 		});
 
-		btn_editar_f.setOnClickListener(new OnClickListener()
-		{
-			@Override
-			public void onClick(View v)
-			{
-
-			}
-		});
 
 		btn_eliminar_f.setOnClickListener(new OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
 			{
+				if (dialogoEliminar()) {
 				oFalla = new FallasClase();
 				oFalla.setNom_falla(eTxt_Fallas.getText().toString());
 				dao.borrarNombreFalla(oFalla);
 				setAdaptadores();
 				Toast.makeText(getApplicationContext(), "Falla '"+oFalla.getNom_falla()+"' eliminada", Toast.LENGTH_SHORT).show();
-				eTxt_Fallas.getText().clear();
+				eTxt_Fallas.getText().clear();}
 			}
 		});
 
@@ -285,32 +306,29 @@ public class Lay_Modificar_Spinners extends Activity
 			}
 		});
 
-		btn_editar_c.setOnClickListener(new OnClickListener()
-		{
-			@Override
-			public void onClick(View v)
-			{
-
-			}
-		});
-
+		
 		btn_eliminar_c.setOnClickListener(new OnClickListener()
 		{
 			@Override
 			public void onClick(View v)
 			{
+				
+				if (dialogoEliminar()) {
 				oComponente = new ComponentesClase();
 				oComponente.setNom_componente(eTxt_Componentes.getText().toString());
 				dao.borrarNombreComponente(oComponente);
 				setAdaptadores();
 				Toast.makeText(getApplicationContext(), "Componente '"+oComponente.getNom_componente()+"' eliminado", Toast.LENGTH_SHORT).show();
-				eTxt_Componentes.getText().clear();
+				eTxt_Componentes.getText().clear();}
 
 			}
 		});
 
 	}
 
+	
+	
+	
 	private void levantarXML()
 	{
 		spin_modelos = (Spinner) findViewById(R.id.spin_modelos);
@@ -318,19 +336,19 @@ public class Lay_Modificar_Spinners extends Activity
 		spin_fallas = (Spinner) findViewById(R.id.spin_fallas);
 		spin_componentes = (Spinner) findViewById(R.id.spin_Componentes);
 
-		btn_editar_m = (Button) findViewById(R.id.btn_Editar_lay_modelos);
+//		btn_editar_m = (Button) findViewById(R.id.btn_Editar_lay_modelos);
 		btn_eliminar_m = (Button) findViewById(R.id.btn_Eliminar_lay_modelos);
 		btn_insertar_m = (Button) findViewById(R.id.btn_Insertar_lay_modelos);
 
-		btn_editar_v = (Button) findViewById(R.id.btn_Editar_lay_versiones);
+//		btn_editar_v = (Button) findViewById(R.id.btn_Editar_lay_versiones);
 		btn_eliminar_v = (Button) findViewById(R.id.btn_Eliminar_lay_versiones);
 		btn_insertar_v = (Button) findViewById(R.id.btn_Insertar_lay_versiones);
 
-		btn_editar_f = (Button) findViewById(R.id.btn_Editar_lay_fallas);
+	//	btn_editar_f = (Button) findViewById(R.id.btn_Editar_lay_fallas);
 		btn_eliminar_f = (Button) findViewById(R.id.btn_Eliminar_lay_fallas);
 		btn_insertar_f = (Button) findViewById(R.id.btn_Insertar_lay_fallas);
 
-		btn_editar_c = (Button) findViewById(R.id.btn_Editar_componentes);
+	//	btn_editar_c = (Button) findViewById(R.id.btn_Editar_componentes);
 		btn_eliminar_c = (Button) findViewById(R.id.btn_Eliminar_componentes);
 		btn_insertar_c = (Button) findViewById(R.id.btn_Insertar_componentes);
 

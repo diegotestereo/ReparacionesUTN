@@ -13,11 +13,11 @@ import com.example.reparacionesutn.objetos.VersionesClase;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +27,7 @@ public class MainActivity extends Activity {
 	Button btn_VerReparaciones,btn_Reparacion,btn_Modificar_spin,btn_buscarEquipos;
 	EditText eTxt_Serial;
 	TextView txtV_Observaciones,txtV_nReparaciones; 
+	Spinner sp_modelo,sp_falla,sp_version;
 	///OBJETOS
 	ModelosClase oModelo;
    	FallasClase oFalla;
@@ -112,12 +113,16 @@ public class MainActivity extends Activity {
 	}
 
 	private void levantarXML() {
+		
+		
 		btn_Reparacion=(Button) findViewById(R.id.Btn_Reparacion);
 		btn_Modificar_spin=(Button) findViewById(R.id.btn_Spinners);
 		btn_buscarEquipos=(Button) findViewById(R.id.btn_BuscarEquipo);
 		btn_VerReparaciones=(Button) findViewById(R.id.btn_VerReparaciones);
 		
-		
+		sp_falla=(Spinner) findViewById(R.id.spin_falla_main);
+		sp_modelo=(Spinner) findViewById(R.id.spin_modelo_main);
+		sp_version=(Spinner) findViewById(R.id.spin_version_main);
 		txtV_Observaciones=(TextView) findViewById(R.id.txtV_observaciones);
 	
 		

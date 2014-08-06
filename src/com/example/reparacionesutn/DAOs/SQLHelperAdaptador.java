@@ -319,6 +319,10 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 	
 	// /////////////////////// BORRAR FILA TABLAS
 	
+	
+	
+	
+	
 	public void borrarReparacion(ReparacionesClase oReparacion)
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
@@ -450,7 +454,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 	public ArrayList<FallasClase> recuperarFallas()
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		String sql = "SELECT * FROM Tabla_Fallas";
+		String sql = "SELECT * FROM Tabla_Fallas ORDER BY nom_falla";
 		Cursor cursor = baseDatos.rawQuery(sql, null);
 		ArrayList<FallasClase> fallaArray = new ArrayList<FallasClase>();
 
@@ -471,7 +475,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 	public ArrayList<ModelosClase> recuperarModelos()
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		String sql = "SELECT * FROM Tabla_Modelos";
+		String sql = "SELECT * FROM Tabla_Modelos ORDER BY nom_modelo ";
 		Cursor cursor = baseDatos.rawQuery(sql, null);
 		ArrayList<ModelosClase> modeloArray = new ArrayList<ModelosClase>();
 

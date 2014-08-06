@@ -8,7 +8,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondo_edit_text" >
 
         <TextView
             android:id="@+id/textView7"
@@ -34,7 +35,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp" >
+        android:layout_marginTop="5dp"
+        android:background="@drawable/fondo_edit_text" >
 
         <TextView
             android:id="@+id/textView6"
@@ -52,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="0.20"
-            android:text="jjjjj"
+            android:text="01/01/1900"
             android:textSize="18dp"
             android:textStyle="bold" />
     </LinearLayout>
@@ -79,8 +81,9 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="0.57"
-            android:background="@android:color/white"
+            android:background="@drawable/fondo_edit_text"
             android:ems="10"
+            android:gravity="center"
             android:hint="Numero de Serie"
             android:inputType="number"
             android:shadowColor="@color/gris_icono" />
@@ -95,8 +98,9 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
+            android:gravity="right"
             android:layout_margin="5dp"
-            android:background="@android:color/white"
+            android:background="@drawable/fondo_edit_text"
             android:orientation="vertical" >
 
             <TextView
@@ -113,9 +117,10 @@
                 android:id="@+id/spin_modelos"
                 android:layout_width="89dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="right"
                 android:layout_margin="5dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:gravity="right" />
         </LinearLayout>
 
         <LinearLayout
@@ -123,7 +128,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="5dp"
-            android:background="@android:color/white"
+            android:background="@drawable/fondo_edit_text"
             android:orientation="vertical" >
 
             <TextView
@@ -151,7 +156,7 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:background="@android:color/white"
+            android:background="@drawable/fondo_edit_text"
             android:orientation="vertical" >
 
             <TextView
@@ -170,7 +175,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:gravity="right" />
         </LinearLayout>
     </LinearLayout>
 
@@ -182,22 +188,26 @@
 
         <CheckBox
             android:id="@+id/cbox_24hs"
-            android:layout_width="wrap_content"
+            android:layout_width="223dp"
             android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:background="@drawable/fondo_spinner"
+            android:gravity="center"
             android:text="Prueba 24 Hs." />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp" >
+        android:layout_margin="5dp"
+        android:layout_weight="0.09"
+        android:orientation="vertical" >
 
         <TextView
             android:id="@+id/txtV_observaciones"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="left"
             android:layout_margin="5dp"
             android:text="Observaciones"
             android:textSize="18dp"
@@ -205,13 +215,15 @@
 
         <EditText
             android:id="@+id/etxt_observaciones"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:background="@android:color/white"
+            android:layout_weight="0.32"
+            android:background="@drawable/fondo_edit_text"
             android:ems="10"
+            android:gravity="start"
             android:inputType="textMultiLine" />
+
     </LinearLayout>
 
     <Button
@@ -219,7 +231,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_weight="0.62"
         android:background="@drawable/boton_selector"
         android:text="Ingresar" />
 

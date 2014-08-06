@@ -12,8 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/fondo"
-        android:orientation="vertical"
-         >
+        android:orientation="vertical" >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -58,7 +57,8 @@
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="0.30"
-                android:background="@android:color/white"
+                android:gravity="center"
+                android:background="@drawable/fondo_edit_text"
                 android:ems="10"
                 android:hint="Ingrese Serial"
                 android:inputType="number" >
@@ -71,31 +71,26 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content" 
-             android:padding="2dp">
+             android:padding="2dp"
+             >
 
             <Spinner
-                android:id="@+id/spin_modelos_main"
+                android:id="@+id/spin_falla_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="5dp"
-                android:background="@android:color/white" />
+                android:layout_weight="1" />
 
             <Spinner
-                android:id="@+id/spin_versiones_main"
+                android:id="@+id/spin_modelo_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="5dp"
-                android:background="@android:color/white" />
+                android:layout_weight="1" />
 
             <Spinner
-                android:id="@+id/spin_fallas_main"
+                android:id="@+id/spin_version_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:layout_margin="5dp"
-                android:background="@android:color/white" />
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -110,7 +105,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
-                android:layout_weight="11.48"
+                android:layout_weight="2346.13"
                 android:background="@drawable/boton_selector"
                 android:text="Configuración" />
         </LinearLayout>
