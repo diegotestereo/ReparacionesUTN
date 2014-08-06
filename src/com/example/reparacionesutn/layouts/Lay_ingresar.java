@@ -27,15 +27,15 @@ import android.widget.Toast;
 public class Lay_ingresar extends Activity{
 	
 	
-	int posSpinModelo,posSpinVersion,posSpinFalla;
+	int posSpinModelo,posSpinVersion,posSpinFalla,posSpinComponente;
 	int hs24; 
 	
 	private CheckBox CkBox_24hs;
 	private TextView txt_date,txtV_Reparacion;
-	private Spinner spin_modelos,spin_fallas,spin_versiones;
+	private Spinner spin_modelos,spin_fallas,spin_versiones,spin_componentes;
 	private EditText etxt_serial,observaciones;
 	private Button btn_IngresarReparacion;
-	private ArrayAdapter<String> adaptadorModelos,adaptadorVersiones,adaptadorFallas;
+	private ArrayAdapter<String> adaptadorModelos,adaptadorVersiones,adaptadorFallas,adaptadorComponentes;
 	private SQLHelperAdaptador dao;
 	private java.util.Date date = new Date();
 	private java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat("dd/MM/yyyy");
@@ -61,14 +61,11 @@ public class Lay_ingresar extends Activity{
 			
 			@Override
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-				
 				if (isChecked){
 					hs24=1;
-					
 						} 
 				else{
 					hs24=0;
-					
 					}
 				
 			}
@@ -80,7 +77,26 @@ public class Lay_ingresar extends Activity{
 		posSpinVersion= spin_versiones.getSelectedItemPosition()+1;
 		posSpinModelo= spin_modelos.getSelectedItemPosition()+1;
 		posSpinFalla= spin_fallas.getSelectedItemPosition()+1;
-	
+		posSpinComponente=spin_componentes.getSelectedItemPosition()+1;
+		
+		
+		
+		spin_componentes.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				posSpinComponente=position+1;
+				
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
 		spin_modelos.setOnItemSelectedListener(new OnItemSelectedListener() {
 
 			@Override
@@ -125,8 +141,10 @@ public class Lay_ingresar extends Activity{
 	   adaptadorFallas=new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_text,dao.recuperarNombresFallas());
 		adaptadorModelos=new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_text,dao.recuperarNombresModelos());
 		adaptadorVersiones=new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_text,dao.recuperarNombresVersiones());
+		adaptadorComponentes=new ArrayAdapter<String>(getApplicationContext(), R.layout.spinner_text,dao.recuperarNombresComponentes());
 		txtV_Reparacion.setText(String.valueOf(dao.recuperarCantidadReparaciones()+1));
 
+		spin_componentes.setAdapter(adaptadorComponentes);
 		spin_fallas.setAdapter(adaptadorFallas);
 		spin_modelos.setAdapter(adaptadorModelos);
 		spin_versiones.setAdapter(adaptadorVersiones);
@@ -173,6 +191,8 @@ public class Lay_ingresar extends Activity{
 		spin_modelos=(Spinner) findViewById(R.id.spin_modelos);
 		spin_fallas=(Spinner) findViewById(R.id.spin_fallas);
 		spin_versiones=(Spinner) findViewById(R.id.spin_versiones);
+		spin_componentes=(Spinner) findViewById(R.id.spin_componentes);
+		
 		CkBox_24hs =(CheckBox) findViewById(R.id.cbox_24hs);
 		etxt_serial=(EditText) findViewById(R.id.eTxt_Serial_ingresar);
 		observaciones=(EditText) findViewById(R.id.etxt_observaciones);

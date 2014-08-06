@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -28,12 +29,14 @@ public class Lay_buscar extends Activity {
 		setContentView(R.layout.lay_buscar);
 		levantarXML();
 		setAdapter();
-		
 		super.onCreate(savedInstanceState);
 	}  
 
 	
 	
+
+
+
 
 	private void setAdapter() {
 		

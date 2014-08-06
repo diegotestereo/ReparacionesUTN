@@ -8,9 +8,14 @@ import com.example.reparacionesutn.DAOs.SQLHelperAdaptador;
 
 
 
+
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -29,6 +34,16 @@ public class Lay_VerReparaciones extends Activity{
 		levantarXML();
 		setAdapter();
 		super.onCreate(savedInstanceState);
+		
+		lista_equipos.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 	}  
 
 	private void setAdapter() {

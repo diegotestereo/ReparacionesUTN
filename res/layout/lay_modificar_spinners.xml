@@ -224,7 +224,7 @@
             android:ems="10" />
 
         <Spinner
-            android:id="@+id/spin_Componentes"
+            android:id="@+id/spin_componentes_ingresar"
             android:layout_width="95dp"
             android:layout_height="wrap_content"
              android:layout_gravity="center"

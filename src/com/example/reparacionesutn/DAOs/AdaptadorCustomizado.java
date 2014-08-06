@@ -3,9 +3,12 @@ package com.example.reparacionesutn.DAOs;
 import java.util.ArrayList;
 
 import com.example.reparacionesutn.R;
+import com.example.reparacionesutn.layouts.lay_reparacion;
 import com.example.reparacionesutn.objetos.ReparacionesClase;
 
 import android.content.Context;
+import android.content.Intent;
+import android.sax.StartElementListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnLongClickListener;
@@ -24,12 +27,13 @@ public class AdaptadorCustomizado extends BaseAdapter{
 	
 	
 	private ArrayList<ReparacionesClase> reparaciones;
-	private Context context;
+	private static Context context;
 
 	public  AdaptadorCustomizado(ArrayList<ReparacionesClase> reparacion, Context Context)
 	{
 		this.reparaciones = reparacion;
 		this.context = Context;
+		
 	}
 
 
@@ -55,12 +59,14 @@ public class AdaptadorCustomizado extends BaseAdapter{
 		TextView text_Descripcion;
 		ImageView imagen;
 		RelativeLayout ll_row;
+		
 	}
 	
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 		 final ReparacionesClase item = getItem(position);
-			ViewHolder holder;
+		
+			 ViewHolder holder;
 			if (convertView == null)//es la primera vez
 			{
 				LayoutInflater li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -84,24 +90,15 @@ public class AdaptadorCustomizado extends BaseAdapter{
 			//holder.imagen.setImageDrawable(item.getIconoEquipo().);//getResources().getDrawable(R.drawable.ic_launcher_5100);
 			
 			
-			holder.ll_row.setOnLongClickListener(new OnLongClickListener() {
-				
-				@Override
-				public boolean onLongClick(View v) {
-				
-							
-						
-					return false;
-				}
-			});
-			
-			
 			holder.ll_row.setOnClickListener(new OnClickListener()
 			{			
+				 Intent intento =new Intent(context,lay_reparacion.class);
+				
 				@Override
 				public void onClick(View v)
 				{
-					Toast.makeText(context,"Serial: "+ item.getSerial(), Toast.LENGTH_SHORT).show();
+					
+					Toast.makeText(context,"fecha: "+item.getSerial(), Toast.LENGTH_SHORT).show();
 				}
 			});
 			return convertView;

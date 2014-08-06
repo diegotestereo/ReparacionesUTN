@@ -48,10 +48,15 @@ public class MainActivity extends Activity {
 
 	private void botones() {
 		btn_Reparacion.setOnClickListener(new OnClickListener() {
+			
 			Intent intento=new Intent(MainActivity.this,Lay_ingresar.class);
 			@Override
 			public void onClick(View v) {
-				startActivity(intento);
+				
+					
+					startActivity(intento);
+					
+				
 				
 			}
 		});
@@ -62,6 +67,7 @@ public class MainActivity extends Activity {
 			
 			Intent intento=new Intent(MainActivity.this,Lay_buscar.class);
 			int numSerie;
+			
 			@Override
 			public void onClick(View v) {
 				
@@ -70,12 +76,14 @@ public class MainActivity extends Activity {
 			numSerie = Integer.parseInt(eTxt_Serial.getText().toString());
 			//txtV_nReparaciones.setText(Integer.toString(dao.recuperarCantidadReparaciones(numSerie)));
 			
+			
 			intento.putExtra("serial", numSerie);
-			if(!dao.recuperarReparaciones(numSerie).equals("0")){
+			
+			if(!(dao.recuperarCantidadReparaciones(numSerie)==0)){
 				startActivity(intento);
 			}
 			else{
-				Toast.makeText(getApplicationContext(), "NO SE ENCONTRO SU BUSQUEDA", Toast.LENGTH_SHORT).show();
+				Toast.makeText(getApplicationContext(), "Equipo no encontrado", Toast.LENGTH_SHORT).show();
 			
 			}
 			
@@ -90,12 +98,19 @@ public class MainActivity extends Activity {
 		});
 		
 		btn_VerReparaciones.setOnClickListener(new OnClickListener() {
-			
+			int cantidad=0;
 			Intent intento=new Intent(MainActivity.this,Lay_VerReparaciones.class);
 			
 			@Override
 			public void onClick(View v) {
+				cantidad=dao.recuperarCantidadReparaciones();
+				if(cantidad==0){
+					Toast.makeText(getApplicationContext(), "Base de Datos Vacia....", Toast.LENGTH_SHORT).show();
+					
+					
+				}else{
 				startActivity(intento);}
+			}
 			
 			
 		});

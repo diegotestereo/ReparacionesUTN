@@ -29,7 +29,7 @@ import com.example.reparacionesutn.objetos.VersionesClase;
 public class Lay_Modificar_Spinners extends Activity
 {
 
-	Spinner spin_modelos, spin_versiones, spin_fallas, spin_componentes;
+	Spinner spin_modelos, spin_versiones, spin_fallas, spin_componentes2;
 	int pos_spin_modelo, pos_spin_version, pos_spin_componente, pos_spin_falla;
 	Button btn_insertar_c, btn_eliminar_c, btn_editar_c, btn_insertar_m,
 			btn_eliminar_m, btn_editar_m, btn_insertar_v, btn_eliminar_v,
@@ -156,7 +156,7 @@ private Boolean dialogoEliminar() {
 			}
 		});
 
-		spin_componentes.setOnItemSelectedListener(new OnItemSelectedListener()
+		spin_componentes2.setOnItemSelectedListener(new OnItemSelectedListener()
 		{
 
 			@Override
@@ -185,7 +185,7 @@ private Boolean dialogoEliminar() {
 		adaptadorComponentes = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dao.recuperarNombresComponentes());
 
 		// se cargan los spinners con el contenido de los adapatadores...
-		spin_componentes.setAdapter(adaptadorComponentes);
+		spin_componentes2.setAdapter(adaptadorComponentes);
 		spin_fallas.setAdapter(adaptadorFallas);
 		//spin_modelos.setAdapter(adaptadorModelos);
 		spin_modelos.setAdapter(adaptadorModelos);
@@ -334,7 +334,7 @@ private Boolean dialogoEliminar() {
 		spin_modelos = (Spinner) findViewById(R.id.spin_modelos);
 		spin_versiones = (Spinner) findViewById(R.id.spin_versiones);
 		spin_fallas = (Spinner) findViewById(R.id.spin_fallas);
-		spin_componentes = (Spinner) findViewById(R.id.spin_Componentes);
+		spin_componentes2 = (Spinner) findViewById(R.id.spin_componentes_ingresar);
 
 //		btn_editar_m = (Button) findViewById(R.id.btn_Editar_lay_modelos);
 		btn_eliminar_m = (Button) findViewById(R.id.btn_Eliminar_lay_modelos);
