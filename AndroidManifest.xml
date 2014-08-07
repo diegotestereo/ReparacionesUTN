@@ -44,6 +44,9 @@
             <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_versiones"
             android:label="Modificar Versiones"></activity>  
+              <activity 
+            android:name="com.example.reparacionesutn.layouts.Lay_reparacion"
+            android:label="Reparacion"></activity>  
     </application>
 
 </manifest>

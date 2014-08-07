@@ -3,32 +3,34 @@ package com.example.reparacionesutn.DAOs;
 import java.util.ArrayList;
 
 import com.example.reparacionesutn.R;
-import com.example.reparacionesutn.layouts.lay_reparacion;
+
+import com.example.reparacionesutn.layouts.Lay_reparacion;
+
 import com.example.reparacionesutn.objetos.ReparacionesClase;
 
 import android.content.Context;
 import android.content.Intent;
-import android.sax.StartElementListener;
+
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnLongClickListener;
+
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
-import android.widget.AdapterView;
+
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-import android.widget.AdapterView.OnItemLongClickListener;
+;
+
 
 public class AdaptadorCustomizado extends BaseAdapter{
 	
 	
 	private ArrayList<ReparacionesClase> reparaciones;
-	private static Context context;
-
+	private Context context;
+	
 	public  AdaptadorCustomizado(ArrayList<ReparacionesClase> reparacion, Context Context)
 	{
 		this.reparaciones = reparacion;
@@ -87,18 +89,17 @@ public class AdaptadorCustomizado extends BaseAdapter{
 
 			holder.text_Titulo.setText("Serial: "+item.getSerial());
 			holder.text_Descripcion.setText(item.getObservaciones());
-			//holder.imagen.setImageDrawable(item.getIconoEquipo().);//getResources().getDrawable(R.drawable.ic_launcher_5100);
 			
 			
 			holder.ll_row.setOnClickListener(new OnClickListener()
 			{			
-				 Intent intento =new Intent(context,lay_reparacion.class);
-				
+				 Intent intento =new Intent(context,Lay_reparacion.class);
 				@Override
 				public void onClick(View v)
 				{
 					
-					Toast.makeText(context,"fecha: "+item.getSerial(), Toast.LENGTH_SHORT).show();
+					
+				context.startActivity(intento);
 				}
 			});
 			return convertView;

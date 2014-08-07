@@ -22,7 +22,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtV_Reparacion"
+            android:id="@+id/txtV_Reparacion_REP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
@@ -33,7 +33,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="334dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@drawable/fondo_edit_text" >
@@ -49,19 +49,19 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/txtV_Date"
+            android:id="@+id/txtV_fecha_REP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            
+            android:layout_margin="5dp"
             android:layout_weight="0.20"
             android:text="01/01/1900"
-            android:layout_margin="5dp"
             android:textSize="18dp"
             android:textStyle="bold" />
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="338dp"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@drawable/fondo_edit_text" >
@@ -78,28 +78,27 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView1"
+            android:id="@+id/txtV_Serial_REP"
             android:layout_width="wrap_content"
             android:layout_height="fill_parent"
+            android:layout_margin="5dp"
             android:layout_weight="1"
-             android:layout_margin="5dp"
+            android:text="TextView"
             android:textSize="18dp"
-            android:textStyle="bold" 
-            android:text="TextView" />
+            android:textStyle="bold" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp" >
+        android:layout_margin="3dp" >
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center"
-            android:gravity="right"
-            android:layout_margin="5dp"
+           android:layout_margin="5dp"
             android:background="@drawable/fondo_edit_text"
             android:orientation="vertical" >
 
@@ -113,14 +112,15 @@
                 android:text="Modelo"
                 android:textSize="18dp" />
 
-            <Spinner
-                android:id="@+id/spin_modelos"
-                android:layout_width="89dp"
+            <TextView
+                android:id="@+id/txtV_modelo_REP"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:gravity="right" />
+                android:text="TextView" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -141,21 +141,21 @@
                 android:text="Version"
                 android:textSize="18dp" />
 
-            <Spinner
-                android:id="@+id/spin_versiones"
-                android:layout_width="86dp"
+            <TextView
+                android:id="@+id/txtV_version_REP"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:text="TextView" />
+
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
             android:layout_margin="5dp"
-            android:layout_weight="1"
             android:background="@drawable/fondo_edit_text"
             android:orientation="vertical" >
 
@@ -165,19 +165,19 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
                 android:text="Falla"
                 android:textSize="18dp" />
 
-            <Spinner
-                android:id="@+id/spin_fallas"
-                android:layout_width="match_parent"
+            <TextView
+                android:id="@+id/txtV_falla_REP"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:gravity="right" />
+                android:text="TextView" />
         </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -187,7 +187,7 @@
         android:layout_margin="5dp" >
 
         <CheckBox
-            android:id="@+id/cbox_24hs"
+            android:id="@+id/cbox_24hs_REP"
             android:layout_width="223dp"
             android:layout_height="wrap_content"
             android:background="@drawable/fondo_spinner"
@@ -201,28 +201,16 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="0.09"
+      
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/txtV_observaciones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_margin="5dp"
-            android:text="Observaciones"
-            android:textSize="18dp"
-            android:textStyle="bold" />
-
-        <EditText
-            android:id="@+id/etxt_observaciones"
+            android:id="@+id/txtV_observacion_REP"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="0.32"
+            android:layout_weight="1"
             android:background="@drawable/fondo_edit_text"
-            android:ems="10"
-            android:gravity="start"
-            android:inputType="textMultiLine" />
+            android:text="TextView" />
 
     </LinearLayout>
 

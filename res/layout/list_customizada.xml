@@ -13,19 +13,21 @@
         android:layout_alignParentTop="true"
         android:src="@drawable/ic_launcher_3100"/>
 
+ 
     <TextView
         android:id="@+id/tv_titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="top"
-        android:layout_alignLeft="@+id/tv_descripcion"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="18dp"
+        android:layout_marginTop="3dp"
+        android:layout_toRightOf="@+id/imv_icono"
+        android:gravity="top"
         android:text="Titulo"
         android:textColor="@android:color/black"
-        android:textSize="16dp"
+        android:textSize="12dp"
         android:textStyle="bold" />
-
+      
+    
     <TextView
         android:id="@+id/tv_descripcion"
         android:layout_width="match_parent"
@@ -34,6 +36,8 @@
         android:layout_below="@+id/tv_titulo"
         android:layout_toRightOf="@+id/imv_icono"
         android:text="Informacion"
-        android:textColor="@android:color/black" />
+      	        android:textColor="@android:color/black"
+        android:textSize="12dp" />
+    
 
 </RelativeLayout>

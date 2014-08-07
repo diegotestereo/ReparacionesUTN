@@ -348,9 +348,9 @@ private Boolean dialogoEliminar() {
 	
 	private void levantarXML()
 	{
-		spin_modelos = (Spinner) findViewById(R.id.spin_modelos);
-		spin_versiones = (Spinner) findViewById(R.id.spin_versiones);
-		spin_fallas = (Spinner) findViewById(R.id.spin_fallas);
+		spin_modelos = (Spinner) findViewById(R.id.spin_modelos_REP);
+		spin_versiones = (Spinner) findViewById(R.id.spin_versiones_REP);
+		spin_fallas = (Spinner) findViewById(R.id.spin_fallas_REP);
 		spin_componentes2 = (Spinner) findViewById(R.id.spin_componentes_ingresar);
 
 //		btn_editar_m = (Button) findViewById(R.id.btn_Editar_lay_modelos);

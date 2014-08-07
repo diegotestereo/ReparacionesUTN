@@ -27,14 +27,14 @@ import android.widget.Toast;
 public class Lay_ingresar extends Activity{
 	
 	
-	int posSpinModelo,posSpinVersion,posSpinFalla,posSpinComponente,posCAntidadComponentes;
+	int posSpinModelo,posSpinVersion,posSpinFalla,posSpinComponente,posCantidadComponentes;
 	int hs24; 
 	
 	private CheckBox CkBox_24hs;
 	private TextView txt_date,txtV_Reparacion;
 	private Spinner spin_modelos,spin_fallas,spin_versiones,spin_componentes,spin_cantidad_componentes;
 	private EditText etxt_serial,observaciones,etxt_componentes1;
-	private Button btn_IngresarReparacion,btn_cargarComponentes;
+	private Button btn_IngresarReparacion;
 	private ArrayAdapter<String> adaptadorModelos,adaptadorVersiones,adaptadorFallas,adaptadorComponentes,adaptadorCantidadComponentes;
 	private SQLHelperAdaptador dao;
 	private java.util.Date date = new Date();
@@ -52,7 +52,7 @@ public class Lay_ingresar extends Activity{
 		cargaAdaptadores();
 		Spinners();
 		txt_date.setText(fecha);
-		
+		etxt_componentes1.setText("");
 	}
 
 	private void setcheck() {
@@ -78,8 +78,24 @@ public class Lay_ingresar extends Activity{
 		posSpinModelo= spin_modelos.getSelectedItemPosition()+1;
 		posSpinFalla= spin_fallas.getSelectedItemPosition()+1;
 		posSpinComponente=spin_componentes.getSelectedItemPosition()+1;
+		posCantidadComponentes=spin_cantidad_componentes.getSelectedItemPosition() +1;
 		
 		
+		spin_cantidad_componentes.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				posCantidadComponentes=position +1;
+				
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 		
 		spin_componentes.setOnItemSelectedListener(new OnItemSelectedListener() {
 
@@ -87,7 +103,8 @@ public class Lay_ingresar extends Activity{
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
 				posSpinComponente=position+1;
-				etxt_componentes1.setText(etxt_componentes1.getText().toString()+" "+ dao.recuperarNombresComponentes()[position]);
+				etxt_componentes1.setText(etxt_componentes1.getText().toString()+ posCantidadComponentes+" - "+  dao.recuperarNombresComponentes()[position]+"\n");
+				spin_cantidad_componentes.setSelection(0);
 			}
 
 			@Override
@@ -159,10 +176,6 @@ public class Lay_ingresar extends Activity{
 	private void Botones() {
 		
 		
-		
-		
-		
-		
 		btn_IngresarReparacion.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -170,7 +183,7 @@ public class Lay_ingresar extends Activity{
 				if (!(etxt_serial.getText().toString().equals(""))){
 				if (!(observaciones.getText().toString().equals(""))){	
 					
-			dao.insertarReparacion(fecha, Integer.parseInt(etxt_serial.getText().toString()), posSpinModelo,posSpinVersion, posSpinFalla, observaciones.getText().toString(),hs24);	
+			dao.insertarReparacion(fecha, Integer.parseInt(etxt_serial.getText().toString()), posSpinModelo,posSpinVersion, posSpinFalla, fecha+": "+observaciones.getText().toString(),hs24);	
 		
 			etxt_serial.setText("");
 			observaciones.setText("");
@@ -199,19 +212,20 @@ public class Lay_ingresar extends Activity{
 	
 	private void levantarXML() {
 		hs24=0;
-		spin_modelos=(Spinner) findViewById(R.id.spin_modelos);
-		spin_fallas=(Spinner) findViewById(R.id.spin_fallas);
-		spin_versiones=(Spinner) findViewById(R.id.spin_versiones);
+		spin_modelos=(Spinner) findViewById(R.id.spin_modelos_REP);
+		spin_fallas=(Spinner) findViewById(R.id.spin_fallas_REP);
+		spin_versiones=(Spinner) findViewById(R.id.spin_versiones_REP);
 		spin_componentes=(Spinner) findViewById(R.id.spin_componentes);
-		spin_cantidad_componentes=(Spinner)findViewById(R.id.spin_cantidad);
-		CkBox_24hs =(CheckBox) findViewById(R.id.cbox_24hs);
+		spin_cantidad_componentes=(Spinner)findViewById(R.id.spin_cantidad_componentes);
+		
+		CkBox_24hs =(CheckBox) findViewById(R.id.cbox_24hs_REP);
 		etxt_serial=(EditText) findViewById(R.id.eTxt_Serial_ingresar);
 		etxt_componentes1=(EditText) findViewById(R.id.etxt_componentes1);
-		observaciones=(EditText) findViewById(R.id.etxt_observaciones);
+		observaciones=(EditText) findViewById(R.id.etxt_observaciones_REP);
 		
 		
-		txt_date=(TextView) findViewById(R.id.txtV_Date);
-		txtV_Reparacion=(TextView) findViewById(R.id.txtV_Reparacion);
+		txt_date=(TextView) findViewById(R.id.txtV_fecha_REP);
+		txtV_Reparacion=(TextView) findViewById(R.id.txtV_Reparacion_REP);
 		btn_IngresarReparacion = (Button) findViewById(R.id.btn_IngresarReparacion);
 		
 	}

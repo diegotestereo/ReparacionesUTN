@@ -36,7 +36,7 @@
         </EditText>
 
         <Spinner
-            android:id="@+id/spin_modelos"
+            android:id="@+id/spin_modelos_REP"
             android:layout_width="92dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -101,7 +101,7 @@
             android:gravity="center" />
 
         <Spinner
-            android:id="@+id/spin_fallas"
+            android:id="@+id/spin_fallas_REP"
             android:layout_width="90dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -164,7 +164,7 @@
             android:gravity="center" />
 
         <Spinner
-            android:id="@+id/spin_versiones"
+            android:id="@+id/spin_versiones_REP"
             android:layout_width="88dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
