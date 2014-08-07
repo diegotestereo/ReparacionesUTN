@@ -21,10 +21,10 @@ import com.example.reparacionesutn.objetos.ReparacionesClase;
 
 public class AdaptadorCustomizado extends BaseAdapter
 {
-
+	private SQLHelperAdaptador dao;
 	private ArrayList<ReparacionesClase> reparaciones;
 	private Context context;
-
+ 
 	public AdaptadorCustomizado(ArrayList<ReparacionesClase> reparacion, Context Context)
 	{
 		this.reparaciones = reparacion;
@@ -89,12 +89,44 @@ public class AdaptadorCustomizado extends BaseAdapter
 
 		holder.ll_row.setOnClickListener(new OnClickListener()
 		{
+			
+			int serial,hs24,reparacion;
+			String observacion,fecha,modelo,version,falla;
 
+			
+			
 			@Override
 			public void onClick(View v)
 			{
 				Intent intento = new Intent(context, lay_reparacion.class);
 				intento.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+			
+				reparacion =10;
+				serial =1000;
+				hs24 =1;
+				
+				observacion="prueba";
+				fecha="01/01/1900";
+				modelo="3100";
+				version="IDX";
+				falla="Tx VCC";
+				
+				
+				
+				
+				
+				
+				
+				intento.putExtra("reparacion", reparacion);
+				intento.putExtra("serial", serial);
+				intento.putExtra("hs24", hs24);
+				intento.putExtra("fecha", fecha);
+				intento.putExtra("observacion", observacion);
+				intento.putExtra("falla", falla);
+				intento.putExtra("modelo", modelo);
+				intento.putExtra("version", version);
+				
+				
 				context.startActivity(intento);
 			}
 		});

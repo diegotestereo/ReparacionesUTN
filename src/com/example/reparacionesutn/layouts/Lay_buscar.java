@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,11 +30,37 @@ public class Lay_buscar extends Activity {
 		setContentView(R.layout.lay_buscar);
 		levantarXML();
 		setAdapter();
+		tocarLista();
 		super.onCreate(savedInstanceState);
 	}  
 
 	
 	
+
+
+
+
+	private void tocarLista() {
+		lista_equipos.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+	}
+
+
+
 
 
 

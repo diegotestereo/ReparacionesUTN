@@ -190,9 +190,11 @@
             android:id="@+id/cbox_24hs_REP"
             android:layout_width="223dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/fondo_spinner"
+            android:background="@drawable/fondo_edit_text"
+            android:clickable="false"
             android:gravity="center"
             android:text="Prueba 24 Hs." />
+
     </LinearLayout>
 
     <LinearLayout

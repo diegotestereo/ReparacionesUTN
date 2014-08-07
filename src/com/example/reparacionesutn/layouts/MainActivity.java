@@ -24,8 +24,8 @@ import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
- 
-	Button btn_VerReparaciones,btn_Reparacion,btn_Modificar_spin,btn_buscarEquipos,boton;
+
+	Button btn_VerReparaciones,btn_Reparacion,btn_Modificar_spin,btn_buscarEquipos;
 	EditText eTxt_Serial;
 	TextView txtV_Observaciones,txtV_nReparaciones; 
 	Spinner sp_modelo,sp_falla,sp_version;
@@ -43,7 +43,7 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         levantarXML();
         setAdaptadores();
-       
+  
 		//
 	 botones();
      }
@@ -64,19 +64,7 @@ public class MainActivity extends Activity {
 	}
 
 	private void botones() {
-		btn_Reparacion.setOnClickListener(new OnClickListener() {
-			
-			Intent intento=new Intent(MainActivity.this,Lay_ingresar.class);
-			@Override
-			public void onClick(View v) {
-				
-					
-					startActivity(intento);
-					
-				
-				
-			}
-		});
+	
 		btn_buscarEquipos.setOnClickListener(new OnClickListener() {
 			
 			
@@ -126,7 +114,16 @@ public class MainActivity extends Activity {
 					
 					
 				}else{
-				startActivity(intento);}
+					
+					
+					
+				startActivity(intento);
+				
+				
+				
+				
+				
+				}
 			}
 			
 			
@@ -142,15 +139,7 @@ public class MainActivity extends Activity {
 			}
 		});
 		
-		boton.setOnClickListener(new OnClickListener() {
-			Intent intento =new Intent(getApplicationContext(), lay_reparacion.class);
-			@Override
-			public void onClick(View v) {
-				startActivity(intento);
-				
-			}
-		});
-	
+		
 	}
 
 	private void levantarXML() {
@@ -160,7 +149,7 @@ public class MainActivity extends Activity {
 		btn_Modificar_spin=(Button) findViewById(R.id.btn_Spinners);
 		btn_buscarEquipos=(Button) findViewById(R.id.btn_BuscarEquipo);
 		btn_VerReparaciones=(Button) findViewById(R.id.btn_VerReparaciones);
-		boton=(Button) findViewById(R.id.button1);
+	
 		sp_falla=(Spinner) findViewById(R.id.spin_version_main);
 		sp_modelo=(Spinner) findViewById(R.id.spin_modelo_main);
 		sp_version=(Spinner) findViewById(R.id.spin_falla_main);
