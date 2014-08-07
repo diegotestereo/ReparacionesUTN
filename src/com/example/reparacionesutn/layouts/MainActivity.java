@@ -143,7 +143,7 @@ public class MainActivity extends Activity {
 		});
 		
 		boton.setOnClickListener(new OnClickListener() {
-			Intent intento =new Intent(getApplicationContext(), Lay_reparacion.class);
+			Intent intento =new Intent(getApplicationContext(), lay_reparacion.class);
 			@Override
 			public void onClick(View v) {
 				startActivity(intento);
