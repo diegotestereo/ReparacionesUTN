@@ -101,12 +101,12 @@ public class AdaptadorCustomizado extends BaseAdapter
 				Intent intento = new Intent(context, lay_reparacion.class);
 				intento.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 			
-				reparacion =10;
-				serial =1000;
-				hs24 =1;
+				reparacion =item.getId_Reparacion();
+				serial =item.getSerial();
+				hs24 =item.getHs24();
 				
-				observacion="prueba";
-				fecha="01/01/1900";
+				observacion=item.getObservaciones();
+				fecha="1/1/1900";
 				modelo="3100";
 				version="IDX";
 				falla="Tx VCC";

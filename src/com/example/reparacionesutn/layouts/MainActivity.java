@@ -65,6 +65,16 @@ public class MainActivity extends Activity {
 
 	private void botones() {
 	
+		
+		
+		btn_Reparacion.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent intento=new Intent(MainActivity.this,Lay_ingresar.class);
+				startActivity(intento);
+			}
+		});
 		btn_buscarEquipos.setOnClickListener(new OnClickListener() {
 			
 			
