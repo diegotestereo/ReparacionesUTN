@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -28,6 +29,7 @@ public class MainActivity extends Activity {
 	EditText eTxt_Serial;
 	TextView txtV_Observaciones,txtV_nReparaciones; 
 	Spinner sp_modelo,sp_falla,sp_version;
+	ArrayAdapter<String> adaptadorModelos, adaptadorFallas, adaptadorVersiones;
 	///OBJETOS
 	ModelosClase oModelo;
    	FallasClase oFalla;
@@ -40,11 +42,26 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         levantarXML();
-     
-        dao = new SQLHelperAdaptador(MainActivity.this, getString(R.string.DataBase), null, 1);
+        setAdaptadores();
+       
 		//
 	 botones();
      }
+
+	private void setAdaptadores() {
+		 dao = new SQLHelperAdaptador(MainActivity.this, getString(R.string.DataBase), null, 1);
+		//los adaptadores recuperan el listado de nombres que luego se asignan a los spinners correspondientes...
+				adaptadorModelos = new ArrayAdapter<String>(this, R.layout.spinner_text, dao.recuperarNombresModelos());
+				adaptadorVersiones = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dao.recuperarNombresVersiones());
+				adaptadorFallas = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, dao.recuperarNombresFallas());
+				// se cargan los spinners con el contenido de los adapatadores...
+				
+				sp_falla.setAdapter(adaptadorFallas);
+				//spin_modelos.setAdapter(adaptadorModelos);
+				sp_modelo.setAdapter(adaptadorModelos);
+				sp_version.setAdapter(adaptadorVersiones);
+		
+	}
 
 	private void botones() {
 		btn_Reparacion.setOnClickListener(new OnClickListener() {
@@ -135,9 +152,9 @@ public class MainActivity extends Activity {
 		btn_buscarEquipos=(Button) findViewById(R.id.btn_BuscarEquipo);
 		btn_VerReparaciones=(Button) findViewById(R.id.btn_VerReparaciones);
 		
-		sp_falla=(Spinner) findViewById(R.id.spin_falla_main);
+		sp_falla=(Spinner) findViewById(R.id.spin_version_main);
 		sp_modelo=(Spinner) findViewById(R.id.spin_modelo_main);
-		sp_version=(Spinner) findViewById(R.id.spin_version_main);
+		sp_version=(Spinner) findViewById(R.id.spin_falla_main);
 		txtV_Observaciones=(TextView) findViewById(R.id.txtV_observaciones);
 	
 		

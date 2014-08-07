@@ -103,6 +103,23 @@ private Boolean dialogoEliminar() {
 	
 	private void spinners()
 	{
+		 
+		spin_componentes2.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				eTxt_Componentes.setText(dao.recuperarNombresComponentes()[position]);
+				
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
 		spin_modelos.setOnItemSelectedListener(new OnItemSelectedListener()
 		{
 

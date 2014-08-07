@@ -29,7 +29,8 @@
             android:layout_gravity="center"
             android:layout_weight="1.38"
             android:background="@drawable/fondo_edit_text"
-            android:ems="10" >
+            android:ems="10"
+            android:gravity="center" >
  
             <requestFocus />
         </EditText>
@@ -96,7 +97,8 @@
             android:layout_gravity="center"
             android:layout_weight="1"
             android:background="@drawable/fondo_edit_text"
-            android:ems="10" />
+            android:ems="10"
+            android:gravity="center" />
 
         <Spinner
             android:id="@+id/spin_fallas"
@@ -158,7 +160,8 @@
             android:layout_gravity="center"
             android:layout_weight="0.67"
             android:background="@drawable/fondo_edit_text"
-            android:ems="10" />
+            android:ems="10"
+            android:gravity="center" />
 
         <Spinner
             android:id="@+id/spin_versiones"
@@ -218,10 +221,11 @@
             android:layout_width="83dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="1"
             android:layout_margin="3dp"
+            android:layout_weight="1"
             android:background="@drawable/fondo_edit_text"
-            android:ems="10" />
+            android:ems="10"
+            android:gravity="center" />
 
         <Spinner
             android:id="@+id/spin_componentes_ingresar"

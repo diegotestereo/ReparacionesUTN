@@ -22,7 +22,7 @@
                 android:id="@+id/Btn_Reparacion"
                 android:layout_width="124dp"
                 android:layout_height="match_parent"
-                android:layout_margin="3dp"
+                android:layout_margin="5dp"
                 android:background="@drawable/boton_selector"
                 android:text="Ingresar Reparacion" />
 
@@ -30,7 +30,7 @@
                 android:id="@+id/btn_VerReparaciones"
                 android:layout_width="126dp"
                 android:layout_height="81dp"
-                android:layout_margin="3dp"
+                android:layout_margin="5dp"
                 android:layout_weight="4.67"
                 android:background="@drawable/boton_selector"
                 android:text="Ver Reparaciones" />
@@ -39,7 +39,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-             android:padding="5dp" >
+             android:padding="2dp" >
 
             <Button
                 android:id="@+id/btn_BuscarEquipo"
@@ -69,30 +69,26 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" 
-             android:padding="5dp"
-             >
+            android:layout_height="wrap_content"
+            android:visibility="gone" >
 
             <Spinner
                 android:id="@+id/spin_falla_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/fondo_spinner" />
+                android:layout_weight="1" />
 
             <Spinner
                 android:id="@+id/spin_modelo_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/fondo_spinner" />
+                android:layout_weight="1" />
 
             <Spinner
                 android:id="@+id/spin_version_main"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@drawable/fondo_spinner" />
+                android:layout_weight="1" />
 
         </LinearLayout>
 
@@ -108,6 +104,7 @@
                 android:layout_height="wrap_content"
                                android:layout_weight="2346.13"
                 android:background="@drawable/boton_selector"
+                  android:padding="5dp"
                 android:text="Configuración" />
         </LinearLayout>
 
