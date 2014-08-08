@@ -12,6 +12,7 @@ import android.os.Bundle;
 import android.text.Layout;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -53,9 +54,16 @@ public class Lay_ingresar extends Activity{
 		Spinners();
 		txt_date.setText(fecha);
 		etxt_componentes1.setText("");
+		
+		/// para hacer no tactil la ventana
+		//getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+		//para borrar 
+		//getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+	
 	}
 
 	private void setcheck() {
+		
 		
 		CkBox_24hs.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
@@ -74,6 +82,7 @@ public class Lay_ingresar extends Activity{
 	}
 
 	private void Spinners() {
+		
 		posSpinVersion= spin_versiones.getSelectedItemPosition()+1;
 		posSpinModelo= spin_modelos.getSelectedItemPosition()+1;
 		posSpinFalla= spin_fallas.getSelectedItemPosition()+1;
@@ -181,7 +190,7 @@ public class Lay_ingresar extends Activity{
 			@Override
 			public void onClick(View v) {
 				if (!(etxt_serial.getText().toString().equals(""))){
-				if (!(observaciones.getText().toString().equals(""))){	
+				
 					
 			dao.insertarReparacion(fecha, Integer.parseInt(etxt_serial.getText().toString()), posSpinModelo,posSpinVersion, posSpinFalla, fecha+": "+observaciones.getText().toString(),hs24);	
 		
@@ -191,9 +200,7 @@ public class Lay_ingresar extends Activity{
 
 			Toast.makeText(getApplicationContext(), "Reparacion Nº "+dao.recuperarCantidadReparaciones()+" Ingresada !!!", Toast.LENGTH_SHORT).show();
 			
-				}else{
-					Toast.makeText(getApplicationContext(), "Ingrese Observaciones", Toast.LENGTH_SHORT).show();
-					}
+			
 				
 				}
 				else{

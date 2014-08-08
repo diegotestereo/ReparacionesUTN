@@ -34,18 +34,6 @@ public class Lay_buscar extends Activity {
 		super.onCreate(savedInstanceState);
 	}  
 
-	
-	
-
-
-
-
-	
-
-
-
-
-
 
 
 	private void setAdapter() {

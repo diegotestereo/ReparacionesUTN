@@ -5,39 +5,61 @@
     android:layout_height="match_parent"
     android:background="@drawable/fondo_spinner" >
 
-    <ImageView
-        android:id="@+id/imv_icono"
-        android:layout_width="73dp"
-        android:layout_height="73dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:src="@drawable/ic_launcher_3100"/>
+    <TextView
+        android:id="@+id/tv_descripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btn_borrarReparacion"
+        android:layout_alignLeft="@+id/tv_titulo"
+        android:layout_below="@+id/tv_titulo"
+        android:layout_toLeftOf="@+id/btn_editarReparacion"
+        android:text="Informacion"
+        android:textColor="@android:color/black"
+        android:textSize="12dp" />
 
- 
     <TextView
         android:id="@+id/tv_titulo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="3dp"
+        android:layout_toLeftOf="@+id/btn_editarReparacion"
         android:layout_toRightOf="@+id/imv_icono"
         android:gravity="top"
         android:text="Titulo"
         android:textColor="@android:color/black"
         android:textSize="12dp"
         android:textStyle="bold" />
-      
-    
-    <TextView
-        android:id="@+id/tv_descripcion"
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:id="@+id/imv_icono"
+        android:layout_width="73dp"
+        android:layout_height="73dp"
+        android:layout_alignBottom="@+id/tv_descripcion"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_launcher_3100" />
+
+    <Button
+        android:id="@+id/btn_editarReparacion"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/imv_icono"
-        android:layout_below="@+id/tv_titulo"
-        android:layout_toRightOf="@+id/imv_icono"
-        android:text="Informacion"
-      	        android:textColor="@android:color/black"
-        android:textSize="12dp" />
-    
+        android:layout_alignLeft="@+id/btn_borrarReparacion"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_margin="1dp"
+        android:background="@drawable/boton_selector"
+        android:text="editar" />
+
+    <Button
+        android:id="@+id/btn_borrarReparacion"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/btn_editarReparacion"
+        android:layout_margin="1dp"
+        android:background="@drawable/boton_selector"
+        android:text="borrar" />
 
 </RelativeLayout>

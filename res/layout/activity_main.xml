@@ -10,8 +10,22 @@
         android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/fondo"
+        android:background="@drawable/ic_launcher"
         android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+           
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:text="SISTEMA DE INGRESO DE REPARACIONES" />
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,7 +53,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-             android:padding="2dp" >
+            android:padding="2dp" >
 
             <Button
                 android:id="@+id/btn_BuscarEquipo"
@@ -56,15 +70,14 @@
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
-                android:gravity="center"
                 android:background="@drawable/fondo_edit_text"
                 android:ems="10"
+                android:gravity="center"
                 android:hint="Ingrese Serial"
                 android:inputType="number" >
 
                 <requestFocus />
             </EditText>
-
         </LinearLayout>
 
         <LinearLayout
@@ -89,7 +102,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1" />
-
         </LinearLayout>
 
         <LinearLayout
@@ -102,12 +114,11 @@
                 android:id="@+id/btn_Spinners"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                               android:layout_weight="2346.13"
+                android:layout_weight="11245.24"
                 android:background="@drawable/boton_selector"
-                  android:padding="5dp"
+                android:padding="5dp"
                 android:text="Configuración" />
         </LinearLayout>
-
     </LinearLayout>
 
 </FrameLayout>
