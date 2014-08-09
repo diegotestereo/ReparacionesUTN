@@ -17,5 +17,41 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style  name="estilo_botones">
+        
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+      	<item name="android:layout_margin">5dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/boton_selector</item>
+         
+    </style>
+    
+     <style  name="estilo_txtview">
+        
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+      	<item name="android:layout_margin" >5dp</item>
+        
+           <item name="android:gravity">center</item>
+           <item name="android:textSize">18dp</item>
+        <item name="android:background">@drawable/fondo_edit_text</item>
+         
+    	</style>
+     
+     <style  name="estilo_spinner">
+        
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+      	<item name="android:layout_margin" >5dp</item>
+        <item name="android:layout_weight">1</item>
+         <item name="android:gravity">center</item>
+           <item name="android:textSize">18dp</item>
+        <item name="android:background">@drawable/fondo_spinner</item>
+         
+    </style>
+    
+    
     
 </resources>

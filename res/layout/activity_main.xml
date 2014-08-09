@@ -7,7 +7,6 @@
     tools:ignore="MergeRootFrame" >
 
     <LinearLayout
-        android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/ic_launcher"
@@ -16,37 +15,34 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-           
             android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
-                android:layout_height="64dp"
-                android:text="SISTEMA DE INGRESO DE REPARACIONES" />
-
+                android:layout_height="121dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="SISTEMA DE INGRESO DE REPARACIONES"
+                android:textSize="20dp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/LinearLayout1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:padding="2dp" >
 
             <Button
                 android:id="@+id/Btn_Reparacion"
-                android:layout_width="124dp"
-                android:layout_height="match_parent"
-                android:layout_margin="5dp"
-                android:background="@drawable/boton_selector"
+                style="@style/estilo_botones"
                 android:text="Ingresar Reparacion" />
 
             <Button
                 android:id="@+id/btn_VerReparaciones"
-                android:layout_width="126dp"
-                android:layout_height="81dp"
-                android:layout_margin="5dp"
-                android:layout_weight="4.67"
-                android:background="@drawable/boton_selector"
+                style="@style/estilo_botones"
                 android:text="Ver Reparaciones" />
         </LinearLayout>
 
@@ -57,19 +53,14 @@
 
             <Button
                 android:id="@+id/btn_BuscarEquipo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:layout_weight="1"
-                android:background="@drawable/boton_selector"
+                style="@style/estilo_botones"
                 android:text="Buscar Equipo" />
 
             <EditText
                 android:id="@+id/eTxt_Serial"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
-                android:layout_weight="1"
                 android:background="@drawable/fondo_edit_text"
                 android:ems="10"
                 android:gravity="center"
@@ -83,42 +74,21 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone" >
-
-            <Spinner
-                android:id="@+id/spin_falla_main"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Spinner
-                android:id="@+id/spin_modelo_main"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-
-            <Spinner
-                android:id="@+id/spin_version_main"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="5dp" >
+            android:padding="2dp" >
 
             <Button
                 android:id="@+id/btn_Spinners"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="11245.24"
-                android:background="@drawable/boton_selector"
-                android:padding="5dp"
+                style="@style/estilo_botones"
                 android:text="Configuración" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_asinc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:background="@drawable/boton_selector"
+            android:text="asinc" />
     </LinearLayout>
 
 </FrameLayout>

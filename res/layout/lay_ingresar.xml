@@ -4,13 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/ic_launcher"
-    android:orientation="vertical"
-     >
+    android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        android:layout_margin="5dp"
         android:background="@drawable/fondo_edit_text" >
 
         <TextView
@@ -37,7 +36,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_margin="5dp"
         android:background="@drawable/fondo_edit_text" >
 
         <TextView
@@ -116,7 +115,7 @@
             android:layout_gravity="center"
             android:layout_margin="5dp"
             android:background="@drawable/fondo_edit_text"
-            android:gravity="right"
+           
             android:orientation="vertical" >
 
             <TextView
@@ -133,7 +132,7 @@
                 android:id="@+id/spin_modelos_REP"
                 android:layout_width="89dp"
                 android:layout_height="wrap_content"
-                android:layout_gravity="right"
+              
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo_spinner"
@@ -173,7 +172,7 @@
             android:layout_height="match_parent"
             android:layout_gravity="center"
             android:layout_margin="5dp"
-            android:layout_weight="1"
+            android:layout_weight="0.17"
             android:background="@drawable/fondo_edit_text"
             android:orientation="vertical" >
 
@@ -184,40 +183,42 @@
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
+                   android:textSize="18dp" 
                 android:text="Falla"
-                android:textSize="18dp" />
+           />
 
             <Spinner
                 android:id="@+id/spin_fallas_REP"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:gravity="center"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:background="@drawable/fondo_spinner"
-                android:gravity="right" />
+                />
         </LinearLayout>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp" >
+        android:layout_margin="2dp" >
 
         <LinearLayout
             android:layout_width="99dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="5dp"
+            android:layout_gravity="left"
+          
             android:background="@drawable/fondo_edit_text"
             android:gravity="right"
             android:orientation="vertical" >
 
             <TextView
                 android:id="@+id/TextView02"
-             android:layout_width="match_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="left"
                 android:layout_margin="5dp"
                 android:text="Compo"
                 android:textSize="18dp" />
@@ -226,32 +227,24 @@
                 android:id="@+id/spin_componentes"
                 android:layout_width="match_parent"
                 android:layout_height="37dp"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:layout_margin="2dp" />
+                android:layout_gravity="right"
+                android:layout_margin="2dp"
+                android:gravity="center" />
 
             <Spinner
                 android:id="@+id/spin_cantidad_componentes"
-             android:layout_width="match_parent"
+                android:layout_width="match_parent"
                 android:layout_height="34dp"
-                 android:layout_gravity="center"
-                 android:gravity="center"
-                android:layout_margin="2dp" />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="118dp"
-            android:layout_weight="0.59"
-            android:orientation="vertical" >
-
+                android:layout_gravity="center"
+                android:layout_margin="2dp"
+                android:gravity="center" />
         </LinearLayout>
 
         <EditText
             android:id="@+id/etxt_componentes1"
-            android:layout_width="wrap_content"
-            android:layout_height="116dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="right"
             android:background="@drawable/fondo_edit_text"
             android:ems="10" />
     </LinearLayout>
@@ -260,38 +253,34 @@
         android:id="@+id/LinearLayout1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="3dp"
+        android:layout_margin="2dp"
         android:layout_weight="0.36"
         android:orientation="vertical" >
 
         <TextView
             android:id="@+id/txtV_observaciones"
-            android:layout_width="wrap_content"
+            style="@style/estilo_txtview"
             android:layout_height="wrap_content"
-            android:layout_gravity="left"
-            android:layout_margin="5dp"
             android:text="Observaciones"
-            android:textSize="18dp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/etxt_observaciones_REP"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="5dp"
-            android:layout_weight="0.44"
+            android:layout_weight="1"
             android:background="@drawable/fondo_edit_text"
             android:ems="10"
             android:gravity="start"
             android:inputType="textMultiLine" />
-    </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_IngresarReparacion"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:background="@drawable/boton_selector"
-        android:text="Ingresar" />
+        <Button
+            android:id="@+id/btn_IngresarReparacion"
+            style="@style/estilo_botones"
+            android:layout_weight="0.15"
+            android:text="Guardar" />
+
+    </LinearLayout>
 
 </LinearLayout>

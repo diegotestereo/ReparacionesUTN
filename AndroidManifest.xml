@@ -48,5 +48,5 @@
             android:name="com.example.reparacionesutn.layouts.lay_reparacion"
             android:label="Reparacion"></activity>  
     </application>
-
+	<uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

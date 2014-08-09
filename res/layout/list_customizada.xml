@@ -27,7 +27,7 @@
         android:gravity="top"
         android:text="Titulo"
         android:textColor="@android:color/black"
-        android:textSize="12dp"
+        android:textSize="15dp"
         android:textStyle="bold" />
 
     <ImageView

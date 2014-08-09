@@ -53,7 +53,7 @@ public class Lay_ingresar extends Activity{
 		cargaAdaptadores();
 		Spinners();
 		txt_date.setText(fecha);
-		etxt_componentes1.setText("");
+	
 		
 		/// para hacer no tactil la ventana
 		//getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
@@ -82,7 +82,7 @@ public class Lay_ingresar extends Activity{
 	}
 
 	private void Spinners() {
-		
+		etxt_componentes1.setText("");
 		posSpinVersion= spin_versiones.getSelectedItemPosition()+1;
 		posSpinModelo= spin_modelos.getSelectedItemPosition()+1;
 		posSpinFalla= spin_fallas.getSelectedItemPosition()+1;
