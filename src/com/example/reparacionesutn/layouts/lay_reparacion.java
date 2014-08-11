@@ -57,17 +57,19 @@ public class lay_reparacion extends Activity
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.lay_ingresar);
 		levantarXML();
+		txt_date.setText(fecha);
 		setcheck();
 		Botones();
 		cargaAdaptadores();
 		Spinners();
-		txt_date.setText(fecha);
+		
 		importarExtras();
 		cargarEXTRAS();
 	
 	}
 
 	private void cargarEXTRAS() {
+		
 		
 		txtV_Reparacion.setText(Integer.toString(reparacionE));
 		txt_date.setText(SfechaE);
@@ -88,14 +90,18 @@ public class lay_reparacion extends Activity
 	}
 
 	private void importarExtras() {
-		reparacionE=55;//intento.getExtras().getInt("reparacion");
-		serialE=9999;//intento.getExtras().getInt("serial");
-		hs24E=1;//intento.getExtras().getInt("hs24");
-		SfechaE="24/10/1974";//intento.getExtras().getString("fecha");
-		observacionE="esto es una prueba";//intento.getExtras().getString("observacion");
-		fallaE=3;//intento.getExtras().getInt("falla");
-	    modeloE=3;//intento.getExtras().getInt("modelo");
-		versionE=3;//intento.getExtras().getInt("version");
+		
+		intento =getIntent();
+		
+		
+		reparacionE=intento.getExtras().getInt("reparacion");
+		serialE=intento.getExtras().getInt("serial");
+		hs24E=intento.getExtras().getInt("hs24");
+		SfechaE=intento.getExtras().getString("fecha");
+		observacionE=intento.getExtras().getString("observacion");
+		fallaE=intento.getExtras().getInt("falla");
+	    modeloE=intento.getExtras().getInt("modelo");
+		versionE=intento.getExtras().getInt("version");
 			
 	}
 
@@ -120,11 +126,11 @@ public class lay_reparacion extends Activity
 
 	private void Spinners() {
 		etxt_componentes1.setText("");
-		posSpinVersion= spin_versiones.getSelectedItemPosition()+1;
-		posSpinModelo= spin_modelos.getSelectedItemPosition()+1;
-		posSpinFalla= spin_fallas.getSelectedItemPosition()+1;
-		posSpinComponente=spin_componentes.getSelectedItemPosition()+1;
-		posCantidadComponentes=spin_cantidad_componentes.getSelectedItemPosition() +1;
+		posSpinVersion= spin_versiones.getSelectedItemPosition();
+		posSpinModelo= spin_modelos.getSelectedItemPosition();
+		posSpinFalla= spin_fallas.getSelectedItemPosition();
+		posSpinComponente=spin_componentes.getSelectedItemPosition();
+		posCantidadComponentes=spin_cantidad_componentes.getSelectedItemPosition();
 		
 		
 		spin_cantidad_componentes.setOnItemSelectedListener(new OnItemSelectedListener() {
@@ -132,7 +138,7 @@ public class lay_reparacion extends Activity
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				posCantidadComponentes=position +1;
+				posCantidadComponentes=position;
 				
 			}
 
@@ -148,7 +154,7 @@ public class lay_reparacion extends Activity
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				posSpinComponente=position+1;
+				posSpinComponente=position;
 				etxt_componentes1.setText(etxt_componentes1.getText().toString()+ posCantidadComponentes+" - "+  dao.recuperarNombresComponentes()[position]+"\n");
 				spin_cantidad_componentes.setSelection(0);
 			}
@@ -165,7 +171,7 @@ public class lay_reparacion extends Activity
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				posSpinModelo= position+1;
+				posSpinModelo= position;
 			}
 	@Override
 			public void onNothingSelected(AdapterView<?> parent) {
@@ -177,7 +183,7 @@ public class lay_reparacion extends Activity
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				posSpinFalla = position +1;
+				posSpinFalla = position;
 			}
 			@Override
 			public void onNothingSelected(AdapterView<?> parent) {
@@ -189,7 +195,7 @@ public class lay_reparacion extends Activity
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				posSpinVersion=position+1;
+				posSpinVersion=position;
 			}
 
 			@Override
@@ -229,7 +235,7 @@ public class lay_reparacion extends Activity
 				if (!(etxt_serial.getText().toString().equals(""))){
 				
 					
-			dao.actualizarReparacion(reparacionE,Integer.parseInt(etxt_serial.getText().toString()), posSpinModelo,posSpinVersion, posSpinFalla, fecha+": "+observaciones.getText().toString(),hs24);	
+			dao.actualizarReparacion(reparacionE, Integer.parseInt(etxt_serial.getText().toString()), posSpinModelo,posSpinVersion, posSpinFalla, fecha+": "+observaciones.getText().toString(),hs24);	
 		
 			etxt_serial.setText("");
 			observaciones.setText("");
@@ -249,9 +255,14 @@ public class lay_reparacion extends Activity
 				spin_versiones.setSelection(0);	
 				spin_componentes.setSelection(0);
 				spin_cantidad_componentes.setSelection(0);
+				
+				
 				}
+		
 
 		});
+		
+	
 	}
 	
 	private void levantarXML() {

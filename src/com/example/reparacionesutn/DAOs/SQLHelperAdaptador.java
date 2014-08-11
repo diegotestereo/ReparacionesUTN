@@ -216,9 +216,8 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 	{
 
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		baseDatos.execSQL("UPDATE Tabla_Reparaciones (serial,id_modelo,id_version,id_falla, observaciones,hs24) "
-		+"VALUES ('"+ serial + "," + id_modelo + "," + id_version + "," + id_falla + ",'"
-		+ observaciones + "',"+ hs24+" ) WHERE id_reparacion="+id_reparacion);
+		baseDatos.execSQL("UPDATE Tabla_Reparaciones SET serial="+serial+",id_modelo="+id_modelo+",id_version="+id_version+","
+				+ "id_falla="+id_falla+", observaciones='"+observaciones+"',hs24="+hs24+"  WHERE id_reparacion="+id_reparacion);
 		baseDatos.close();
 	}
 	

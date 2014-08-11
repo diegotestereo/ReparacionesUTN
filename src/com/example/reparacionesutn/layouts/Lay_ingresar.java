@@ -6,13 +6,13 @@ import java.util.Date;
 import com.example.reparacionesutn.R;
 import com.example.reparacionesutn.DAOs.SQLHelperAdaptador;
 
-import android.R.drawable;
+
 import android.app.Activity;
 import android.os.Bundle;
-import android.text.Layout;
+
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.view.WindowManager;
+
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
@@ -95,7 +95,7 @@ public class Lay_ingresar extends Activity{
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				posCantidadComponentes=position +1;
+				posCantidadComponentes=position;
 				
 			}
 
@@ -111,7 +111,7 @@ public class Lay_ingresar extends Activity{
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				posSpinComponente=position+1;
+				posSpinComponente=position;
 				etxt_componentes1.setText(etxt_componentes1.getText().toString()+ posCantidadComponentes+" - "+  dao.recuperarNombresComponentes()[position]+"\n");
 				spin_cantidad_componentes.setSelection(0);
 			}
@@ -128,7 +128,7 @@ public class Lay_ingresar extends Activity{
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				posSpinModelo= position+1;
+				posSpinModelo= position;
 			}
 	@Override
 			public void onNothingSelected(AdapterView<?> parent) {
@@ -140,7 +140,7 @@ public class Lay_ingresar extends Activity{
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				posSpinFalla = position +1;
+				posSpinFalla = position;
 			}
 			@Override
 			public void onNothingSelected(AdapterView<?> parent) {
@@ -152,7 +152,7 @@ public class Lay_ingresar extends Activity{
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view,
 					int position, long id) {
-				posSpinVersion=position+1;
+				posSpinVersion=position;
 			}
 
 			@Override
@@ -213,8 +213,9 @@ public class Lay_ingresar extends Activity{
 				spin_componentes.setSelection(0);
 				spin_cantidad_componentes.setSelection(0);
 				}
+			
 
-		});
+		});	
 	}
 	
 	private void levantarXML() {
