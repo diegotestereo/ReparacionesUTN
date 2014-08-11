@@ -2,100 +2,275 @@ package com.example.reparacionesutn.layouts;
 
 
 
+import java.util.Date;
+
 import android.app.Activity;
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import com.example.reparacionesutn.R;
 import com.example.reparacionesutn.DAOs.SQLHelperAdaptador;
 
 public class lay_reparacion extends Activity
 {
-
-	CheckBox hs24;
-	TextView reparacion, fecha, serial, version, modelo, falla, observacion;
-	 SQLHelperAdaptador dao ;
-	String  fechaV,  observacionV;
-	int  versionV, modeloV, fallaV,serialV,reparacionV,hs24V,editar;
-	Boolean editarBoolean;
+	
+	
+	int posSpinModelo,posSpinVersion,posSpinFalla,posSpinComponente,posCantidadComponentes;
+	int hs24; 
+	
+	private CheckBox CkBox_24hs;
+	private TextView txt_date,txtV_Reparacion;
+	private Spinner spin_modelos,spin_fallas,spin_versiones,spin_componentes,spin_cantidad_componentes;
+	private EditText etxt_serial,observaciones,etxt_componentes1;
+	private Button btn_GuardarReparacion;
+	private ArrayAdapter<String> adaptadorModelos,adaptadorVersiones,adaptadorFallas,adaptadorComponentes,adaptadorCantidadComponentes;
+	private SQLHelperAdaptador dao;
+	private java.util.Date date = new Date();
+	private java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat("dd/MM/yyyy");
+	private String fecha = sdf.format(date);
+	
+	// variables intento getextras
+	
+	 Intent intento;
+	 int modeloE,versionE,fallaE,serialE,reparacionE,editarE;
+	int hs24E;
+	 String observacionE,SfechaE;
+	 boolean borrarE ;
+	 Date fechaE;
+	
 	@Override
-	protected void onCreate(Bundle savedInstanceState)
-	{
+	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.lay_reparacion);
-		 dao = new SQLHelperAdaptador(this, getString(R.string.DataBase), null, 1);
+		setContentView(R.layout.lay_ingresar);
 		levantarXML();
-		importarValores();
+		setcheck();
+		Botones();
+		cargaAdaptadores();
+		Spinners();
+		txt_date.setText(fecha);
+		importarExtras();
+		cargarEXTRAS();
 	
 	}
 
-	
+	private void cargarEXTRAS() {
+		
+		txtV_Reparacion.setText(Integer.toString(reparacionE));
+		txt_date.setText(SfechaE);
+		etxt_serial.setText(Integer.toString(serialE));
+		
+		if (hs24E==1){
+			CkBox_24hs.setChecked(true);
+				} 
+		else{
+			CkBox_24hs.setChecked(false);
+			}
+		 		observaciones.setText(observacionE);
+		 		spin_fallas.setSelection(fallaE);
+		 	spin_modelos.setSelection(modeloE);
+	 	spin_versiones.setSelection(versionE);
 		
 		
-		
-		//return editarBoolean;}
-	
-	private void importarValores() {
-		
-		
-		Intent intento=getIntent();
-		
-		
-		editar=intento.getExtras().getInt("editar");
-		if(editar==1){
-			editarBoolean=true;
-		}else{
-			editarBoolean=false;
-		
-		}		
-		
-		serialV=intento.getExtras().getInt("serial");
-		serial.setText(String.valueOf(serialV));
-		
-		reparacionV=intento.getExtras().getInt("reparacion");
-		reparacion.setText(String.valueOf(reparacionV));
-		
-		fechaV=intento.getExtras().getString("fecha");
-		fecha.setText(fechaV);
-		
-		observacionV=intento.getExtras().getString("observacion");
-		observacion.setText(String.valueOf(observacionV));
-		
-		versionV=intento.getExtras().getInt("version");
-		version.setText(dao.recuperarNombresVersiones()[versionV]);
-		
-		modeloV=intento.getExtras().getInt("modelo");
-		modelo.setText(dao.recuperarNombresModelos()[modeloV]);
-		
-		fallaV=intento.getExtras().getInt("falla");
-		falla.setText(dao.recuperarNombresFallas()[fallaV]);
-		
-		
-		hs24V=intento.getExtras().getInt("hs24");
-		if(hs24V==1){
-			hs24.setChecked(true);
+	}
+
+	private void importarExtras() {
+		reparacionE=55;//intento.getExtras().getInt("reparacion");
+		serialE=9999;//intento.getExtras().getInt("serial");
+		hs24E=1;//intento.getExtras().getInt("hs24");
+		SfechaE="24/10/1974";//intento.getExtras().getString("fecha");
+		observacionE="esto es una prueba";//intento.getExtras().getString("observacion");
+		fallaE=3;//intento.getExtras().getInt("falla");
+	    modeloE=3;//intento.getExtras().getInt("modelo");
+		versionE=3;//intento.getExtras().getInt("version");
 			
-		}else{
-			hs24.setChecked(false);
+	}
+
+	private void setcheck() {
+		
+		
+		CkBox_24hs.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked){
+					hs24=1;
+						} 
+				else{
+					hs24=0;
+					}
+				
+			}
+		});
+		
+	}
+
+	private void Spinners() {
+		etxt_componentes1.setText("");
+		posSpinVersion= spin_versiones.getSelectedItemPosition()+1;
+		posSpinModelo= spin_modelos.getSelectedItemPosition()+1;
+		posSpinFalla= spin_fallas.getSelectedItemPosition()+1;
+		posSpinComponente=spin_componentes.getSelectedItemPosition()+1;
+		posCantidadComponentes=spin_cantidad_componentes.getSelectedItemPosition() +1;
+		
+		
+		spin_cantidad_componentes.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				posCantidadComponentes=position +1;
+				
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		spin_componentes.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				posSpinComponente=position+1;
+				etxt_componentes1.setText(etxt_componentes1.getText().toString()+ posCantidadComponentes+" - "+  dao.recuperarNombresComponentes()[position]+"\n");
+				spin_cantidad_componentes.setSelection(0);
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		spin_modelos.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				posSpinModelo= position+1;
+			}
+	@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+			}
+		});
+		
+		spin_fallas.setOnItemSelectedListener(new OnItemSelectedListener() {
+		
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				posSpinFalla = position +1;
+			}
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
 		}
+		});
 		
-		
+		spin_versiones.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				posSpinVersion=position+1;
+			}
+
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+			}
+		});
 	}
 
-	private void levantarXML()
-	{
-		reparacion = (TextView) findViewById(R.id.txtV_Reparacion_REP);
-		fecha = (TextView) findViewById(R.id.txtV_fecha_REP);
-		hs24=(CheckBox) findViewById(R.id.cbox_24hs_REP);
-		serial = (TextView) findViewById(R.id.txtV_Serial_REP);
-		version = (TextView) findViewById(R.id.txtV_version_REP);
-		modelo = (TextView) findViewById(R.id.txtV_modelo_REP);
-		falla = (TextView) findViewById(R.id.txtV_falla_REP);
-		observacion = (TextView) findViewById(R.id.txtV_observacion_REP);
+	private void cargaAdaptadores() {
+		
+		String[] cantidad = new String[]{"1","2","3","4","5"};
+		
+		//instancio el dao
+		dao=new SQLHelperAdaptador(getApplicationContext(),getString(R.string.DataBase), null, 1);
+		
+		adaptadorFallas=new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_text,dao.recuperarNombresFallas());
+		adaptadorModelos=new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_text,dao.recuperarNombresModelos());
+		adaptadorVersiones=new ArrayAdapter<String>(getApplicationContext(),R.layout.spinner_text,dao.recuperarNombresVersiones());
+		adaptadorComponentes=new ArrayAdapter<String>(getApplicationContext(), R.layout.spinner_text,dao.recuperarNombresComponentes());
+		adaptadorCantidadComponentes=new ArrayAdapter<String>(getApplicationContext(), R.layout.spinner_text,cantidad);
+		txtV_Reparacion.setText(String.valueOf(dao.recuperarCantidadReparaciones()+1));
+
+		spin_componentes.setAdapter(adaptadorComponentes);
+		spin_fallas.setAdapter(adaptadorFallas);
+		spin_modelos.setAdapter(adaptadorModelos);
+		spin_versiones.setAdapter(adaptadorVersiones);
+	spin_cantidad_componentes.setAdapter(adaptadorCantidadComponentes);
 	}
 
+	private void Botones() {
+		
+		
+		btn_GuardarReparacion.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if (!(etxt_serial.getText().toString().equals(""))){
+				
+					
+			dao.actualizarReparacion(reparacionE,Integer.parseInt(etxt_serial.getText().toString()), posSpinModelo,posSpinVersion, posSpinFalla, fecha+": "+observaciones.getText().toString(),hs24);	
+		
+			etxt_serial.setText("");
+			observaciones.setText("");
+			txtV_Reparacion.setText(String.valueOf(dao.recuperarCantidadReparaciones()+1));
+
+			Toast.makeText(getApplicationContext(), "Reparacion Nº "+dao.recuperarCantidadReparaciones()+" Ingresada !!!", Toast.LENGTH_SHORT).show();
+			
+			
+				
+				}
+				else{
+					Toast.makeText(getApplicationContext(), "Ingrese Numero de Serie", Toast.LENGTH_SHORT).show();
+					}
+				
+				spin_fallas.setSelection(0);
+				spin_modelos.setSelection(0);
+				spin_versiones.setSelection(0);	
+				spin_componentes.setSelection(0);
+				spin_cantidad_componentes.setSelection(0);
+				}
+
+		});
+	}
+	
+	private void levantarXML() {
+		hs24=0;
+		spin_modelos=(Spinner) findViewById(R.id.spin_modelos_REP);
+		spin_fallas=(Spinner) findViewById(R.id.spin_fallas_REP);
+		spin_versiones=(Spinner) findViewById(R.id.spin_versiones_REP);
+		spin_componentes=(Spinner) findViewById(R.id.spin_componentes);
+		spin_cantidad_componentes=(Spinner)findViewById(R.id.spin_cantidad_componentes);
+		
+		CkBox_24hs =(CheckBox) findViewById(R.id.cbox_24hs_REP);
+		etxt_serial=(EditText) findViewById(R.id.eTxt_Serial_ingresar);
+		etxt_componentes1=(EditText) findViewById(R.id.etxt_componentes1);
+		observaciones=(EditText) findViewById(R.id.etxt_observaciones_REP);
+		
+		
+		txt_date=(TextView) findViewById(R.id.txtV_fecha_REP);
+		txtV_Reparacion=(TextView) findViewById(R.id.txtV_Reparacion_REP);
+		btn_GuardarReparacion = (Button) findViewById(R.id.btn_IngresarReparacion);
+		
+	}
 }

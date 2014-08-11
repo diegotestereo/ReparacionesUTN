@@ -212,6 +212,17 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		baseDatos.close();
 	}
 
+	public void actualizarReparacion(int id_reparacion, int serial, int id_modelo, int id_version, int id_falla, String observaciones, int hs24 )
+	{
+
+		SQLiteDatabase baseDatos = getWritableDatabase();
+		baseDatos.execSQL("UPDATE Tabla_Reparaciones (serial,id_modelo,id_version,id_falla, observaciones,hs24) "
+		+"VALUES ('"+ serial + "," + id_modelo + "," + id_version + "," + id_falla + ",'"
+		+ observaciones + "',"+ hs24+" ) WHERE id_reparacion="+id_reparacion);
+		baseDatos.close();
+	}
+	
+	
 	public void insertarFalla(String nom_falla)
 	{
 

@@ -99,8 +99,10 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="@drawable/fondo_edit_text"
+            android:checked="false"
             android:gravity="center"
             android:text="24 Hs." />
+
     </LinearLayout>
 
     <LinearLayout

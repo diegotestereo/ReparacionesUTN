@@ -3,6 +3,9 @@
     android:id="@+id/ll_row"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingRight="7dp"
+    android:paddingTop="3dp"
+    android:paddingBottom="3dp"
     android:background="@drawable/fondo_spinner" >
 
     <TextView
@@ -10,33 +13,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/btn_borrarReparacion"
-        android:layout_alignLeft="@+id/tv_titulo"
         android:layout_below="@+id/tv_titulo"
         android:layout_toLeftOf="@+id/btn_editarReparacion"
+        android:layout_toRightOf="@+id/imv_icono"
         android:text="Informacion"
         android:textColor="@android:color/black"
         android:textSize="12dp" />
-
-    <TextView
-        android:id="@+id/tv_titulo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/btn_editarReparacion"
-        android:layout_toRightOf="@+id/imv_icono"
-        android:gravity="top"
-        android:text="Titulo"
-        android:textColor="@android:color/black"
-        android:textSize="15dp"
-        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/imv_icono"
         android:layout_width="73dp"
         android:layout_height="73dp"
         android:layout_alignBottom="@+id/tv_descripcion"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/tv_titulo"
         android:src="@drawable/ic_launcher_3100" />
 
     <Button
@@ -61,5 +50,18 @@
         android:layout_margin="1dp"
         android:background="@drawable/boton_selector"
         android:text="borrar" />
+
+    <TextView
+        android:id="@+id/tv_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/btn_editarReparacion"
+        android:layout_toLeftOf="@+id/btn_editarReparacion"
+        android:layout_toRightOf="@+id/imv_icono"
+        android:gravity="top"
+        android:text="Titulo"
+        android:textColor="@android:color/black"
+        android:textSize="15dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
