@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -65,6 +66,7 @@ public class lay_reparacion extends Activity
 		
 		importarExtras();
 		cargarEXTRAS();
+		
 	
 	}
 
@@ -81,10 +83,10 @@ public class lay_reparacion extends Activity
 		else{
 			CkBox_24hs.setChecked(false);
 			}
-		 		observaciones.setText(observacionE);
-		 		spin_fallas.setSelection(fallaE);
+		 	observaciones.setText(observacionE);
+		 	spin_fallas.setSelection(fallaE);
 		 	spin_modelos.setSelection(modeloE);
-	 	spin_versiones.setSelection(versionE);
+		 	spin_versiones.setSelection(versionE);
 		
 		
 	}
@@ -93,7 +95,7 @@ public class lay_reparacion extends Activity
 		
 		intento =getIntent();
 		
-		
+		editarE=intento.getExtras().getInt("editar");
 		reparacionE=intento.getExtras().getInt("reparacion");
 		serialE=intento.getExtras().getInt("serial");
 		hs24E=intento.getExtras().getInt("hs24");
@@ -102,6 +104,22 @@ public class lay_reparacion extends Activity
 		fallaE=intento.getExtras().getInt("falla");
 	    modeloE=intento.getExtras().getInt("modelo");
 		versionE=intento.getExtras().getInt("version");
+		
+		
+		if(editarE==0){
+			
+			Toast.makeText(getApplicationContext(), "bloqueado", Toast.LENGTH_SHORT).show();
+			getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+			btn_GuardarReparacion.setVisibility(View.GONE );
+			
+		}else{
+			
+			Toast.makeText(getApplicationContext(), "editable", Toast.LENGTH_SHORT).show();
+			
+			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+			
+			btn_GuardarReparacion.setVisibility(View.VISIBLE );
+		}
 			
 	}
 
@@ -241,7 +259,7 @@ public class lay_reparacion extends Activity
 			observaciones.setText("");
 			txtV_Reparacion.setText(String.valueOf(dao.recuperarCantidadReparaciones()+1));
 
-			Toast.makeText(getApplicationContext(), "Reparacion Nº "+dao.recuperarCantidadReparaciones()+" Ingresada !!!", Toast.LENGTH_SHORT).show();
+			Toast.makeText(getApplicationContext(), "Modificacion Actualizada !!!", Toast.LENGTH_SHORT).show();
 			
 			
 				

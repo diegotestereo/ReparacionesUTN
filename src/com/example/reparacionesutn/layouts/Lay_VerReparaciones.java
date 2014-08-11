@@ -46,6 +46,12 @@ public class Lay_VerReparaciones extends Activity{
 		});
 	}  
 
+	@Override
+	protected void onResume() {
+		 dao = new SQLHelperAdaptador(this, getString(R.string.DataBase), null, 1);
+		super.onResume();
+	}
+	
 	private void setAdapter() {
 		
 		//Intent intento = getIntent();

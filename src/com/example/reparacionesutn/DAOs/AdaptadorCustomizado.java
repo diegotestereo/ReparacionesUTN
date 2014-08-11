@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -119,6 +120,8 @@ public class AdaptadorCustomizado extends BaseAdapter
 			@Override
 			public void onClick(View v)
 			{
+				/// para hacer no tactil la ventana
+				
 				Intent intento = new Intent(context, lay_reparacion.class);
 				intento.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				
@@ -172,6 +175,8 @@ public class AdaptadorCustomizado extends BaseAdapter
 			public void onClick(View v) {
 				Intent intento =new Intent(context, lay_reparacion.class);
 				intento.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				
+				editar=1;
 				intento .putExtra("editar", editar);
 				
 				reparacion =item.getId_Reparacion();

@@ -3,7 +3,7 @@
     android:id="@+id/lay_ingresar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_launcher"
+    android:background="@color/gris"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -281,7 +281,8 @@
             android:id="@+id/btn_IngresarReparacion"
             style="@style/estilo_botones"
             android:layout_weight="0.15"
-            android:text="Guardar" />
+            android:text="Guardar"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
