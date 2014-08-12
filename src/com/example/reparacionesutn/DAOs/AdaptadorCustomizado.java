@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import android.content.DialogInterface;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.Context;
@@ -22,6 +23,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.reparacionesutn.R;
+import com.example.reparacionesutn.layouts.Lay_VerReparaciones;
+import com.example.reparacionesutn.layouts.Lay_buscar;
+import com.example.reparacionesutn.layouts.MainActivity;
 import com.example.reparacionesutn.layouts.lay_reparacion;
 import com.example.reparacionesutn.objetos.ReparacionesClase;
 
@@ -159,12 +163,23 @@ public class AdaptadorCustomizado extends BaseAdapter
 			
 			@Override
 			public void onClick(View v) {
+			
+			
 				
-				
+				// LA BASE DE DATOS ESTA HARDCODEADA.. HAY QUE ARREGLARLO
+				dao = new SQLHelperAdaptador(context, "BD_Reparaciones", null, 1);
+			
 				dao.borrarReparacion(item.getId_Reparacion());
-				Toast.makeText(context, "Reparacion Borrada !!!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(context, "Reparacion "+item.getId_Reparacion()+" Borrada !!! ", Toast.LENGTH_SHORT).show();
+
+				Intent intent = new Intent(context, MainActivity.class);
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				context.startActivity(intent);
+			
 				
 			}
+
+			
 		});
 		
 		holder.btn_editar.setOnClickListener(new OnClickListener() {

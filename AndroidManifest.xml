@@ -28,25 +28,25 @@
         
             <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_buscar"
-            android:label="Buscar Equipo"></activity>
+            android:label="Buscar Reparación"></activity>
            <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_VerReparaciones"
-            android:label="Buscar Equipo"></activity>
+            android:label="Registro de Reparaciones"></activity>
           <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_tablas"
-            android:label="Ver Tablas"></activity>
+            android:label="Ver Reparaciones"></activity>
           <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_fallas"
-            android:label="Modificar Fallas"></activity>
+            android:label="Editar Reparaciones"></activity>
            <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_Modificar_Spinners"
-            android:label="Modificar Modelos"></activity>
+            android:label="Editar Modelos"></activity>
             <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_versiones"
-            android:label="Modificar Versiones"></activity>  
+            android:label="Editar Versiones"></activity>  
               <activity 
             android:name="com.example.reparacionesutn.layouts.lay_reparacion"
-            android:label="Reparacion"></activity>  
+            android:label="Reparación"></activity>  
     </application>
 	<uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

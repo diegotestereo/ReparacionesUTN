@@ -3,7 +3,8 @@
     android:id="@+id/lay_ingresar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_edit_text"
+    android:background="@drawable/gris_degrade_blanco"
+    android:padding="5dp"
     android:orientation="vertical" >
 
     <LinearLayout

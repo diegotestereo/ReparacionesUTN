@@ -186,11 +186,14 @@ public class Lay_ingresar extends Activity{
 		
 		
 		btn_IngresarReparacion.setOnClickListener(new OnClickListener() {
-			
+			//String observacionFEcha
 			@Override
 			public void onClick(View v) {
 				if (!(etxt_serial.getText().toString().equals(""))){
 				
+					
+					
+					
 					
 			dao.insertarReparacion(fecha, Integer.parseInt(etxt_serial.getText().toString()), posSpinModelo,posSpinVersion, posSpinFalla, fecha+": "+observaciones.getText().toString(),hs24);	
 		
@@ -200,7 +203,7 @@ public class Lay_ingresar extends Activity{
 
 			Toast.makeText(getApplicationContext(), "Reparacion Nº "+dao.recuperarCantidadReparaciones()+" Ingresada !!!", Toast.LENGTH_SHORT).show();
 			
-			
+			finish();
 				
 				}
 				else{
@@ -212,6 +215,7 @@ public class Lay_ingresar extends Activity{
 				spin_versiones.setSelection(0);	
 				spin_componentes.setSelection(0);
 				spin_cantidad_componentes.setSelection(0);
+				
 				}
 			
 

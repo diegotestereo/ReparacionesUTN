@@ -3,9 +3,8 @@
     android:id="@+id/lay_ingresar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_launcher"
-    android:orientation="vertical"
->
+    android:background="@drawable/gris_degrade_blanco"
+    android:orientation="vertical" >
 
     <LinearLayout
         android:layout_width="match_parent"
