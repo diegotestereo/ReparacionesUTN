@@ -57,7 +57,8 @@ public class Lay_VerReparaciones extends Activity{
 	protected void onRestart() {
 		// actualiza el dao para volver a mostrar los datos actualizados
 		 dao = new SQLHelperAdaptador(this, getString(R.string.DataBase), null, 1);
-
+		 AdaptadorCustomizado adap= new AdaptadorCustomizado(dao.recuperarReparaciones(),getApplicationContext());
+	     lista_equipos.setAdapter(adap);
 		super.onRestart();
 	}
 	
