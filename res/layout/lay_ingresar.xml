@@ -3,7 +3,7 @@
     android:id="@+id/lay_ingresar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/gris"
+    android:background="@drawable/fondo_edit_text"
     android:orientation="vertical" >
 
     <LinearLayout
@@ -282,7 +282,7 @@
             style="@style/estilo_botones"
             android:layout_weight="0.15"
             android:text="Guardar"
-            android:visibility="invisible" />
+            android:visibility="visible" />
 
     </LinearLayout>
 

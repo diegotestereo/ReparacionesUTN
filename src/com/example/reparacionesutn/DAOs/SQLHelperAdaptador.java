@@ -328,9 +328,12 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 	
 	
 	// /////////////////////// BORRAR FILA TABLAS
-	
-	
-	
+	public void borrarReparacion(int id_reparacion)
+	{
+		SQLiteDatabase baseDatos = getWritableDatabase();
+		baseDatos.execSQL("DELETE FROM Tabla_Reparaciones WHERE id_reparacion = " + id_reparacion);
+		baseDatos.close();
+	}
 	
 	
 	public void borrarReparacion(ReparacionesClase oReparacion)

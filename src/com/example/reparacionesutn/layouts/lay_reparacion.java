@@ -108,17 +108,23 @@ public class lay_reparacion extends Activity
 		
 		if(editarE==0){
 			
-			Toast.makeText(getApplicationContext(), "bloqueado", Toast.LENGTH_SHORT).show();
+			//Toast.makeText(getApplicationContext(), "bloqueado", Toast.LENGTH_SHORT).show();
 			getWindow().setFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE, WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 			btn_GuardarReparacion.setVisibility(View.GONE );
+			etxt_serial.setFocusable(false);
+			etxt_componentes1.setFocusable(false);
+		observaciones.setFocusable(false);
+		
+		
 			
 		}else{
 			
-			Toast.makeText(getApplicationContext(), "editable", Toast.LENGTH_SHORT).show();
+		//	Toast.makeText(getApplicationContext(), "editable", Toast.LENGTH_SHORT).show();
 			
 			getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 			
 			btn_GuardarReparacion.setVisibility(View.VISIBLE );
+		//	etxt_serial.setFocusable(true);
 		}
 			
 	}
@@ -274,7 +280,7 @@ public class lay_reparacion extends Activity
 				spin_componentes.setSelection(0);
 				spin_cantidad_componentes.setSelection(0);
 				
-				
+				finish();
 				}
 		
 

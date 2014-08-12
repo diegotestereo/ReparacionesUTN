@@ -33,7 +33,11 @@ public class Lay_buscar extends Activity {
 		
 		super.onCreate(savedInstanceState);
 	}  
-
+  @Override
+protected void onStart() {
+		 dao = new SQLHelperAdaptador(this, getString(R.string.DataBase), null, 1);
+	super.onStart();
+}
 
 
 	private void setAdapter() {

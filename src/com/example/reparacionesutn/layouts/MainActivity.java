@@ -75,7 +75,7 @@ public class MainActivity extends Activity {
 
 	private void botones() {
 	
-		
+	/*	
 		btn_asinc.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -84,7 +84,7 @@ public class MainActivity extends Activity {
 				new TareaAsincrona(MainActivity.this).execute();
 				
 			}
-		});
+		});*/
 		
 		btn_Reparacion.setOnClickListener(new OnClickListener() {
 			
@@ -179,7 +179,7 @@ public class MainActivity extends Activity {
 		btn_Modificar_spin=(Button) findViewById(R.id.btn_Spinners);
 		btn_buscarEquipos=(Button) findViewById(R.id.btn_BuscarEquipo);
 		btn_VerReparaciones=(Button) findViewById(R.id.btn_VerReparaciones);
-		btn_asinc=(Button)findViewById(R.id.btn_asinc);
+		//btn_asinc=(Button)findViewById(R.id.btn_asinc);
 		//sp_falla=(Spinner) findViewById(R.id.spin_version_main);
 		//sp_modelo=(Spinner) findViewById(R.id.spin_modelo_main);
 		//sp_version=(Spinner) findViewById(R.id.spin_falla_main);

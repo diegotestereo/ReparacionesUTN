@@ -10,6 +10,7 @@ import com.example.reparacionesutn.DAOs.SQLHelperAdaptador;
 
 
 
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Lay_VerReparaciones extends Activity{
 	TextView num_reparaciones;
@@ -46,12 +48,20 @@ public class Lay_VerReparaciones extends Activity{
 		});
 	}  
 
+	
+	
+	
+	
+	
 	@Override
-	protected void onResume() {
+	protected void onRestart() {
+		// actualiza el dao para volver a mostrar los datos actualizados
 		 dao = new SQLHelperAdaptador(this, getString(R.string.DataBase), null, 1);
-		super.onResume();
+
+		super.onRestart();
 	}
 	
+		
 	private void setAdapter() {
 		
 		//Intent intento = getIntent();

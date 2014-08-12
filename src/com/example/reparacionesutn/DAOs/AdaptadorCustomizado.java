@@ -160,9 +160,9 @@ public class AdaptadorCustomizado extends BaseAdapter
 			@Override
 			public void onClick(View v) {
 				
-				Toast.makeText(context, "Falta funcion borrar !!!", Toast.LENGTH_SHORT).show();
 				
-				//dao.borrarReparacion(item.getId_Reparacion());
+				dao.borrarReparacion(item.getId_Reparacion());
+				Toast.makeText(context, "Reparacion Borrada !!!", Toast.LENGTH_SHORT).show();
 				
 			}
 		});
