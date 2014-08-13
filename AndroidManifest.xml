@@ -15,7 +15,9 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="com.example.reparacionesutn.layouts.MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+             android:screenOrientation="portrait"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,29 +26,38 @@
         </activity>
         <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_ingresar"
-            android:label="Ingresar Reparación" > </activity>
+            android:label="Ingresar Reparación" 
+             android:screenOrientation="portrait"> </activity>
         
             <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_buscar"
-            android:label="Buscar Reparación"></activity>
+            android:label="Buscar Reparación"
+             android:screenOrientation="portrait"
+             ></activity>
            <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_VerReparaciones"
-            android:label="Registro de Reparaciones"></activity>
+            android:label="Registro de Reparaciones"
+             android:screenOrientation="portrait"></activity>
           <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_tablas"
-            android:label="Ver Reparaciones"></activity>
+            android:label="Ver Reparaciones"
+             android:screenOrientation="portrait"></activity>
           <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_fallas"
-            android:label="Editar Reparaciones"></activity>
+            android:label="Editar Reparaciones"
+             android:screenOrientation="portrait"></activity>
            <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_Modificar_Spinners"
-            android:label="Editar Modelos"></activity>
+            android:label="Editar Modelos"
+             android:screenOrientation="portrait"></activity>
             <activity 
             android:name="com.example.reparacionesutn.layouts.Lay_versiones"
-            android:label="Editar Versiones"></activity>  
+            android:label="Editar Versiones"
+             android:screenOrientation="portrait"></activity>  
               <activity 
             android:name="com.example.reparacionesutn.layouts.lay_reparacion"
-            android:label="Reparación"></activity>  
+            android:label="Reparación"
+             android:screenOrientation="portrait"></activity>  
     </application>
-	<uses-permission android:name="android.permission.INTERNET"/>
+	
 </manifest>
