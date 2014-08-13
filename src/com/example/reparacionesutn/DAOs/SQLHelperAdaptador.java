@@ -202,26 +202,24 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 	// /////////////////// INSERTAR EN TABLAS
 	// //////////////////////////////////////////////////////////////////7
 
-	public void insertarReparacion(String fecha_in, int serial, int id_modelo, int id_version, int id_falla, String observaciones, int hs24 )
+	public void insertarReparacion(String fecha_in, int serial, int id_modelo, int id_version, int id_falla, String observaciones, int hs24)
 	{
 
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		baseDatos.execSQL("INSERT INTO Tabla_Reparaciones (fecha_in,serial,id_modelo,id_version,id_falla, observaciones,hs24) "
-		+"VALUES ('" + fecha_in + "',"+ serial + "," + id_modelo + "," + id_version + "," + id_falla + ",'"
-		+ observaciones + "',"+ hs24+" )");
+		baseDatos.execSQL("INSERT INTO Tabla_Reparaciones (fecha_in,serial,id_modelo,id_version,id_falla, observaciones,hs24) " + "VALUES ('" + fecha_in + "',"
+				+ serial + "," + id_modelo + "," + id_version + "," + id_falla + ",'" + observaciones + "'," + hs24 + " )");
 		baseDatos.close();
 	}
 
-	public void actualizarReparacion(int id_reparacion, int serial, int id_modelo, int id_version, int id_falla, String observaciones, int hs24 )
+	public void actualizarReparacion(int id_reparacion, int serial, int id_modelo, int id_version, int id_falla, String observaciones, int hs24)
 	{
 
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		baseDatos.execSQL("UPDATE Tabla_Reparaciones SET serial="+serial+",id_modelo="+id_modelo+",id_version="+id_version+","
-				+ "id_falla="+id_falla+", observaciones='"+observaciones+"',hs24="+hs24+"  WHERE id_reparacion="+id_reparacion);
+		baseDatos.execSQL("UPDATE Tabla_Reparaciones SET serial=" + serial + ",id_modelo=" + id_modelo + ",id_version=" + id_version + "," + "id_falla="
+				+ id_falla + ", observaciones='" + observaciones + "',hs24=" + hs24 + "  WHERE id_reparacion=" + id_reparacion);
 		baseDatos.close();
 	}
-	
-	
+
 	public void insertarFalla(String nom_falla)
 	{
 
@@ -245,9 +243,10 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		baseDatos.execSQL("INSERT INTO Tabla_versiones (nom_version) VALUES ('" + nom_version + "')");
 		baseDatos.close();
 	}
-	
-	public void insertarComponentes(String nom_componente){
-		
+
+	public void insertarComponentes(String nom_componente)
+	{
+
 		SQLiteDatabase baseDatos = getWritableDatabase();
 		baseDatos.execSQL("INSERT INTO Tabla_Componentes (nom_componente) VALUES ('" + nom_componente + "')");
 		baseDatos.close();
@@ -262,13 +261,14 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 	public int recuperarCantidadReparaciones(int serial)
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		String sql = "SELECT * FROM Tabla_Reparaciones WHERE serial="+serial;
+		String sql = "SELECT * FROM Tabla_Reparaciones WHERE serial=" + serial;
 		Cursor cursor = baseDatos.rawQuery(sql, null);
 		int cantidad = cursor.getCount();
 		cursor.close();
 		baseDatos.close();
 		return cantidad;
 	}
+
 	public int recuperarCantidadReparaciones()
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
@@ -279,6 +279,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		baseDatos.close();
 		return cantidad;
 	}
+
 	public int recuperarCantidadFallas()
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
@@ -324,9 +325,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 	}
 
 	// /////////////////FIN RECUPERAR CANTIDAD FILAS
-	
-	
-	
+
 	// /////////////////////// BORRAR FILA TABLAS
 	public void borrarReparacion(int id_reparacion)
 	{
@@ -334,8 +333,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		baseDatos.execSQL("DELETE FROM Tabla_Reparaciones WHERE id_reparacion = " + id_reparacion);
 		baseDatos.close();
 	}
-	
-	
+
 	public void borrarReparacion(ReparacionesClase oReparacion)
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
@@ -372,18 +370,20 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		baseDatos.close();
 	}
 
-	
-	// /////////////////////////////////////FIN BORRAR FILA TABLAS/////////////////////////////////
+	// /////////////////////////////////////FIN BORRAR FILA
+	// TABLAS/////////////////////////////////
 
 	// ///////////////////////////////////RECUPERAR DATOS DE TABLAS
-		
-	//public ArrayList<ReparacionesClase> recuperarReparaciones()
+
+	// public ArrayList<ReparacionesClase> recuperarReparaciones()
 	public ArrayList<ReparacionesClase> recuperarReparaciones(int serie)
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
-		
-		String sql = "SELECT * FROM Tabla_Reparaciones WHERE serial="+serie;    //name LIKE '%LIM%'
-		
+
+		String sql = "SELECT * FROM Tabla_Reparaciones WHERE serial=" + serie; // name
+																				// LIKE
+																				// '%LIM%'
+
 		Cursor cursor = baseDatos.rawQuery(sql, null);
 		ArrayList<ReparacionesClase> reparacionArray = new ArrayList<ReparacionesClase>();
 
@@ -421,49 +421,50 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 	}
 
 	public ArrayList<ReparacionesClase> recuperarReparaciones()
-		
+
+	{
+		SQLiteDatabase baseDatos = getWritableDatabase();
+		// String sql = "SELECT * FROM Tabla_Reparaciones";
+		String sql = "SELECT * FROM Tabla_Reparaciones ORDER BY serial"; // name
+																			// LIKE
+																			// '%LIM%'
+
+		Cursor cursor = baseDatos.rawQuery(sql, null);
+		ArrayList<ReparacionesClase> reparacionArray = new ArrayList<ReparacionesClase>();
+
+		while (cursor.moveToNext())
 		{
-			SQLiteDatabase baseDatos = getWritableDatabase();
-			//String sql = "SELECT * FROM Tabla_Reparaciones";
-			String sql = "SELECT * FROM Tabla_Reparaciones ORDER BY serial";    //name LIKE '%LIM%'
-			
-			Cursor cursor = baseDatos.rawQuery(sql, null);
-			ArrayList<ReparacionesClase> reparacionArray = new ArrayList<ReparacionesClase>();
+			ReparacionesClase oReparacion = new ReparacionesClase();
 
-			while (cursor.moveToNext())
+			oReparacion.setId_Reparacion(cursor.getInt(0));
+
+			// / dor formato de fecha... levanto string y lo paso a DATE
+
+			SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+			String fecha = cursor.getString(1);
+			try
 			{
-				ReparacionesClase oReparacion = new ReparacionesClase();
+				Date date = formatter.parse(fecha);
+				oReparacion.setFecha(date);
 
-				oReparacion.setId_Reparacion(cursor.getInt(0));
-
-				// / dor formato de fecha... levanto string y lo paso a DATE
-
-				SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-				String fecha = cursor.getString(1);
-				try
-				{
-					Date date = formatter.parse(fecha);
-					oReparacion.setFecha(date);
-
-				}
-				catch (ParseException e)
-				{
-					e.printStackTrace();
-				}
-				oReparacion.setSerial(cursor.getInt(2));
-				oReparacion.setId_modelo(cursor.getInt(3));
-				oReparacion.setId_version(cursor.getInt(4));
-				oReparacion.setId_falla(cursor.getInt(5));
-				oReparacion.setObservaciones(cursor.getString(6));
-				oReparacion.setHs24(cursor.getInt(7));
-				reparacionArray.add(oReparacion);
 			}
-			cursor.close();
-			baseDatos.close();
-			return reparacionArray;
+			catch (ParseException e)
+			{
+				e.printStackTrace();
+			}
+			oReparacion.setSerial(cursor.getInt(2));
+			oReparacion.setId_modelo(cursor.getInt(3));
+			oReparacion.setId_version(cursor.getInt(4));
+			oReparacion.setId_falla(cursor.getInt(5));
+			oReparacion.setObservaciones(cursor.getString(6));
+			oReparacion.setHs24(cursor.getInt(7));
+			reparacionArray.add(oReparacion);
 		}
-	
-	
+		cursor.close();
+		baseDatos.close();
+		return reparacionArray;
+	}
+
 	public ArrayList<FallasClase> recuperarFallas()
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
@@ -505,7 +506,7 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		baseDatos.close();
 		return modeloArray;
 	}
-	
+
 	public ArrayList<VersionesClase> recuperarVersiones()
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
@@ -526,13 +527,13 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		baseDatos.close();
 		return versionArray;
 	}
-	
+
 	public String[] recuperarNombresModelos()
 	{
 		SQLiteDatabase baseDatos = getWritableDatabase();
 		String sql = "SELECT * FROM Tabla_Modelos";
 		Cursor cursor = baseDatos.rawQuery(sql, null);
-		String[] modeloArray = new String [cursor.getCount()];
+		String[] modeloArray = new String[cursor.getCount()];
 		int i = 0;
 		while (cursor.moveToNext())
 		{
@@ -543,63 +544,72 @@ public class SQLHelperAdaptador extends SQLiteOpenHelper
 		baseDatos.close();
 		return modeloArray;
 	}
-	
-	public String[] recuperarNombresVersiones(){
-		//levanto base de datos escribible
-		SQLiteDatabase baseDatos =getWritableDatabase();
+
+	public String[] recuperarNombresVersiones()
+	{
+		// levanto base de datos escribible
+		SQLiteDatabase baseDatos = getWritableDatabase();
 		String sql = "SELECT * FROM Tabla_Versiones";
-		//7 la cargo en un cursor
-		Cursor cursor =baseDatos.rawQuery(sql, null);
+		// 7 la cargo en un cursor
+		Cursor cursor = baseDatos.rawQuery(sql, null);
 		// declaro un arreglo string para levantar nombres de la tabla versiones
-		String[] versionArray = new String[cursor.getCount()];//definola cantidad de componentes
-		int i=0;
-		while ( cursor.moveToNext()){
-			versionArray[i]= cursor.getString(1);		
+		String[] versionArray = new String[cursor.getCount()];// definola
+																// cantidad de
+																// componentes
+		int i = 0;
+		while (cursor.moveToNext())
+		{
+			versionArray[i] = cursor.getString(1);
 			i++;
 		}
 		cursor.close();
 		baseDatos.close();
 		return versionArray;
 	}
-	
-	public String[] recuperarNombresFallas(){
-		//levanto base de datos escribible
-		SQLiteDatabase baseDatos =getWritableDatabase();
+
+	public String[] recuperarNombresFallas()
+	{
+		// levanto base de datos escribible
+		SQLiteDatabase baseDatos = getWritableDatabase();
 		String sql = "SELECT * FROM Tabla_Fallas";
-		//7 la cargo en un cursor
-		Cursor cursor =baseDatos.rawQuery(sql, null);
+		// 7 la cargo en un cursor
+		Cursor cursor = baseDatos.rawQuery(sql, null);
 		// declaro un arreglo string para levantar nombres de la tabla versiones
-		String[] fallaArray = new String[cursor.getCount()];//definola cantidad de componentes
-		int i=0;
-		while ( cursor.moveToNext()){
-			fallaArray[i]= cursor.getString(1);		
+		String[] fallaArray = new String[cursor.getCount()];// definola cantidad
+															// de componentes
+		int i = 0;
+		while (cursor.moveToNext())
+		{
+			fallaArray[i] = cursor.getString(1);
 			i++;
 		}
 		cursor.close();
 		baseDatos.close();
 		return fallaArray;
 	}
-	
-	public String[] recuperarNombresComponentes(){
-		
-		SQLiteDatabase baseDatos =getWritableDatabase();
+
+	public String[] recuperarNombresComponentes()
+	{
+
+		SQLiteDatabase baseDatos = getWritableDatabase();
 		String sql = "SELECT * FROM Tabla_Componentes";
-		
-		Cursor cursor= baseDatos.rawQuery(sql, null);
-		
-		String[] componentesArray =new String[cursor.getCount()];
-		
-		int i=0;
-		
-		while(cursor.moveToNext()){
-			componentesArray[i]=cursor.getString(1);
-			i++;			
+
+		Cursor cursor = baseDatos.rawQuery(sql, null);
+
+		String[] componentesArray = new String[cursor.getCount()];
+
+		int i = 0;
+
+		while (cursor.moveToNext())
+		{
+			componentesArray[i] = cursor.getString(1);
+			i++;
 		}
 		cursor.close();
 		baseDatos.close();
-			
+
 		return componentesArray;
-		
-	}	
-	
+
+	}
+
 }

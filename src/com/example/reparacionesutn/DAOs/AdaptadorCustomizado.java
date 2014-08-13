@@ -3,18 +3,12 @@ package com.example.reparacionesutn.DAOs;
 import java.util.ArrayList;
 import java.util.Date;
 
-import android.content.DialogInterface;
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.AlertDialog.Builder;
 import android.content.Context;
 import android.content.Intent;
-import android.sax.StartElementListener;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -24,33 +18,25 @@ import android.widget.Toast;
 
 import com.example.reparacionesutn.R;
 import com.example.reparacionesutn.layouts.Lay_VerReparaciones;
-import com.example.reparacionesutn.layouts.Lay_buscar;
-import com.example.reparacionesutn.layouts.MainActivity;
 import com.example.reparacionesutn.layouts.lay_reparacion;
 import com.example.reparacionesutn.objetos.ReparacionesClase;
-
-;
 
 public class AdaptadorCustomizado extends BaseAdapter
 {
 	private SQLHelperAdaptador dao;
 	private ArrayList<ReparacionesClase> reparaciones;
 	private Context context;
-	private int modelo,version,falla,serial,hs24,reparacion,editar;
-	private String observacion,Sfecha;
-	private boolean borrar ;
+	private int modelo, version, falla, serial, hs24, reparacion, editar;
+	private String observacion, Sfecha;
+	private boolean borrar;
 	private Date fecha;
-	private java.text.SimpleDateFormat sdf=new java.text.SimpleDateFormat("dd/MM/yyyy");
-	
-	
+	private java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy");
+
 	public AdaptadorCustomizado(ArrayList<ReparacionesClase> reparacion, Context Context)
 	{
 		this.reparaciones = reparacion;
 		this.context = Context;
 
-		
-		
-		
 	}
 
 	@Override
@@ -78,22 +64,17 @@ public class AdaptadorCustomizado extends BaseAdapter
 		TextView text_Descripcion;
 		ImageView imagen;
 		RelativeLayout ll_row;
-		Button btn_borrar,btn_editar;
+		Button btn_borrar, btn_editar;
 
 	}
 
-		
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent)
 	{
 		final ReparacionesClase item = getItem(position);
-		 
+
 		ViewHolder holder;
-	
-		
-		
-		
-		
+
 		if (convertView == null)// es la primera vez
 		{
 			LayoutInflater li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -105,8 +86,8 @@ public class AdaptadorCustomizado extends BaseAdapter
 			holder.text_Descripcion = (TextView) convertView.findViewById(R.id.tv_descripcion);
 			holder.imagen = (ImageView) convertView.findViewById(R.id.imv_icono);
 			holder.ll_row = (RelativeLayout) convertView.findViewById(R.id.ll_row);
-			holder.btn_borrar=(Button) convertView.findViewById(R.id.btn_borrarReparacion);
-			holder.btn_editar=(Button) convertView.findViewById(R.id.btn_editarReparacion);
+			holder.btn_borrar = (Button) convertView.findViewById(R.id.btn_borrarReparacion);
+			holder.btn_editar = (Button) convertView.findViewById(R.id.btn_editarReparacion);
 			convertView.setTag(holder);
 		}
 		else
@@ -119,31 +100,30 @@ public class AdaptadorCustomizado extends BaseAdapter
 
 		holder.ll_row.setOnClickListener(new OnClickListener()
 		{
-			
-		
+
 			@Override
 			public void onClick(View v)
 			{
-				/// para hacer no tactil la ventana
-				
+				// / para hacer no tactil la ventana
+
 				Intent intento = new Intent(context, lay_reparacion.class);
 				intento.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				
-				editar=0;
+
+				editar = 0;
 				intento.putExtra("editar", editar);
-				
-				reparacion =item.getId_Reparacion();
-				serial =item.getSerial();
-				hs24 =item.getHs24();
-				
-				observacion=item.getObservaciones();
-				fecha=item.getFecha();
-				
-				Sfecha=sdf.format(fecha);
-				modelo=item.getId_modelo();
-				version=item.getId_version();
-				falla=item.getId_falla();
-				
+
+				reparacion = item.getId_Reparacion();
+				serial = item.getSerial();
+				hs24 = item.getHs24();
+
+				observacion = item.getObservaciones();
+				fecha = item.getFecha();
+
+				Sfecha = sdf.format(fecha);
+				modelo = item.getId_modelo();
+				version = item.getId_version();
+				falla = item.getId_falla();
+
 				intento.putExtra("reparacion", reparacion);
 				intento.putExtra("serial", serial);
 				intento.putExtra("hs24", hs24);
@@ -152,60 +132,56 @@ public class AdaptadorCustomizado extends BaseAdapter
 				intento.putExtra("falla", falla);
 				intento.putExtra("modelo", modelo);
 				intento.putExtra("version", version);
-				
+
 				context.startActivity(intento);
 			}
 		});
-		
-		
-		
-		holder.btn_borrar.setOnClickListener(new OnClickListener() {
-			
+
+		holder.btn_borrar.setOnClickListener(new OnClickListener()
+		{
 			@Override
-			public void onClick(View v) {
-			
-			
-				
+			public void onClick(View v)
+			{
 				// LA BASE DE DATOS ESTA HARDCODEADA.. HAY QUE ARREGLARLO
 				dao = new SQLHelperAdaptador(context, "BD_Reparaciones", null, 1);
-			
-				dao.borrarReparacion(item.getId_Reparacion());
-				Toast.makeText(context, "Reparacion "+item.getId_Reparacion()+" Borrada !!! ", Toast.LENGTH_SHORT).show();
 
-				Intent intent = new Intent(context, MainActivity.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+				dao.borrarReparacion(item.getId_Reparacion());
+				Toast.makeText(context, "Reparacion " + item.getId_Reparacion() + " Borrada !!! ", Toast.LENGTH_SHORT).show();
+
+				//llamo a la misma asi se vuelve a setear el adapter
+				//si, es algo primitivo pero es la forma más eficaz
+				Intent intent = new Intent(context, Lay_VerReparaciones.class); 
+				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);//limpio la pila de actividades
 				context.startActivity(intent);
-			
-				
+
 			}
 
-			
 		});
-		
-		holder.btn_editar.setOnClickListener(new OnClickListener() {
-			
-			
-			
+
+		holder.btn_editar.setOnClickListener(new OnClickListener()
+		{
+
 			@Override
-			public void onClick(View v) {
-				Intent intento =new Intent(context, lay_reparacion.class);
+			public void onClick(View v)
+			{
+				Intent intento = new Intent(context, lay_reparacion.class);
 				intento.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				
-				editar=1;
-				intento .putExtra("editar", editar);
-				
-				reparacion =item.getId_Reparacion();
-				serial =item.getSerial();
-				hs24 =item.getHs24();
-				
-				observacion=item.getObservaciones();
-				fecha=item.getFecha();
-				
-				Sfecha=sdf.format(fecha);
-				modelo=item.getId_modelo();
-				version=item.getId_version();
-				falla=item.getId_falla();
-				
+
+				editar = 1;
+				intento.putExtra("editar", editar);
+
+				reparacion = item.getId_Reparacion();
+				serial = item.getSerial();
+				hs24 = item.getHs24();
+
+				observacion = item.getObservaciones();
+				fecha = item.getFecha();
+
+				Sfecha = sdf.format(fecha);
+				modelo = item.getId_modelo();
+				version = item.getId_version();
+				falla = item.getId_falla();
+
 				intento.putExtra("reparacion", reparacion);
 				intento.putExtra("serial", serial);
 				intento.putExtra("hs24", hs24);
@@ -214,14 +190,12 @@ public class AdaptadorCustomizado extends BaseAdapter
 				intento.putExtra("falla", falla);
 				intento.putExtra("modelo", modelo);
 				intento.putExtra("version", version);
-				
-				
-				
+
 				context.startActivity(intento);
-				
+
 			}
 		});
-		
+
 		return convertView;
 	}
 
