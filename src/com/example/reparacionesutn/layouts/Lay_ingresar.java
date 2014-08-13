@@ -99,7 +99,7 @@ public class Lay_ingresar extends Activity
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
 			{
-				posCantidadComponentes = position;
+				posCantidadComponentes = position +1;
 
 			}
 
