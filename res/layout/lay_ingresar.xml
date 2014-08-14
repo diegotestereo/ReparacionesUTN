@@ -20,6 +20,7 @@
             android:layout_margin="5dp"
             android:layout_weight="0.34"
             android:text="Reparación N°: "
+               android:textColor="@color/fondo_azul_obs"
             android:textSize="18dp"
             android:textStyle="bold" />
 
@@ -29,6 +30,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="0.07"
+               android:textColor="@color/fondo_azul_obs"
             android:text="fffff"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -47,6 +49,7 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="Fecha Ingreso: "
+               android:textColor="@color/fondo_azul_obs"
             android:textSize="18dp"
             android:textStyle="bold" />
 
@@ -56,6 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="0.20"
+               android:textColor="@color/fondo_azul_obs"
             android:text="01/01/1900"
             android:textSize="18dp"
             android:textStyle="bold" />
@@ -75,6 +79,7 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:text="Serial:"
+               android:textColor="@color/fondo_azul_obs"
             android:textSize="18dp"
             android:textStyle="bold" />
 
@@ -84,6 +89,7 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="1"
+             android:textColor="@color/fondo_azul_obs"
             android:background="@drawable/fondo_edit_text"
             android:ems="10"
             android:gravity="center"
@@ -97,6 +103,7 @@
             android:id="@+id/cbox_24hs_REP"
             android:layout_width="126dp"
             android:layout_height="wrap_content"
+               android:textColor="@color/fondo_azul_obs"
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:background="@drawable/fondo_edit_text"
@@ -127,6 +134,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
+                   android:textColor="@color/fondo_azul_obs"
                 android:layout_weight="1"
                 android:text="Modelo"
                 android:textSize="18dp" />
@@ -157,6 +165,7 @@
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
+                   android:textColor="@color/fondo_azul_obs"
                 android:text="Version"
                 android:textSize="18dp" />
 
@@ -185,6 +194,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="5dp"
+                   android:textColor="@color/fondo_azul_obs"
                 android:layout_weight="1"
                    android:textSize="18dp" 
                 android:text="Falla"
@@ -224,6 +234,7 @@
                 android:layout_gravity="left"
                 android:layout_margin="5dp"
                 android:text="Compo"
+                   android:textColor="@color/fondo_azul_obs"
                 android:textSize="18dp" />
 
             <Spinner
@@ -265,6 +276,7 @@
             style="@style/estilo_txtview"
             android:layout_height="wrap_content"
             android:text="Observaciones"
+               android:textColor="@color/fondo_azul_obs"
             android:textStyle="bold" />
 
         <EditText

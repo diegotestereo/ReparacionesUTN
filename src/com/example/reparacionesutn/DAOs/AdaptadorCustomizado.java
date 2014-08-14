@@ -3,8 +3,11 @@ package com.example.reparacionesutn.DAOs;
 import java.util.ArrayList;
 import java.util.Date;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -66,6 +69,60 @@ public class AdaptadorCustomizado extends BaseAdapter
 		RelativeLayout ll_row;
 		Button btn_borrar, btn_editar;
 
+	}
+
+	
+	//***********************************************************////
+	////////// alert dialog Eliminar/////////////////////////////
+	
+	
+	@SuppressWarnings("deprecation")
+	public void dialogoEliminar()
+	{
+ 
+		AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+
+		dialog.setMessage("¿Eliminar?");
+		dialog.setCancelable(false);
+		dialog.setPositiveButton("Si", new DialogInterface.OnClickListener()
+		{
+
+			@Override
+			public void onClick(DialogInterface dialog, int which)
+			{
+
+				borrar = true;
+				Toast.makeText(getApplicationContext(), "BORRADO !!!", Toast.LENGTH_SHORT).show();
+
+			}
+		});
+		dialog.setNegativeButton("No", new DialogInterface.OnClickListener()
+		{
+
+			@Override
+			public void onClick(DialogInterface dialog, int which)
+			{
+				borrar = false;
+				Toast.makeText(getApplicationContext(), "CANCELADO !!!", Toast.LENGTH_SHORT).show();
+
+				dialog.cancel();
+			}
+		});
+		dialog.show();
+	
+	
+	
+		//return borrar;
+
+	}
+	
+	//***********************************************************////
+	///// FIN / alert dialog Eliminar/////////////////////////////
+	//*************************************************************
+	
+	protected Context getApplicationContext() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
@@ -142,8 +199,11 @@ public class AdaptadorCustomizado extends BaseAdapter
 			@Override
 			public void onClick(View v)
 			{
+				
+				//dialogoEliminar(); //cuando llega aca hayt error
+				
 				// LA BASE DE DATOS ESTA HARDCODEADA.. HAY QUE ARREGLARLO
-				dao = new SQLHelperAdaptador(context, "BD_Reparaciones", null, 1);
+				dao = new SQLHelperAdaptador(context,context.getString(R.string.DataBase), null, 1);
 
 				dao.borrarReparacion(item.getId_Reparacion());
 				Toast.makeText(context, "Reparacion " + item.getId_Reparacion() + " Borrada !!! ", Toast.LENGTH_SHORT).show();

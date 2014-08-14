@@ -2,9 +2,9 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-     android:padding="5dp"
-    android:background="@drawable/gris_degrade_blanco"
-    android:orientation="vertical" >
+    android:background="@color/blanco"
+    android:orientation="vertical"
+    android:padding="5dp" >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,6 +20,7 @@
             android:textSize="20sp"
                 android:layout_weight="1"
                   android:layout_gravity="center" 
+                     android:textColor="@color/fondo_azul_obs"
             android:textStyle="bold" />
 
         <EditText
@@ -53,25 +54,21 @@
 
         <Button
             android:id="@+id/btn_Insertar_lay_modelos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+          
             android:layout_gravity="center"
-          	android:layout_weight="1"
-          	android:layout_margin="3dp"
+            style="@style/estilo_botones"
             android:background="@drawable/boton_selector"
             
             android:text="Insertar" />
 
         <Button
             android:id="@+id/btn_Eliminar_lay_modelos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+          
             android:background="@drawable/boton_selector"
          
             android:text="Eliminar"
-            android:layout_weight="1"
-              android:layout_margin="3dp"
-            android:layout_gravity="center" />
+            style="@style/estilo_botones"
+                android:layout_gravity="center" />
 
     </LinearLayout>
 
@@ -86,6 +83,7 @@
             android:layout_height="wrap_content"
             android:text="Fallas"
             android:layout_gravity="center"
+               android:textColor="@color/fondo_azul_obs"
                 android:layout_weight="1"
             android:textSize="20sp"
             android:textStyle="bold" />
@@ -118,21 +116,17 @@
 
         <Button
             android:id="@+id/btn_Insertar_lay_fallas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+          
             android:layout_gravity="center"
-             android:layout_weight="1"
-              android:layout_margin="3dp"
+              style="@style/estilo_botones"
             android:background="@drawable/boton_selector"
             android:text="Insertar" />
 
         <Button
             android:id="@+id/btn_Eliminar_lay_fallas"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        
             android:layout_gravity="center"
-             android:layout_weight="1"
-              android:layout_margin="3dp"
+            style="@style/estilo_botones"
             android:background="@drawable/boton_selector"
             android:text="Eliminar" />
 
@@ -149,6 +143,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_weight="0.09"
+               android:textColor="@color/fondo_azul_obs"
             android:text="Versiones"
             android:textSize="20dp"
             android:textStyle="bold" />
@@ -182,21 +177,17 @@
 
         <Button
             android:id="@+id/btn_Insertar_lay_versiones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+         
             android:layout_gravity="center"
-             android:layout_weight="1"
-              android:layout_margin="3dp"
+             style="@style/estilo_botones"
             android:background="@drawable/boton_selector"
             android:text="Insertar" />
 
         <Button
             android:id="@+id/btn_Eliminar_lay_versiones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            
             android:layout_gravity="center"
-             android:layout_weight="1"
-              android:layout_margin="3dp"
+         style="@style/estilo_botones"
             android:background="@drawable/boton_selector"
             android:text="Eliminar" />
 
@@ -214,6 +205,7 @@
             android:layout_gravity="center"
             android:text="Componentes"
             android:textSize="20sp"
+               android:textColor="@color/fondo_azul_obs"
             android:textStyle="bold" />
 
         <EditText
@@ -245,23 +237,19 @@
 
         <Button
             android:id="@+id/btn_Insertar_componentes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/estilo_botones"
+            android:layout_width="157dp"
             android:layout_gravity="center"
-             android:layout_weight="1"
-              android:layout_margin="3dp"
             android:background="@drawable/boton_selector"
             android:text="Insertar" />
 
         <Button
             android:id="@+id/btn_Eliminar_componentes"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            style="@style/estilo_botones"
+            android:layout_width="155dp"
             android:layout_gravity="center"
-             android:layout_weight="1"
-              android:layout_margin="3dp"
-            android:background="@drawable/boton_selector"
-            android:text="Eliminar" />
+            android:text="Eliminar"
+            android:background="@drawable/boton_selector" />
 
     </LinearLayout>
 

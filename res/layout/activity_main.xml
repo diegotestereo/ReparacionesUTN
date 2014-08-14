@@ -9,7 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/gris_degrade_blanco"
+        android:background="@color/blanco"
         android:orientation="vertical" >
 
         <LinearLayout
@@ -24,8 +24,9 @@
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:padding="5dp"
+                android:textColor="@color/fondo_azul_obs"
                 android:text="Gestión de Reparaciones"
-                android:textSize="20dp"
+                android:textSize="25dp"
                 android:textStyle="bold" />
         </LinearLayout>
 

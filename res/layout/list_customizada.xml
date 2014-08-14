@@ -37,6 +37,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
         android:layout_margin="1dp"
+        android:textColor="@color/blanco"
         android:background="@drawable/boton_selector"
         android:text="editar" />
 
@@ -48,6 +49,7 @@
         android:layout_alignParentRight="true"
         android:layout_below="@+id/btn_editarReparacion"
         android:layout_margin="1dp"
+         android:textColor="@color/blanco"
         android:background="@drawable/boton_selector"
         android:text="borrar" />
 
