@@ -28,17 +28,17 @@ public class AdaptadorCustomizado extends BaseAdapter
 {
 	private SQLHelperAdaptador dao;
 	private ArrayList<ReparacionesClase> reparaciones;
-	private Context context;
+	private Activity ac;
 	private int modelo, version, falla, serial, hs24, reparacion, editar;
 	private String observacion, Sfecha;
 	private boolean borrar;
 	private Date fecha;
 	private java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy");
 
-	public AdaptadorCustomizado(ArrayList<ReparacionesClase> reparacion, Context Context)
+	public AdaptadorCustomizado(ArrayList<ReparacionesClase> reparacion, Activity ac)
 	{
 		this.reparaciones = reparacion;
-		this.context = Context;
+		this.ac = ac;
 
 	}
 
@@ -80,9 +80,9 @@ public class AdaptadorCustomizado extends BaseAdapter
 	public void dialogoEliminar()
 	{
  
-		AlertDialog.Builder dialog = new AlertDialog.Builder(context);
+		AlertDialog.Builder dialog = new AlertDialog.Builder(ac);
 
-		dialog.setMessage("¿Eliminar?");
+		dialog.setMessage("Â¿Eliminar?");
 		dialog.setCancelable(false);
 		dialog.setPositiveButton("Si", new DialogInterface.OnClickListener()
 		{
@@ -92,7 +92,7 @@ public class AdaptadorCustomizado extends BaseAdapter
 			{
 
 				borrar = true;
-				Toast.makeText(getApplicationContext(), "BORRADO !!!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(ac, "BORRADO !!!", Toast.LENGTH_SHORT).show();
 
 			}
 		});
@@ -103,7 +103,7 @@ public class AdaptadorCustomizado extends BaseAdapter
 			public void onClick(DialogInterface dialog, int which)
 			{
 				borrar = false;
-				Toast.makeText(getApplicationContext(), "CANCELADO !!!", Toast.LENGTH_SHORT).show();
+				Toast.makeText(ac, "CANCELADO !!!", Toast.LENGTH_SHORT).show();
 
 				dialog.cancel();
 			}
@@ -116,14 +116,6 @@ public class AdaptadorCustomizado extends BaseAdapter
 
 	}
 	
-	//***********************************************************////
-	///// FIN / alert dialog Eliminar/////////////////////////////
-	//*************************************************************
-	
-	protected Context getApplicationContext() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent)
@@ -134,7 +126,7 @@ public class AdaptadorCustomizado extends BaseAdapter
 
 		if (convertView == null)// es la primera vez
 		{
-			LayoutInflater li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+			LayoutInflater li = (LayoutInflater) ac.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 			convertView = li.inflate(R.layout.list_customizada, parent, false);
 
 			// aca defino el objeto... lo instancio
@@ -163,7 +155,7 @@ public class AdaptadorCustomizado extends BaseAdapter
 			{
 				// / para hacer no tactil la ventana
 
-				Intent intento = new Intent(context, lay_reparacion.class);
+				Intent intento = new Intent(ac, lay_reparacion.class);
 				intento.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
 				editar = 0;
@@ -190,7 +182,7 @@ public class AdaptadorCustomizado extends BaseAdapter
 				intento.putExtra("modelo", modelo);
 				intento.putExtra("version", version);
 
-				context.startActivity(intento);
+				ac.startActivity(intento);
 			}
 		});
 
@@ -203,16 +195,16 @@ public class AdaptadorCustomizado extends BaseAdapter
 				dialogoEliminar(); //cuando llega aca hayt error
 				
 				// LA BASE DE DATOS ESTA HARDCODEADA.. HAY QUE ARREGLARLO
-				dao = new SQLHelperAdaptador(context,context.getString(R.string.DataBase), null, 1);
+				dao = new SQLHelperAdaptador(ac,ac.getString(R.string.DataBase), null, 1);
 
 				dao.borrarReparacion(item.getId_Reparacion());
-				Toast.makeText(context, "Reparacion " + item.getId_Reparacion() + " Borrada !!! ", Toast.LENGTH_SHORT).show();
+				Toast.makeText(ac, "Reparacion " + item.getId_Reparacion() + " Borrada !!! ", Toast.LENGTH_SHORT).show();
 
 				//llamo a la misma asi se vuelve a setear el adapter
-				//si, es algo primitivo pero es la forma más eficaz
-				Intent intent = new Intent(context, Lay_VerReparaciones.class); 
+				//si, es algo primitivo pero es la forma mÃ¡s eficaz
+				Intent intent = new Intent(ac, Lay_VerReparaciones.class); 
 				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);//limpio la pila de actividades
-				context.startActivity(intent);
+				ac.startActivity(intent);
 
 			}
 
@@ -224,7 +216,7 @@ public class AdaptadorCustomizado extends BaseAdapter
 			@Override
 			public void onClick(View v)
 			{
-				Intent intento = new Intent(context, lay_reparacion.class);
+				Intent intento = new Intent(ac, lay_reparacion.class);
 				intento.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
 				editar = 1;
@@ -251,7 +243,7 @@ public class AdaptadorCustomizado extends BaseAdapter
 				intento.putExtra("modelo", modelo);
 				intento.putExtra("version", version);
 
-				context.startActivity(intento);
+				ac.startActivity(intento);
 
 			}
 		});
