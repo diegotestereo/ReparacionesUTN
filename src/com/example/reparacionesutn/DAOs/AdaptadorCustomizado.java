@@ -200,7 +200,7 @@ public class AdaptadorCustomizado extends BaseAdapter
 			public void onClick(View v)
 			{
 				
-				//dialogoEliminar(); //cuando llega aca hayt error
+				dialogoEliminar(); //cuando llega aca hayt error
 				
 				// LA BASE DE DATOS ESTA HARDCODEADA.. HAY QUE ARREGLARLO
 				dao = new SQLHelperAdaptador(context,context.getString(R.string.DataBase), null, 1);
