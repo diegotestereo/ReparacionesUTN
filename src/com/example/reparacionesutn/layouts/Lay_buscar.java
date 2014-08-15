@@ -44,7 +44,7 @@ public class Lay_buscar extends Activity
 
 		dao = new SQLHelperAdaptador(this, getString(R.string.DataBase), null, 1);
 		num_reparaciones.setText(Integer.toString(dao.recuperarCantidadReparaciones(valor)));
-		AdaptadorCustomizado adap = new AdaptadorCustomizado(dao.recuperarReparaciones(valor), getApplicationContext());
+		AdaptadorCustomizado adap = new AdaptadorCustomizado(dao.recuperarReparaciones(valor), Lay_buscar.this);
 		lista_equipos.setAdapter(adap);
 	}
 
