@@ -42,7 +42,7 @@ public class Lay_VerReparaciones extends Activity
 		// tv_Serial.setText(String.valueOf(valor));
 		dao = new SQLHelperAdaptador(this, getString(R.string.DataBase), null, 1);
 		num_reparaciones.setText(Integer.toString(dao.recuperarCantidadReparaciones()));
-		AdaptadorCustomizado adap = new AdaptadorCustomizado(dao.recuperarReparaciones(), getApplicationContext());
+		AdaptadorCustomizado adap = new AdaptadorCustomizado(dao.recuperarReparaciones(), Lay_VerReparaciones.this);
 		lista_equipos.setAdapter(adap);
 	}
 
