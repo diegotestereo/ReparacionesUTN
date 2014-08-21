@@ -3,6 +3,8 @@ package com.example.reparacionesutn.DAOs;
 import java.util.ArrayList;
 import java.util.Date;
 
+import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -21,6 +23,8 @@ import android.widget.Toast;
 
 import com.example.reparacionesutn.R;
 import com.example.reparacionesutn.layouts.Lay_VerReparaciones;
+import com.example.reparacionesutn.layouts.Lay_ingresar;
+import com.example.reparacionesutn.layouts.MainActivity;
 import com.example.reparacionesutn.layouts.lay_reparacion;
 import com.example.reparacionesutn.objetos.ReparacionesClase;
 
@@ -31,7 +35,6 @@ public class AdaptadorCustomizado extends BaseAdapter
 	private Activity ac;
 	private int modelo, version, falla, serial, hs24, reparacion, editar;
 	private String observacion, Sfecha;
-	private boolean borrar;
 	private Date fecha;
 	private java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat("dd/MM/yyyy");
 
@@ -76,47 +79,6 @@ public class AdaptadorCustomizado extends BaseAdapter
 	////////// alert dialog Eliminar/////////////////////////////
 	
 	
-	@SuppressWarnings("deprecation")
-	public void dialogoEliminar()
-	{
- 
-		AlertDialog.Builder dialog = new AlertDialog.Builder(ac);
-
-		dialog.setMessage("Â¿Eliminar?");
-		dialog.setCancelable(false);
-		dialog.setPositiveButton("Si", new DialogInterface.OnClickListener()
-		{
-
-			@Override
-			public void onClick(DialogInterface dialog, int which)
-			{
-
-				borrar = true;
-				Toast.makeText(ac, "BORRADO !!!", Toast.LENGTH_SHORT).show();
-
-			}
-		});
-		dialog.setNegativeButton("No", new DialogInterface.OnClickListener()
-		{
-
-			@Override
-			public void onClick(DialogInterface dialog, int which)
-			{
-				borrar = false;
-				Toast.makeText(ac, "CANCELADO !!!", Toast.LENGTH_SHORT).show();
-
-				dialog.cancel();
-			}
-		});
-		dialog.show();
-	
-	
-	
-		//return borrar;
-
-	}
-	
-
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent)
 	{
@@ -192,20 +154,66 @@ public class AdaptadorCustomizado extends BaseAdapter
 			public void onClick(View v)
 			{
 				
-				dialogoEliminar(); //cuando llega aca hayt error
-				
-				// LA BASE DE DATOS ESTA HARDCODEADA.. HAY QUE ARREGLARLO
-				dao = new SQLHelperAdaptador(ac,ac.getString(R.string.DataBase), null, 1);
+				//dialogoEliminar(); //cuando llega aca hayt error
+				AlertDialog.Builder dialog = new AlertDialog.Builder(ac);
 
-				dao.borrarReparacion(item.getId_Reparacion());
-				Toast.makeText(ac, "Reparacion " + item.getId_Reparacion() + " Borrada !!! ", Toast.LENGTH_SHORT).show();
+				dialog.setMessage("¿Eliminar Reparación?");
+				dialog.setCancelable(false);
+				dialog.setPositiveButton("Si", new DialogInterface.OnClickListener()
+				{
 
-				//llamo a la misma asi se vuelve a setear el adapter
-				//si, es algo primitivo pero es la forma mÃ¡s eficaz
-				Intent intent = new Intent(ac, Lay_VerReparaciones.class); 
-				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);//limpio la pila de actividades
-				ac.startActivity(intent);
+					@Override
+					public void onClick(DialogInterface dialog, int which)
+					{
 
+						
+						// LA BASE DE DATOS ESTA HARDCODEADA.. HAY QUE ARREGLARLO
+						dao = new SQLHelperAdaptador(ac,ac.getString(R.string.DataBase), null, 1);
+
+						dao.borrarReparacion(item.getId_Reparacion());
+						Toast.makeText(ac, "Reparacion " + item.getId_Reparacion() + " Borrada !!! ", Toast.LENGTH_SHORT).show();
+
+						//llamo a la misma asi se vuelve a setear el adapter
+						//si, es algo primitivo pero es la forma mÃ¡s eficaz
+						
+						
+						if (dao.recuperarCantidadReparaciones()==0){
+							Intent intent = new Intent(ac, MainActivity.class); 
+							
+							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);//limpio la pila de actividades
+							
+							ac.startActivity(intent);
+							
+							
+						}else{
+							
+
+							Intent intent = new Intent(ac, Lay_VerReparaciones.class); 
+						
+							intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TOP);//limpio la pila de actividades
+							
+							ac.startActivity(intent);
+						}
+					
+
+						Toast.makeText(ac, "BORRADO !!!", Toast.LENGTH_SHORT).show();
+					}
+				});
+				dialog.setNegativeButton("No", new DialogInterface.OnClickListener()
+				{
+
+					@Override
+					public void onClick(DialogInterface dialog, int which)
+					{
+					
+						Toast.makeText(ac, "CANCELADO !!!", Toast.LENGTH_SHORT).show();
+
+						dialog.cancel();
+					}
+				});
+				dialog.show();
+			
+			
 			}
 
 		});
